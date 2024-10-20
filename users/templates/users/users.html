@@ -3,5 +3,8 @@
 {% block title %}Users{% endblock title %}
 {% block content %}
     <h1>Users view</h1>
+    {% for user in users %}
+        <p>{{user.username}}</p>
+    {% endfor %}
 {% endblock content %}
  

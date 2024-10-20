@@ -5,9 +5,13 @@
         {% if request.user.is_authenticated %}
             <li><a href="{% url 'home' %}">Strona główna</a></li>
             <li><a href="{% url 'dashboard' %}">Moje konto</a></li>
+            <li><a href="{% url 'users' %}">Uzytkownicy</a></li>
+
         {% else %}
             <li><a href="{% url 'home' %}">Strona główna</a></li>
             <li><a href="{% url 'blog' %}">Blog</a></li>
+            <li><a href="{% url 'users' %}">Uzytkownicy</a></li>
+
         {% endif %}
 
     </ul>
