@@ -3,4 +3,6 @@
 {% block content %}
     <h1>Twój panel</h1>
     <p>{{ user.username }}, witaj w twoim panelu.</p>
+
+    <p>Mozesz <a href="{% url 'user-delete' %}">usunąć</a> konto</p>
 {% endblock %}

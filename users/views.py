@@ -68,3 +68,15 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return render(request, 'registration/logged_out.html')
+
+
+@login_required
+def user_delete(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()
+        return redirect('login')
+    context = {
+
+    }
+    return render(request, 'registration/delete_form.html', context)

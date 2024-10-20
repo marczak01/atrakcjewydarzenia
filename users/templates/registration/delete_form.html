@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Usuwanie Konta{% endblock title %}
+
+{% block content %}
+  <h1>Usuwanie Konta</h1>
+  <div class='delete-form'>
+    <form action="{% url 'user-delete' %}" method="post">
+      {% csrf_token %}
+      <input type='hidden' name='next' value='{{ next }}'/>
+      <p><input type='submit' value='Usun konto'/> </p>
+    </form>
+  </div>
+{% endblock content %}
