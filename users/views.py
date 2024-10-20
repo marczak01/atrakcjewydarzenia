@@ -51,6 +51,15 @@ def users(request):
     return render(request, 'users/users.html', context)
 
 
+def user_detail(request, pk):
+    user = User.objects.get(id=pk)
+
+    context = {
+        'user': user,
+    }
+
+    return render(request, 'users/user_detail.html', context)
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
