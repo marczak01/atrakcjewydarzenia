@@ -13,6 +13,7 @@ def user_registration(request):
             user = User.objects.create_user(cd['username'],
                                             cd['user_email'],
                                             cd['password'])
+            # log in after valid registration 
             new_user = authenticate(username=cd['username'],
                                     password=cd['password'])
             login(request, new_user)
