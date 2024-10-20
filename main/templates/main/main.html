@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}AtrakcjeWydarzenia{% endblock title %}
+{% block content %}
+
+    <main>
+
+        <h1>Gdzie?</h1>
+        <section class="home">
+            <div class="home__icons">
+                {% for category in categories %}<span><a href="{% url "category-list" category.name %}">{{category}}</a></span>{% endfor %}
+            </div>
+
+            <div class="events">
+                {% for event in events %}
+                <a href='{% url "event-view" event.id %}'>
+                    <div class="event-box">
+                        <div>
+                        <p class='event-box-title'>{{ event.name }}</p>
+                        <div><img src='{{ event.event_photo.url }}' /></div>
+                        <p>{{ event.description|truncatechars:150 }}</p>
+                        </div>
+                        <p class='event-box-date'>Added: {{ event.created|date }} </p>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    {% include "main/pagination.html" with page=events %}
+{% endblock content %}

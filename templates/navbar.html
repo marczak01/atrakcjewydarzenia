@@ -1,0 +1,23 @@
+<nav>
+    <h1>Atrakcje i Wydarzenia</h1>
+
+    <ul>
+        {% if request.user.is_authenticated %}
+            <li><a href="{% url 'home' %}">Strona główna</a></li>
+            <li><a href="{% url 'dashboard' %}">Moje konto</a></li>
+        {% else %}
+            <li><a href="{% url 'home' %}">Strona główna</a></li>
+            <li><a href="{% url 'blog' %}">Blog</a></li>
+        {% endif %}
+
+    </ul>
+    <span>
+        {% if request.user.is_authenticated %}
+            Witaj, {{ request.user.first_name|default:request.user.username|upper }}
+            <a href="{% url 'logout' %}">Wyloguj sie</a>
+        {% else %}
+            <a href="{% url 'login' %}">Zaloguj</a>
+            <a href="{% url 'registration' %}">Zarejestruj</a>
+        {% endif %}
+    </span>
+</nav>
