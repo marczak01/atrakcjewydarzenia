@@ -1,0 +1,16 @@
+<nav class="nav">
+    <ul class="nav-list">
+        {% if user.request.is_authenticated %}
+            <li class="nav-list--item">Home</li>
+            <li class="nav-list--item">Events</li>
+            <li class="nav-list--item">Upcoming</li>
+            <li class="nav-list--item">My list</li>
+            <li class="nav-list--item">Logout</li>
+        {% else %}
+            <li class="nav-list--item">Home</li>
+            <li class="nav-list--item">Events</li>
+            <li class="nav-list--item">Upcoming</li>
+            <li class="nav-list--item">Sign up / Log in</li>
+        {% endif %}
+    </ul>
+</nav>
