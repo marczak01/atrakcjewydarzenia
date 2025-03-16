@@ -1,0 +1,46 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% load mainapp_tags %}
+{% block title %}Events{% endblock title %}
+
+{%block content %}
+
+{% if tag %}
+	<h2 class="events__hashed">Events hashed with tag "{{tag.name}}</h2>
+{% endif %}
+
+<div class="events">
+	{% for event in events %}
+	<div class="events__event">
+		<a href="{{event.get_absolute_url }}">
+			<div class="events__event__top">
+				<p class="events__event__top__title">{{ event.name }}</p>
+				{% if event.start_date.date|date:'Y' == time_now.date|date:'Y' %}
+					<span class="events__event__top__date">{{ event.start_date|date:'d-m / H:i' }} - {{event.end_date|date:'d-m / H:i'}}</span>
+				{% else %}
+					<span class="events__event__top__date">{{ event.start_date|date:'d-m-Y - H:i' }} / {{event.end_date|date:'d-m-Y - H:i'}}</span>
+				{% endif %}
+			</div>
+			<div class="events__event__img">
+				<img src="{% static 'images/klub.jpg' %}" alt="">
+
+				<span class="events__event__timeuntil">IN {% substract event.start_date.date|date:'z' time_now.date|date:'z' %} DAYS</span>
+				<span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span>
+
+			</div>
+			<p class="events__event__description">
+				{{ event.description|truncatewords_html:30 }}
+			</p>
+		</a>
+		<div class="events__event__tags">
+			{% for tag in event.tags.all %}
+				<a href="{% url 'mainapp:events_by_tag' tag.slug %}">{{ tag.name }}</a>
+			{% endfor %}
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% include "mainapp/pagination.html" with page=events %}
+
+
+{% endblock content %}

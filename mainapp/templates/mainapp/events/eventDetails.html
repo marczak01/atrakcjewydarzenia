@@ -1,0 +1,83 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% load mainapp_tags %}
+{% block title %}Event XXXXX details{% endblock title %}
+{% block content %}
+<div class="eventDetails__tags">
+    <span class="eventDetails__tags__timeuntil">IN {% substract event.start_date.date|date:'z' time_now.date|date:'z' %} DAYS</span>
+    <span class="eventDetails__tags__monthday">{{ event.start_date.date|date:'l' }}</span>
+    <span class="eventDetails__tags__publicPrivate">{{ event.get_public_private_display }}</span>
+
+</div>
+
+<div class="eventDetails">
+    <div class="eventDetails__top">
+        <div class="eventDetails__top__left">
+            <p class="eventDetails__top__left__location">{{ event.city }}, {{ event.country }}</p>
+            <iframe class="eventDetails__top__left__map" src="{{ src }}" width="400" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="eventDetails__top__right">
+            <h2 class="eventDetails__top__right__name">{{ event.name }}</h2>
+            <p class="eventDetails__top__right__description">{{ event.description }}</p>
+            <div class="eventDetails__top__right__tags">
+                {% for tag in event.tags.all %}
+                    <a href="{% url 'mainapp:events_by_tag' tag.slug %}">#{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="eventDetails__top__comments">
+            <h3>Comments: </h3>
+            <div class="eventDetails__top__comments__comment">
+                <div class="eventDetails__top__comments__comment__name">tomek111</div>
+                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
+            </div>
+            <div class="eventDetails__top__comments__comment">
+                <div class="eventDetails__top__comments__comment__name">tomek111</div>
+                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
+            </div>
+            <div class="eventDetails__top__comments__comment">
+                <div class="eventDetails__top__comments__comment__name">tomek111</div>
+                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
+            </div>
+            <div class="eventDetails__top__comments__comment">
+                <div class="eventDetails__top__comments__comment__name">tomek111</div>
+                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
+            </div>
+            <div class="eventDetails__top__comments__comment">
+                <div class="eventDetails__top__comments__comment__name">tomek111</div>
+                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
+            </div>
+            <div class="eventDetails__top__comments__comment">
+                <div class="eventDetails__top__comments__comment__name">tomek111</div>
+                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
+            </div>
+        </div>
+    </div>
+    <div class="eventDetails__bottom">
+        <div class="eventDetails__bottom__left">
+            <h2 class="eventDetails__bottom__left__heading">Similar events you might like !</h2>
+            <div class="eventDetails__bottom__left__events">
+                {% for event in similar_posts %}
+                <div class="eventDetails__bottom__left__events__event">
+                    <a class="eventDetails__bottom__left__events__event__link" href="{{event.get_absolute_url }}">
+                        <p class="eventDetails__bottom__left__events__event__name">{{ event.name }}</p>
+                        <div class="eventDetails__bottom__left__events__event__img">
+                            <img src="{% static 'images/klub.jpg' %}" alt="">
+                        </div>
+                        <p class="eventDetails__bottom__left__events__event__description">
+                            {{ event.description|truncatewords_html:30 }}
+                        </p>
+                    </a>
+                </div>
+                {% empty %}
+                No similat events yet.
+                {% endfor %}
+            </div>
+        </div>
+        <div class="eventDetails__bottom__right"></div>
+    </div>
+</div>
+    
+
+    
+{% endblock content %}

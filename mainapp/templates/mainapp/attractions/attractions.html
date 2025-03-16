@@ -1,0 +1,40 @@
+{% extends "mainapp/base.html" %} 
+{% load static %}
+{% block title %}Attractions{% endblock title %} 
+{% block content %}
+<div class="attractions">
+   {% for attraction in attractions  %}
+   <div class="attractions__attraction">
+    <a href="{% url 'mainapp:attraction_details' 100 %}">
+        <p class="attractions__attraction__title">{{ attraction.name }}</p>
+        <div class="attractions__attraction__img">
+            <img src="{% static 'images/klub.jpg' %}" alt="">
+            <span class="open">OPEN NOW!</span>
+            <span class="stars">* * * * ( 1750 )</span>
+        </div>
+        <p class="attractions__attraction__description">
+            {{ attraction.description }}
+        </p>
+    </a>
+</div>
+
+
+   {% endfor %}
+    <!-- <div class="attractions__attraction">
+        <a href="{% url 'mainapp:attraction_details' 100 %}">
+            <p class="attractions__attraction__title">Cool Club</p>
+            <div class="attractions__attraction__img">
+                <img src="{% static 'images/klub.jpg' %}" alt="">
+                <span class="open">OPEN NOW!</span>
+                <span class="stars">* * * * ( 1750 )</span>
+            </div>
+            <p class="attractions__attraction__description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae corporis sit
+                odio nostrum, velit autem omnis culpa itaque dolorem aspernatur placeat
+                distinctio molestiae vel, id, natus nam nesciunt aliquam necessitatibus.
+            </p>
+        </a>
+    </div> -->
+    
+</div>
+{% endblock content %}
