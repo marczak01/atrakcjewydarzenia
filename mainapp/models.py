@@ -20,6 +20,7 @@ class Event(models.Model):
         PUBLIC = 'PB', 'Public'
         PRIVATE = 'PV', 'Private'
 
+
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200)
     city = models.CharField(max_length=70, null=False, blank=False)
