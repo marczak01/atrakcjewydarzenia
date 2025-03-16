@@ -3,6 +3,7 @@
 {% load mainapp_tags %}
 {% block title %}Event XXXXX details{% endblock title %}
 {% block content %}
+
 <div class="eventDetails__tags">
     <span class="eventDetails__tags__timeuntil">IN {% substract event.start_date.date|date:'z' time_now.date|date:'z' %} DAYS</span>
     <span class="eventDetails__tags__monthday">{{ event.start_date.date|date:'l' }}</span>
