@@ -2,6 +2,7 @@ from django.urls import path
 from . import views
 
 
+
 app_name = 'mainapp' # better to use app_name in app urls.py !!!!!!!!!!!!!!
 #django.core.exceptions.ImproperlyConfigured: Specifying a namespace in include()
 # without providing an app_name is not supported. Set the app_name attribute in the included module,
@@ -15,4 +16,5 @@ urlpatterns = [
     path('event/<int:pk>', views.event_details, name='event_details'),
     path('attractions/', views.attractions, name='attractions'),
     path('attraction/<int:pk>', views.attraction_details, name='attraction_details'),
+
 ]

@@ -16,6 +16,9 @@ class Event(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
 
+    # choices for public/private type of event
+    # if event is public then everyone can join
+    # if private then only people with invintation link/code can join (after typing code into field)
     class PubPriv(models.TextChoices):
         PUBLIC = 'PB', 'Public'
         PRIVATE = 'PV', 'Private'

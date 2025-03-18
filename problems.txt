@@ -1,0 +1,17 @@
+django.urls.exceptions.NoReverseMatch:
+Reverse for 'dashboard' not found. 'dashboard' is not a valid view function or pattern name.
+
+fix -> LOGIN_REDIRECT_URL = 'account:dashboard' added 'account:' before 'dashboard'
+
+
+django.urls.exceptions.NoReverseMatch:
+Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+
+fix 1 -> account templates folder structure not correct.
+should be account/templates/registration/login.html
+instead of account/templates/account/registration/login.html
+
+fix 2 -> in login.html should use {% url 'account:login' %} with 'account:' prefix
+
+
+
