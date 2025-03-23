@@ -129,8 +129,22 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # django.contrib.auth.views routing
 
 LOGIN_REDIRECT_URL = 'account:dashboard'
-LOGIN_URL = 'login'
-LOGOUT_URL = 'logout'
+LOGIN_URL = 'account:login'
+LOGOUT_URL = 'account:logout'
+
+EMAIL_BACKEND = 'account.backends.email_backend.EmailBackend'
+# tylko w konsoli
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'marekmarczak25@gmail.com'
+EMAIL_HOST_PASSWORD = 'ntqe aywy frwu wduw '

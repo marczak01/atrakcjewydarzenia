@@ -10,7 +10,14 @@
         <li class="nav__links__link"><a href="#">Promotions!</a></li>
         <li class="nav__links__link"><a href="#">Contact</a></li>
 
-        <li class="nav__links__link"><a href="#">Sign Up</a></li>
-        <li class="nav__links__link"><a href="{% url 'account:login' %}">Sign In</a></li>
+        {% if request.user.is_authenticated %}
+            <li class="nav__links__link"><a href="{% url 'account:logout' %}">Sign out</a></li>
+            <li class="nav__links__link">Welcome {{ request.user.first_name|default:request.user.username}}</li>
+
+
+        {% else %}
+            <li class="nav__links__link"><a href="{% url 'account:register' %}">Sign Up</a></li>
+            <li class="nav__links__link"><a href="{% url 'account:login' %}">Sign In</a></li>
+        {% endif %}
     </ul>
 </nav>

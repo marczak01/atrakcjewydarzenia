@@ -82,6 +82,8 @@ html {
 		gap: 1rem;
 
 		.nav__links__link {
+			font-size: 1.4rem;
+			text-transform: uppercase;
 			a:visited,
 			a:link {
 				text-decoration: none;

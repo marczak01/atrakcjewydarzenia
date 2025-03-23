@@ -16,11 +16,17 @@
   {% endif %}
 
   <div class="login-form">
+    <p>If you don't have an account you can create it with this <a href="{% url 'account:register' %}">link</a>.</p>
     <form action="{% url 'account:login' %}" method="post">
         {{ form.as_p }}
         {% csrf_token %}
         <input type="hidden" name='next' value="{{ next }}"/>
         <p><input type="submit" value="Login"></p>
     </form>
+    <p>
+      <a href="{% url 'account:password_reset' %}">
+        Forget password?
+      </a>
+    </p>
   </div>
 {% endblock content %}

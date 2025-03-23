@@ -24,7 +24,14 @@
 			<div class="events__event__img">
 				<img src="{% static 'images/klub.jpg' %}" alt="">
 
-				<span class="events__event__timeuntil">IN {% substract event.start_date.date|date:'z' time_now.date|date:'z' %} DAYS</span>
+				<span class="events__event__timeuntil">
+					{% substract event.start_date.date|date:'z' time_now.date|date:'z' as days_diff %}
+					{% if days_diff < 0 %}
+						{% absolute days_diff %} DAYS AGO
+					{% else %}
+						IN {{ days_diff }} DAYS
+					{% endif %}
+				</span>
 				<span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span>
 
 			</div>

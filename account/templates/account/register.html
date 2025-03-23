@@ -1,0 +1,25 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Registration
+{% endblock title %}
+
+{% block content %}
+
+    {% if new_user %}
+      <h1>Welcome {{ new_user.first_name }}</h1>
+      <p>
+        Your account was created.
+        Now you can <a href="{% url 'account:login' %}">LOGIN</a>.
+      </p>
+    {% else %}
+        <h1>Create account</h1>
+        <p>Fill up form below to create your new account on AtrakcjeWydarzenia:</p>
+        <form method="POST">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Create account"></p>
+        </form>
+    {% endif %}
+
+{% endblock content %}

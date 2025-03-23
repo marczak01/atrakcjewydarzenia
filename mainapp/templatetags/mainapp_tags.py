@@ -8,3 +8,8 @@ register = template.Library()
 @register.simple_tag
 def substract(a, b):
     return int(a) - int(b)
+
+
+@register.simple_tag
+def absolute(a):
+    return abs(a)
