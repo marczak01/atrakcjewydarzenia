@@ -1,11 +1,13 @@
 import datetime
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Count
 from .models import Event, Attraction, Comment
 from taggit.models import Tag
 from django.utils import timezone
 from django.core.paginator import Paginator
-from .forms import CommentForm
+from .forms import CommentForm, EventForm, AttractionForm
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
 def home(request):
@@ -90,3 +92,21 @@ def attraction_details(request, pk):
 
     }
     return render(request, templateFileName, context)
+
+
+@login_required
+def addEvent(request):
+    if request.method == 'POST':
+        event_form = EventForm(request.POST)
+        if event_form.is_valid():
+            # cd = event_form.cleaned_data
+            event = event_form.save(commit=False)
+            event.created_by = request.user
+            event.save()
+            return redirect('account:dashboard')
+    else:
+        event_form = EventForm()
+    context = {
+        'event_form': event_form,
+    }
+    return render(request, 'mainapp/events/event_form.html', context)

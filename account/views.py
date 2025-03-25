@@ -37,6 +37,7 @@ def dashboard(request):
     profile = get_object_or_404(Profile,
                                 user = request.user.id)
     # profile = Profile.objects.get(user = request.user.id)
+
     context = {
         'profile': profile,
     }
@@ -75,3 +76,5 @@ def edit(request):
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
     return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
