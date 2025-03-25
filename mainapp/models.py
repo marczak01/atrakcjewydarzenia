@@ -103,8 +103,8 @@ class Attraction(models.Model):
 
 
 class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='comments')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comments')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_comments')
     body = models.TextField(max_length=300, blank=True, null=True)
     created_on = models.DateTimeField(auto_now_add=True)
 

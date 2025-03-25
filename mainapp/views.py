@@ -65,12 +65,14 @@ def event_details(request, pk):
             # comment.save()
     else:
         comment_form = CommentForm()
+    comments = event.event_comments.all().order_by('-created_on')
     context = {
         'event': event,
         'src': src,
         'similar_posts':similar_posts,
         'time_now': time_now,
         'comment_form': comment_form,
+        'comments':comments,
     }
     return render(request, templateFileName, context)
 

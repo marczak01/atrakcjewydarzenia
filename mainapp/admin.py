@@ -25,4 +25,4 @@ class AttractionAdmin(admin.ModelAdmin):
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ['user', 'body']
+    list_display = ['user', 'body', 'created_on']
