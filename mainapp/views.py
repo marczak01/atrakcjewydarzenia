@@ -1,10 +1,11 @@
 import datetime
 from django.shortcuts import get_object_or_404, render
 from django.db.models import Count
-from .models import Event, Attraction
+from .models import Event, Attraction, Comment
 from taggit.models import Tag
 from django.utils import timezone
 from django.core.paginator import Paginator
+from .forms import CommentForm
 # Create your views here.
 
 def home(request):
@@ -49,12 +50,27 @@ def event_details(request, pk):
     similar_posts = Event.published.filter(tags__in=event_tags_ids).exclude(id=event.id)
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
     time_now = timezone.now
+    if request.method == "POST":
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.user = request.user
+            new_comment.event = Event.published.get(id=pk)
+            new_comment.save()
+            # cd = comment_form.cleaned_data
+            # comment = comment_form.save(commit=False)
+            # Comment.objects.create(user=request.user, event=event, body=cd['body'])
+            # comment.user_comment = request.user.id
+            # comment.event_comment = event.id
+            # comment.save()
+    else:
+        comment_form = CommentForm()
     context = {
         'event': event,
         'src': src,
         'similar_posts':similar_posts,
         'time_now': time_now,
-
+        'comment_form': comment_form,
     }
     return render(request, templateFileName, context)
 

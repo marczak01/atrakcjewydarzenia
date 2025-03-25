@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Attraction
+from .models import Event, Attraction, Comment
 # Register your models here.
 
 @admin.register(Event)
@@ -22,3 +22,7 @@ class AttractionAdmin(admin.ModelAdmin):
     raw_id_fields = ['created_by']
     date_hierarchy = 'publish'
     ordering = ['status', 'publish']
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'body']

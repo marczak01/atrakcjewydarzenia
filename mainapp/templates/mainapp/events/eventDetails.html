@@ -29,26 +29,13 @@
         </div>
         <div class="eventDetails__top__comments">
             <h3>Comments: </h3>
-            <div class="eventDetails__top__comments__comment">
-                <div class="eventDetails__top__comments__comment__name">tomek111</div>
-                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
-            </div>
-            <div class="eventDetails__top__comments__comment">
-                <div class="eventDetails__top__comments__comment__name">tomek111</div>
-                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
-            </div>
-            <div class="eventDetails__top__comments__comment">
-                <div class="eventDetails__top__comments__comment__name">tomek111</div>
-                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
-            </div>
-            <div class="eventDetails__top__comments__comment">
-                <div class="eventDetails__top__comments__comment__name">tomek111</div>
-                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
-            </div>
-            <div class="eventDetails__top__comments__comment">
-                <div class="eventDetails__top__comments__comment__name">tomek111</div>
-                <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>
-            </div>
+            {% if request.user.is_authenticated %}
+                <form method="post">
+                    {{ comment_form.as_p }}
+                    {% csrf_token %}
+                    <p><input type="submit" value="Add comment"></p>
+                </form>
+            {% endif %}
             <div class="eventDetails__top__comments__comment">
                 <div class="eventDetails__top__comments__comment__name">tomek111</div>
                 <div class="eventDetails__top__comments__comment__content">Fajne wydarzenie! zapisalem sie rok temu i poleam z calego serca !!!</div>

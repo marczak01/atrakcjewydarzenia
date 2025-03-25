@@ -4,4 +4,6 @@
 
 {% block content %}
   <h1>Welcome in your dashboard</h1>
+  {{ profile.user.username }}
+  {{ profile.date_of_birth|date:'d/m/Y' }}
 {% endblock content %}

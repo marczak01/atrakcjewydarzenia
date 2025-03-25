@@ -95,6 +95,18 @@ class Attraction(models.Model):
             models.Index(fields=['-publish']),
         ]
 
-
     def __str__(self):
        return self.name
+
+    def get_absolute_url(self):
+        return reverse('mainapp:attraction_details', kwargs={'pk': self.id})
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='comments')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='comments')
+    body = models.TextField(max_length=300, blank=True, null=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.body
