@@ -1,0 +1,15 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Add Attraction
+{% endblock title %}
+
+{% block content %}
+  <h1>Add Attraction</h1>
+  <p>Fill form below to create your new Attraction</p>
+  <form method="post">
+    {{ attraction_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Add Attraction"></p>
+  </form>
+{% endblock content %}

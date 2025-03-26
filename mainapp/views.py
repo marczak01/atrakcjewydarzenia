@@ -7,6 +7,8 @@ from django.utils import timezone
 from django.core.paginator import Paginator
 from .forms import CommentForm, EventForm, AttractionForm
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
+
 
 # Create your views here.
 
@@ -99,10 +101,16 @@ def addEvent(request):
     if request.method == 'POST':
         event_form = EventForm(request.POST)
         if event_form.is_valid():
-            # cd = event_form.cleaned_data
+            cd = event_form.cleaned_data
+            my_tags = cd['tags']           
             event = event_form.save(commit=False)
             event.created_by = request.user
+            event.status = 'PB'
+            # event.slug = '-'.join([x for x in event.name])
+            # event.slug = cd['name'].slice().join('-')
+            event.slug = slugify(event.name)
             event.save()
+            event.tags.add(*my_tags)
             return redirect('account:dashboard')
     else:
         event_form = EventForm()
@@ -110,3 +118,26 @@ def addEvent(request):
         'event_form': event_form,
     }
     return render(request, 'mainapp/events/event_form.html', context)
+
+
+@login_required
+def addAttraction(request):
+    if request.method == 'POST':
+        attraction_form = AttractionForm(request.POST)
+        if attraction_form.is_valid():
+            cd = attraction_form.cleaned_data
+            my_tags = cd['tags']
+            attraction = attraction_form.save(commit=False)
+            attraction.created_by = request.user
+            attraction.status = 'PB'
+            attraction.slug = slugify(attraction.name)
+            attraction.save()
+            attraction.tags.add(*my_tags)
+
+            return redirect('account:dashboard')
+    else:
+        attraction_form = AttractionForm()
+    context = {
+        'attraction_form': attraction_form,
+    }
+    return render(request, 'mainapp/attractions/attraction_form.html', context)

@@ -6,4 +6,6 @@
   <h1>Welcome in your dashboard</h1>
   {{ profile.user.username }}
   {{ profile.date_of_birth|date:'d/m/Y' }}
+  <a href='{% url "mainapp:add_event" %}'><button>Add new EVENT</button></a>
+  <a href='{% url "mainapp:add_attraction" %}'><button>Add new ATTRACTION</button></a>
 {% endblock content %}

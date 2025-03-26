@@ -12,7 +12,7 @@
 
         {% if request.user.is_authenticated %}
             <li class="nav__links__link"><a href="{% url 'account:logout' %}">Sign out</a></li>
-            <li class="nav__links__link">Welcome {{ request.user.first_name|default:request.user.username}}</li>
+            <li class="nav__links__link">Welcome <a href='{% url "account:dashboard" %}'> {{ request.user.first_name|default:request.user.username}}</a></li>
 
 
         {% else %}
