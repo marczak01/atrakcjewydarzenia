@@ -1,0 +1,1429 @@
+[
+{
+  "model": "account.profile",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "date_of_birth": null,
+    "photo": ""
+  }
+},
+{
+  "model": "account.profile",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "date_of_birth": "2015-03-26",
+    "photo": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-03-14T17:32:00.945Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-03-14T17:33:23.551Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Longitude\", \"Latitude\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-03-14T17:34:19.031Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Kręgle w Koszalinie",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-03-14T17:34:57.977Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-03-15T07:16:36.431Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-03-15T07:41:25.952Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-03-15T09:45:49.978Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Abraham Lincoln",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-03-15T20:08:53.716Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-03-15T20:09:13.230Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-03-15T20:10:00.105Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Abraham Lincoln",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-03-26T05:36:22.953Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "profile of username marekmarczak",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-03-26T05:37:16.187Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Rap Festiwal",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\", \"Status\", \"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.944Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Rap Festiwal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.953Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Rap Festiwal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.954Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Test nazwa myslniki hmm",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.956Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "sadasdaln a  doub ab odwba o",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.958Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "tst now s abs kjbda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.959Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "tst now s abs kjbda das das dd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.961Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "dasd lasdk  alsd aksjd sahj",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.168Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "askfnasl das das dlasdl sa dj ja",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.174Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "asldksna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.175Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "ldaksn sadlk n",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.176Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "aslkdna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.176Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "ydtjj",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.177Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "jkvjkfjhf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add attraction",
+    "content_type": 7,
+    "codename": "add_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change attraction",
+    "content_type": 7,
+    "codename": "change_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete attraction",
+    "content_type": 7,
+    "codename": "delete_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view attraction",
+    "content_type": 7,
+    "codename": "view_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add event",
+    "content_type": 8,
+    "codename": "add_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change event",
+    "content_type": 8,
+    "codename": "change_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete event",
+    "content_type": 8,
+    "codename": "delete_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view event",
+    "content_type": 8,
+    "codename": "view_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add tag",
+    "content_type": 9,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change tag",
+    "content_type": 9,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete tag",
+    "content_type": 9,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view tag",
+    "content_type": 9,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add tagged item",
+    "content_type": 10,
+    "codename": "add_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change tagged item",
+    "content_type": 10,
+    "codename": "change_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete tagged item",
+    "content_type": 10,
+    "codename": "delete_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view tagged item",
+    "content_type": 10,
+    "codename": "view_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add profile",
+    "content_type": 11,
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change profile",
+    "content_type": 11,
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": 11,
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view profile",
+    "content_type": 11,
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 12,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 12,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 12,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view comment",
+    "content_type": 12,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zVYxbrdnGTYgodCDD9HtDP$w94XkYSUuuCfNaDX7cHHHYXtp/10cbY3OLT3QihtC/c=",
+    "last_login": "2025-03-25T07:15:11.547Z",
+    "is_superuser": true,
+    "username": "marekmarczak",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-03-14T17:30:23.946Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$MuKsIUN8tm81miEBrPS0AO$drgznyxcSeAbAi5JI2hm3Y4b4qnCRRYnj0/1JBpRlXc=",
+    "last_login": "2025-03-25T06:57:30.866Z",
+    "is_superuser": false,
+    "username": "adamkowalski",
+    "first_name": "Adam",
+    "last_name": "",
+    "email": "marczak01@ic.pl",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-03-25T06:57:23.062Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "attraction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "event"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "taggit",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "taggit",
+    "model": "taggeditem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "account",
+    "model": "profile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "comment"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "05d91u74h42dnr1shdk02mizl3gzjwue",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RDKLlg8evcNZJcFqZo2Ke3J-HdD0oNeZybzVpH2rca95TVOoi5qUKdfxpSeee5CHjTfF52WeVsn1j3Rh236tkh-XY_2b1Cp1b6FVAohkxB6sACSrEUTskO03uLgRsMAmH1hScwpmBBKOTvxwGNm9fkC5Hs4Jg:1twyVD:Cn2IbF7p6GlR4nqbSzMKUis1JdrGWSycOFWeerxxqno",
+    "expire_date": "2025-04-08T07:15:11.550Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y926pzb0u1lof49tc2yafhzscueo26me",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pCpdAZ06d4zEBimUjWQlHZlvLuSdKHL_9_LeykftjX7rcni56TOalCH3y8GfkjpIN1DuVXNtazLHHVX9E6bvtYkz8vu_gVyaLlnER1FS5NMICDojo4HC98hJCM7IEoOENhYtEhJDLMJgqPBk4Fo1PsD0sw3Sg:1tt8sE:lOjENWqlGWMV_SLJ-Mbqk0PxhjbzovNb4yd03EDJw_Y",
+    "expire_date": "2025-03-28T17:31:06.739Z"
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 1,
+  "fields": {
+    "name": "Adam Mickiewicz",
+    "slug": "adam-mickiewicz",
+    "city": "Koszalin",
+    "country": "Poland",
+    "longitude": 15.4234,
+    "latitude": 54.1212,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-14T17:31:12Z",
+    "created_on": "2025-03-14T17:32:00.942Z",
+    "updated_on": "2025-03-15T20:08:53.713Z",
+    "start_date": "2025-03-18T06:00:00Z",
+    "end_date": "2025-03-19T12:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 2,
+  "fields": {
+    "name": "Koncert w Centrum",
+    "slug": "koncert-w-centrum",
+    "city": "Kolobrzeg",
+    "country": "Poland",
+    "longitude": 24.123,
+    "latitude": 75.312,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-14T17:34:38Z",
+    "created_on": "2025-03-14T17:34:57.972Z",
+    "updated_on": "2025-03-15T20:09:13.223Z",
+    "start_date": "2025-04-25T12:00:00Z",
+    "end_date": "2025-04-25T18:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 3,
+  "fields": {
+    "name": "Abraham Lincoln",
+    "slug": "abraham-lincoln",
+    "city": "Koszalin",
+    "country": "Poland",
+    "longitude": 15.345,
+    "latitude": 65.3221,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-15T09:45:19Z",
+    "created_on": "2025-03-15T09:45:49.969Z",
+    "updated_on": "2025-03-15T20:10:00.098Z",
+    "start_date": "2025-05-01T06:00:00Z",
+    "end_date": "2025-05-03T12:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 11,
+  "fields": {
+    "name": "jkvkgc",
+    "slug": "jkvkgc",
+    "city": "lcvgc",
+    "country": "jckgc",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "kgjhckhckhc",
+    "publish": "2025-03-26T06:45:23.752Z",
+    "created_on": "2025-03-26T06:45:23.753Z",
+    "updated_on": "2025-03-26T06:45:23.753Z",
+    "start_date": "2025-03-26T06:45:07Z",
+    "end_date": "2025-03-26T06:45:07Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 12,
+  "fields": {
+    "name": "leknfwebf",
+    "slug": "leknfwebf",
+    "city": "lasfkbaslfb",
+    "country": "aslfkbaslfb",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "lsadkfbalsfb",
+    "publish": "2025-03-26T06:49:38.947Z",
+    "created_on": "2025-03-26T06:49:38.948Z",
+    "updated_on": "2025-03-26T06:49:38.948Z",
+    "start_date": "2026-03-26T06:49:13Z",
+    "end_date": "2026-03-26T06:49:13Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 13,
+  "fields": {
+    "name": "dsgsd",
+    "slug": "dsgsd",
+    "city": "kjvsdbk",
+    "country": "kdvjsb",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "gsdgsd",
+    "publish": "2025-03-26T07:18:09.204Z",
+    "created_on": "2025-03-26T07:18:09.206Z",
+    "updated_on": "2025-03-26T07:18:09.206Z",
+    "start_date": "2026-06-20T00:00:00Z",
+    "end_date": "2026-06-21T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.attraction",
+  "pk": 1,
+  "fields": {
+    "name": "Kręgle w Koszalinie",
+    "slug": "kregle-w-koszalinie",
+    "city": "Koszalin",
+    "country": "Poland",
+    "longitude": 22.213,
+    "latitude": 73.1233,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-14T17:33:50Z",
+    "created_on": "2025-03-14T17:34:19.023Z",
+    "updated_on": "2025-03-14T17:34:19.023Z",
+    "status": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 1,
+  "fields": {
+    "body": "sdgsdg",
+    "created_on": "2025-03-25T06:36:25.963Z",
+    "user": 1,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 2,
+  "fields": {
+    "body": "sdgsdg",
+    "created_on": "2025-03-25T06:36:30.774Z",
+    "user": 1,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 3,
+  "fields": {
+    "body": "asdasd",
+    "created_on": "2025-03-25T06:39:23.978Z",
+    "user": 1,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 4,
+  "fields": {
+    "body": "asdasdfsdf",
+    "created_on": "2025-03-25T06:39:27.372Z",
+    "user": 1,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 5,
+  "fields": {
+    "body": "gdfsgdfh",
+    "created_on": "2025-03-25T06:49:42.176Z",
+    "user": 1,
+    "event": 3
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 6,
+  "fields": {
+    "body": "Polecam!!!",
+    "created_on": "2025-03-25T06:57:42.989Z",
+    "user": 2,
+    "event": 1
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 7,
+  "fields": {
+    "body": "Polecam!!!",
+    "created_on": "2025-03-25T06:57:46.787Z",
+    "user": 2,
+    "event": 1
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 8,
+  "fields": {
+    "body": "najlepszy koncer in mty life 1",
+    "created_on": "2025-03-25T06:57:56.868Z",
+    "user": 2,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 9,
+  "fields": {
+    "body": "lalalalal",
+    "created_on": "2025-03-25T06:58:44.255Z",
+    "user": 2,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 10,
+  "fields": {
+    "body": "safasf",
+    "created_on": "2025-03-25T07:06:40.732Z",
+    "user": 1,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 11,
+  "fields": {
+    "body": "safasf",
+    "created_on": "2025-03-25T07:06:42.580Z",
+    "user": 1,
+    "event": 2
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 12,
+  "fields": {
+    "body": "sadasd",
+    "created_on": "2025-03-25T07:15:29.215Z",
+    "user": 1,
+    "event": 2
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 1,
+  "fields": {
+    "name": "diamenty",
+    "slug": "diamenty"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 2,
+  "fields": {
+    "name": "kopalnia",
+    "slug": "kopalnia"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 3,
+  "fields": {
+    "name": "test",
+    "slug": "test"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 4,
+  "fields": {
+    "name": "nuty",
+    "slug": "nuty"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 5,
+  "fields": {
+    "name": "festiwal",
+    "slug": "festiwal"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 6,
+  "fields": {
+    "name": "koncert",
+    "slug": "koncert"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 7,
+  "fields": {
+    "name": "muzyka",
+    "slug": "muzyka"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 8,
+  "fields": {
+    "name": "rap",
+    "slug": "rap"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 9,
+  "fields": {
+    "name": "szczecin",
+    "slug": "szczecin"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 10,
+  "fields": {
+    "name": "muzeum",
+    "slug": "muzeum"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 11,
+  "fields": {
+    "name": "noc",
+    "slug": "noc"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 12,
+  "fields": {
+    "name": "sdgsd",
+    "slug": "sdgsd"
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 1,
+  "fields": {
+    "tag": 1,
+    "content_type": 8,
+    "object_id": 1
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 2,
+  "fields": {
+    "tag": 2,
+    "content_type": 8,
+    "object_id": 1
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 3,
+  "fields": {
+    "tag": 3,
+    "content_type": 8,
+    "object_id": 1
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 4,
+  "fields": {
+    "tag": 1,
+    "content_type": 8,
+    "object_id": 2
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 5,
+  "fields": {
+    "tag": 4,
+    "content_type": 8,
+    "object_id": 2
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 6,
+  "fields": {
+    "tag": 1,
+    "content_type": 8,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 7,
+  "fields": {
+    "tag": 4,
+    "content_type": 8,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 15,
+  "fields": {
+    "tag": 5,
+    "content_type": 8,
+    "object_id": 11
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 16,
+  "fields": {
+    "tag": 7,
+    "content_type": 8,
+    "object_id": 11
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 17,
+  "fields": {
+    "tag": 8,
+    "content_type": 8,
+    "object_id": 11
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 18,
+  "fields": {
+    "tag": 5,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 19,
+  "fields": {
+    "tag": 6,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 20,
+  "fields": {
+    "tag": 7,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 21,
+  "fields": {
+    "tag": 8,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 22,
+  "fields": {
+    "tag": 9,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 23,
+  "fields": {
+    "tag": 12,
+    "content_type": 8,
+    "object_id": 13
+  }
+}
+]
