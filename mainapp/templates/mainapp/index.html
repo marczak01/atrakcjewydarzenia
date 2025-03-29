@@ -2,8 +2,27 @@
 
 {% block content %}
 
-<main class="main">
-    
-</main>
+{% if request.user.is_authenticated %}
+    <main class="main">
+        <h1>Welcome again {{request.user.first_name|default:user.username}}</h1>
+    </main>
+{% else %}
+    <main class="main">
+        <div class="welcome_box">
+            <h1 class="welcome_box_heading">
+                <span class="welcome_box_heading-top">Welcome on out Website</span>
+                <span class="welcome_box_heading-bottom">AtrakcjeWydarzenia</span>
+            </h1>
+            <p class="welcome_box_paragraph">Website where you forget about boringness and start having fun in place yo're at!</p>
+        </div>
 
+        <div class="welcome_cta">
+            <div class="welcome_cta_buttons">
+                <a href="{% url 'account:register' %}" class="welcome_cta_buttons-button">Create an account</a>
+                <a href="{% url 'account:login' %}" class="welcome_cta_buttons-button">Log in</a>
+                <a href="{% url 'mainapp:welcome' %}" class="welcome_cta_buttons-button welcome_cta_buttons-button_quest">Continue as a quest</a>
+            </div>
+        </div>
+    </main>
+{% endif %}
 {% endblock content %}

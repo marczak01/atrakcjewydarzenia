@@ -83,7 +83,7 @@ class Attraction(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='attractions_posts')
-    tags = TaggableManager()
+    tags = TaggableManager() 
 
 
     objects = models.Manager() # default manager

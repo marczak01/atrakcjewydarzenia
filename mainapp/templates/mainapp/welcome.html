@@ -1,5 +1,5 @@
 {% extends 'mainapp/base.html' %}
-
+{% load static %}
 {% block content %}
 
 <main class="welcome">
@@ -11,9 +11,42 @@
             Check out <span class="bold">upcoming</span> events or <span class="bold">available</span> attractions 
             at your destination place and have more fun!
         </p>
+        <div class="welcome__header__dots">
+            <span class="welcome__header__dots-dot "></span>
+            <span class="welcome__header__dots-dot welcome__header__dots-dot-active"></span>
+            <span class="welcome__header__dots-dot"></span>
+        </div>
     </section>
-    <section class="welcome__about">
-        O NAS DLACZEGO MY
+    <section class="welcome__upcoming_events">
+        <h2 class="heading2">
+            Upcoming events from nearby
+        </h2>
+        <div class="welcome__upcoming_events__events">
+            <div class="welcome__upcoming_events__events__event">
+                    <a href="">
+                        <div class="welcome__upcoming_events__events__event__top">
+                            <p class="welcome__upcoming_events__events__event__top__title">dasdasdas</p>
+                                <span class="welcome__upcoming_events__events__event__top__date">DATE</span>
+                        </div>
+                        <div class="welcome__upcoming_events__events__event__img">
+                            <img src="{% static 'images/klub.jpg' %}" alt="">
+            
+                            <span class="welcome__upcoming_events__events__event__timeuntil">
+                                DAYS AGO
+                            </span>
+                            <span class="welcome__upcoming_events__events__event__monthday">monday</span>
+            
+                        </div>
+                        <p class="welcome__upcoming_events__events__event__description">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias labore, magni natus excepturi ab vel vitae aliquid perferendis maxime, deleniti iste sapiente fugiat hic inventore corrupti sequi consectetur beatae minus.
+                        </p>
+                    </a>
+                    <div class="welcome__upcoming_events__events__event__tags">
+                            <a href="">tag tag tag</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <section class="welcome__cons">
         PLUSY/KORZYSCI KORZYSTANIA ZE STRONY

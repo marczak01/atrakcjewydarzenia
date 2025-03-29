@@ -1,5 +1,6 @@
 {% extends "mainapp/base.html" %}
 {% load static %}
+{% load humanize %}
 {% load mainapp_tags %}
 {% block title %}Events{% endblock title %}
 
@@ -25,11 +26,18 @@
 				<img src="{% static 'images/klub.jpg' %}" alt="">
 
 				<span class="events__event__timeuntil">
+					{% substract event.start_date.date|date:'Y' time_now.date|date:'Y' as years_diff %}
 					{% substract event.start_date.date|date:'z' time_now.date|date:'z' as days_diff %}
-					{% if days_diff < 0 %}
-						{% absolute days_diff %} DAYS AGO
+					{% substract 1 time_now|date:'z' as days_new_year %}
+					{% absolute days_diff as days_diff_abs %}
+					{% multiply 366 years_diff as years_mlt %}
+					{% substract years_mlt days_diff_abs as new_year %}
+					{% if years_diff > 0 %}
+					  in {{ new_year }} days
+					{% elif days_diff < 0 %}
+					  {% absolute days_diff %} days ago
 					{% else %}
-						IN {{ days_diff }} DAYS
+					  in {{ days_diff }} days
 					{% endif %}
 				</span>
 				<span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span>

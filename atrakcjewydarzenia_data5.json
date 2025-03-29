@@ -1,0 +1,494 @@
+[
+{
+  "model": "account.profile",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "date_of_birth": "1999-08-16",
+    "photo": "users/2025/03/23/Profile.png"
+  }
+},
+{
+  "model": "account.profile",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "date_of_birth": "2005-03-23",
+    "photo": "users/2025/03/23/23AAA237-FF0C-4B9D-9E66-B4CCE06236A4_1_102_o.jpeg"
+  }
+},
+{
+  "model": "account.profile",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "date_of_birth": "1999-08-11",
+    "photo": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-03-14T17:32:00.945Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-03-14T17:33:23.551Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Longitude\", \"Latitude\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-03-14T17:34:19.031Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "1",
+    "object_repr": "Kręgle w Koszalinie",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-03-14T17:34:57.977Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-03-15T07:16:36.431Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-03-15T07:41:25.952Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-03-15T09:45:49.978Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "3",
+    "object_repr": "Abraham Lincoln",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-03-15T20:08:53.716Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-03-15T20:09:13.230Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-03-15T20:10:00.105Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "3",
+    "object_repr": "Abraham Lincoln",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-03-16T19:12:22.443Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "adamkowalski",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-03-16T19:15:40.933Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "adamkowalski",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Active\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-03-16T19:19:55.631Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "adamkowalski",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Active\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-03-16T19:20:20.858Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "adamkowalski",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Active\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-03-16T19:27:14.079Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "adamkowalski",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Active\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-03-21T07:14:37.998Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "adamkowalski",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-03-23T18:13:42.678Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "1",
+    "object_repr": "profile of username adamkowalski",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-03-23T18:15:01.335Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "profile of username marekmarczak",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-03-23T18:30:53.447Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "2",
+    "object_repr": "profile of username marekmarczak",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-03-25T18:18:24.404Z",
+    "user": 1,
+    "content_type": null,
+    "object_id": "4",
+    "object_repr": "adasd",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\", \"Status\", \"Tags\"]}}]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$pguashzfaOQOLhQp6oBtLB$ROE1J6Gve9IcC6Rgsm2UT7+TIP7k4J9Xs+/Pq0dorhM=",
+    "last_login": "2025-03-24T19:09:52.859Z",
+    "is_superuser": true,
+    "username": "marekmarczak",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-03-14T17:30:23.946Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$3aFFky7lmB4xU32La6JrB7$AKm53wD3gsL5lpX14d7EfdwsTVWCOANg0g8PT4QD5eY=",
+    "last_login": "2025-03-24T18:53:01.010Z",
+    "is_superuser": false,
+    "username": "adamkowalski",
+    "first_name": "",
+    "last_name": "",
+    "email": "marczak01@icloud.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-03-16T19:12:22Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$6GK41DCB9UFGmJc5S8tjmb$BZJlIBMQ9fBhYiHUpFadG8JWw+TkVLKiCFk7VbnVTXQ=",
+    "last_login": "2025-03-23T17:40:17.710Z",
+    "is_superuser": false,
+    "username": "adamnowak",
+    "first_name": "Adam",
+    "last_name": "",
+    "email": "marekblog@o2.pl",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-03-23T17:39:02.593Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$NiY4T6kn1QXKtqjGl8Wivh$aS3F0wBGEMjPUd7tlRfFmUbAuxWH2LalgNB/nRzFPn8=",
+    "last_login": "2025-03-23T20:41:38.222Z",
+    "is_superuser": false,
+    "username": "mariuszkowalski",
+    "first_name": "Mariusz",
+    "last_name": "Kowalski",
+    "email": "marczak01@o2.pl",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-03-23T20:41:15.681Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nqsijzi7zj2me9oj5q7o2ybzwec6fnsh",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnr3yampOcM1tprkwCypTipEHeHSCmgfTPzXiLQtk5h63kJM4uz0OL0u0VKj1x3wHeqtyZTq-syR7kr8qBdXhvn5-Vw_w4m6tO3xgiQjEqAfvToCnrFGfxgLCosEbQrI42AGTiSUggmWU7WaaAhM5N4fwC7_zdg:1tuneA:XZ7f32RiBEmkaJucgWKQf3XRmrSmeyHNBBhbjijQxIQ",
+    "expire_date": "2025-04-02T07:15:26.139Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pz0dgsxxeuodd7y71hpy72e821i794tt",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlkh-XihpOcM1l9JAMVSlgpxd4iUAto3M-_lCq5LX9ZZpzKIO7ujO_xuhPzQcQNyx_FWPddxmQbym-J3OvtrFX1edvfvoMe5_9ZBmyyYFdlMhaNpZ6cEAjFBC8KSGgptMGGlECEy5QwIhGQdp9bc-wMngjmd:1twnBI:Jo13Lv5odNtrNON60k9UDHr4YOYsbMTxWWS_0F3IHUE",
+    "expire_date": "2025-04-07T19:09:52.867Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "unxiqxg2bhtm0udilloazfhktv6ekk8t",
+  "fields": {
+    "session_data": "e30:1tuR4W:4yFA6SxwSIUDVhACPoamAPsYaGMGwqWhLZQ9ga9Q8Bk",
+    "expire_date": "2025-04-01T07:09:08.125Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zxwgg3la5f1nu3v9w050juk8m3ebrtcu",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnrteMPJX3OYK0_wQFkS3FSIe5OIqWA9s3MezNP21r81vPi58SuDNnldwsUn7keID2o3huPra7LHPih8JN2PraUX7fT_Tso1MteK0IYBKIkEBBQOmODnNAliFqCRhEGcmgB0EblCIzYJTRKaqOn4CT7fAGZIzXO:1tunih:uDiHJm9qRVOkPXG8QLUHwt6JrVMJ205vZ7nXMChge8A",
+    "expire_date": "2025-04-02T07:20:07.912Z"
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 1,
+  "fields": {
+    "name": "Adam Mickiewicz",
+    "slug": "adam-mickiewicz",
+    "city": "Koszalin",
+    "country": "Poland",
+    "longitude": 15.4234,
+    "latitude": 54.1212,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-14T17:31:12Z",
+    "created_on": "2025-03-14T17:32:00.942Z",
+    "updated_on": "2025-03-15T20:08:53.713Z",
+    "start_date": "2025-03-18T06:00:00Z",
+    "end_date": "2025-03-19T12:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 2,
+  "fields": {
+    "name": "Koncert w Centrum",
+    "slug": "koncert-w-centrum",
+    "city": "Kolobrzeg",
+    "country": "Poland",
+    "longitude": 24.123,
+    "latitude": 75.312,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-14T17:34:38Z",
+    "created_on": "2025-03-14T17:34:57.972Z",
+    "updated_on": "2025-03-15T20:09:13.223Z",
+    "start_date": "2025-04-25T12:00:00Z",
+    "end_date": "2025-04-25T18:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 3,
+  "fields": {
+    "name": "Abraham Lincoln",
+    "slug": "abraham-lincoln",
+    "city": "Koszalin",
+    "country": "Poland",
+    "longitude": 15.345,
+    "latitude": 65.3221,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-15T09:45:19Z",
+    "created_on": "2025-03-15T09:45:49.969Z",
+    "updated_on": "2025-03-15T20:10:00.098Z",
+    "start_date": "2025-05-01T06:00:00Z",
+    "end_date": "2025-05-03T12:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 4,
+  "fields": {
+    "name": "adasd",
+    "slug": "adasd",
+    "city": "sadasd",
+    "country": "fasfasf",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "safasfasfasfs",
+    "publish": "2025-03-25T18:16:34Z",
+    "created_on": "2025-03-25T18:16:34.060Z",
+    "updated_on": "2025-03-25T18:18:24.375Z",
+    "start_date": "2025-03-25T18:16:09Z",
+    "end_date": "2025-03-28T18:16:09Z",
+    "status": "PB",
+    "public_private": "PB",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.attraction",
+  "pk": 1,
+  "fields": {
+    "name": "Kręgle w Koszalinie",
+    "slug": "kregle-w-koszalinie",
+    "city": "Koszalin",
+    "country": "Poland",
+    "longitude": 22.213,
+    "latitude": 73.1233,
+    "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\r\nIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+    "publish": "2025-03-14T17:33:50Z",
+    "created_on": "2025-03-14T17:34:19.023Z",
+    "updated_on": "2025-03-14T17:34:19.023Z",
+    "status": "PB",
+    "created_by": 1
+  }
+}

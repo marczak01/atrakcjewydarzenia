@@ -53,7 +53,8 @@ def event_details(request, pk):
     event_tags_ids = event.tags.values_list('id', flat=True)
     similar_posts = Event.published.filter(tags__in=event_tags_ids).exclude(id=event.id)
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
-    time_now = timezone.now
+    time_now = datetime.datetime.now
+
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
         if comment_form.is_valid():

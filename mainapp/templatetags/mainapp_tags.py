@@ -9,6 +9,14 @@ register = template.Library()
 def substract(a, b):
     return int(a) - int(b)
 
+@register.simple_tag
+def multiply(a, b):
+    return int(a) * int(b)
+
+
+@register.simple_tag
+def add(a, b):
+    return int(a) + int(b)
 
 @register.simple_tag
 def absolute(a):

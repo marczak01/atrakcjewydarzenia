@@ -78,3 +78,5 @@ def edit(request):
     return render(request, 'account/edit.html', {'user_form': user_form, 'profile_form': profile_form})
 
 
+def password_reset_done(request):
+    return render(request, 'registration/password_reset_done.html')
