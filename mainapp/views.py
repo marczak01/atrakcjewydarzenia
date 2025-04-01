@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Count
-from .models import Event, Attraction, Comment
+from .models import Event, Attraction, Comment, Followed
 from taggit.models import Tag
 from django.utils import timezone
 from django.core.paginator import Paginator
@@ -142,3 +142,24 @@ def addAttraction(request):
         'attraction_form': attraction_form,
     }
     return render(request, 'mainapp/attractions/attraction_form.html', context)
+
+
+def follow_event(request, pk):
+    event = Event.published.get(id=pk)
+    user = request.user
+
+    # najpierw musze sprawdzic czy juz istnieje takie cos
+    # obj = Followed.objects.create()
+    # obj.user = user
+    # obj.event = event
+    # if obj not in Followed.objects.all():
+        # obj.save()
+
+# WORKS !!!!
+    if Followed.objects.filter(user=user, event=event).exists():
+        pass
+    else:
+        Followed.objects.create(user=user, event=event)
+
+
+    return redirect('mainapp:event_details', pk)

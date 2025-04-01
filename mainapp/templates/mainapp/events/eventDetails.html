@@ -8,7 +8,7 @@
     <span class="eventDetails__tags__timeuntil">IN {% substract event.start_date.date|date:'z' time_now.date|date:'z' %} DAYS</span>
     <span class="eventDetails__tags__monthday">{{ event.start_date.date|date:'l' }}</span>
     <span class="eventDetails__tags__publicPrivate">{{ event.get_public_private_display }}</span>
-
+    <a href="{% url 'mainapp:follow_event' event.id %}"><button>FOLLOW EVENT</button></a>
 </div>
 
 

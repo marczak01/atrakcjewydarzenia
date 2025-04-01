@@ -110,3 +110,12 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
+    
+
+class Followed(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    follow_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"User {self.user.username} follow {self.event.name}"

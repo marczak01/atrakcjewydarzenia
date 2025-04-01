@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Attraction, Comment
+from .models import Event, Attraction, Comment, Followed
 # Register your models here.
 
 @admin.register(Event)
@@ -26,3 +26,7 @@ class AttractionAdmin(admin.ModelAdmin):
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['user', 'body', 'created_on']
+
+@admin.register(Followed)
+class FollowedAdmin(admin.ModelAdmin):
+    list_display = ['user', 'event', 'follow_date']
