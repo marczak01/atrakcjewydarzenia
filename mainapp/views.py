@@ -9,7 +9,6 @@ from .forms import CommentForm, EventForm, AttractionForm
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 
-
 # Create your views here.
 
 def home(request):
@@ -27,23 +26,53 @@ def welcome(request):
     return render(request, templateFileName, context)
 
 def events(request, tag_slug=None):
+
+    weekdays = {'poniedziałek' : 2,
+                'poniedzialek': 2,
+                'wtorek': 3,
+                'sroda': 4,
+                'środa': 4,
+                'czwartek': 5,
+                'piatek': 6,
+                'piątek': 6,
+                'sobota': 7,
+                'niedziela': 1}
+
     templateFileName = 'mainapp/events/events.html'
-    events_list = Event.published.all()
-    paginator = Paginator(events_list, 3)
-    page_number = request.GET.get('page', 1)
-    events = paginator.page(page_number)
+    events = Event.published.all()
+    no_events = events.count()
+    # paginator = Paginator(events_list, 3)
+    # page_number = request.GET.get('page', 1)
+    # events = paginator.page(page_number)
     tag = None
     time_now = timezone.now
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
-        events = events_list.filter(tags__in=[tag])
+        events = events.filter(tags__in=[tag])
+        no_events = events.count()
+    if request.method == 'POST':
+        location = request.POST.get('location_search')
+        start_date = request.POST.get('date_search')
+        weekday = request.POST.get('weekday_search')
+        if location:
+            events = Event.objects.filter(city__icontains=location)
+        if weekday:
+            for key in weekdays.keys():
+                if weekday in key:
+                    result = key
+                    events = Event.objects.filter(start_date__week_day=weekdays[result])
+        if start_date:
+            events = Event.objects.filter(start_date__date=start_date)
+        if location and start_date:
+            events = Event.objects.filter(city__icontains=location, start_date__date=start_date)
 
     context = {
         'events': events,
         'tag': tag,
         'time_now': time_now,
-
+        'no_events':no_events,
     }
+
     return render(request, templateFileName, context)
 
 def event_details(request, pk):
@@ -62,15 +91,16 @@ def event_details(request, pk):
             new_comment.user = request.user
             new_comment.event = Event.published.get(id=pk)
             new_comment.save()
-            # cd = comment_form.cleaned_data
-            # comment = comment_form.save(commit=False)
-            # Comment.objects.create(user=request.user, event=event, body=cd['body'])
-            # comment.user_comment = request.user.id
-            # comment.event_comment = event.id
-            # comment.save()
     else:
         comment_form = CommentForm()
+
     comments = event.event_comments.all().order_by('-created_on')
+
+    if Followed.objects.filter(user=request.user, event=event).exists():
+        obserwuje = True
+    else:
+        obserwuje = False
+
     context = {
         'event': event,
         'src': src,
@@ -78,6 +108,7 @@ def event_details(request, pk):
         'time_now': time_now,
         'comment_form': comment_form,
         'comments':comments,
+        'obserwuje': obserwuje,
     }
     return render(request, templateFileName, context)
 
@@ -91,8 +122,9 @@ def attractions(request):
 
 def attraction_details(request, pk):
     templateFileName = 'mainapp/attractions/attractionDetails.html'
+    attraction = Attraction.objects.get(id=pk)
     context = {
-
+        'attraction':attraction,
     }
     return render(request, templateFileName, context)
 
@@ -100,15 +132,13 @@ def attraction_details(request, pk):
 @login_required
 def addEvent(request):
     if request.method == 'POST':
-        event_form = EventForm(request.POST)
+        event_form = EventForm(request.POST, request.FILES)
         if event_form.is_valid():
             cd = event_form.cleaned_data
-            my_tags = cd['tags']           
+            my_tags = cd['tags']
             event = event_form.save(commit=False)
             event.created_by = request.user
             event.status = 'PB'
-            # event.slug = '-'.join([x for x in event.name])
-            # event.slug = cd['name'].slice().join('-')
             event.slug = slugify(event.name)
             event.save()
             event.tags.add(*my_tags)
@@ -120,6 +150,43 @@ def addEvent(request):
     }
     return render(request, 'mainapp/events/event_form.html', context)
 
+@login_required
+def editEvent(request, pk):
+    event = Event.objects.get(id=pk)
+    if request.method == 'POST':
+        event_form = EventForm(instance=event,
+                               data=request.POST,
+                               files=request.FILES)
+        if event_form.is_valid():
+            event_form.save()
+            return redirect('account:dashboard')
+
+    else:
+        event_form = EventForm(instance=event)
+    return render(request, 'mainapp/events/event_form.html', {'event_form': event_form})
+
+
+@login_required
+def del_event(request, pk):
+    event = Event.objects.get(id=pk)
+    if request.method == 'POST':
+        event.delete()
+        return redirect('account:dashboard')
+    context = {
+        'event':event,
+    }
+    return render(request, 'mainapp/events/del_event.html', context)
+
+@login_required
+def del_attraction(request, pk):
+    attraction = Attraction.objects.get(id=pk)
+    if request.method == 'POST':
+        attraction.delete()
+        return redirect('account:dashboard')
+    context = {
+        'attraction':attraction,
+    }
+    return render(request, 'mainapp/attractions/del_attraction.html', context)
 
 @login_required
 def addAttraction(request):
@@ -144,22 +211,49 @@ def addAttraction(request):
     return render(request, 'mainapp/attractions/attraction_form.html', context)
 
 
-def follow_event(request, pk):
+@login_required
+def editAttraction(request, pk):
+    attraction = Attraction.objects.get(id=pk)
+    if request.method == 'POST':
+        attraction_form = AttractionForm(data=request.POST,
+                                         instance=attraction,
+                                         files=request.FILES)
+        if attraction_form.is_valid():
+            attraction_form.save()
+            return redirect('account:dashboard')
+    else:
+        attraction_form = AttractionForm(instance=attraction)
+    context = {
+        'attraction_form':attraction_form,
+    }
+    return render(request, 'mainapp/attractions/attraction_form.html', context)
+
+
+@login_required
+def follow_event(request, pk, page=None):
     event = Event.published.get(id=pk)
     user = request.user
 
-    # najpierw musze sprawdzic czy juz istnieje takie cos
-    # obj = Followed.objects.create()
-    # obj.user = user
-    # obj.event = event
-    # if obj not in Followed.objects.all():
-        # obj.save()
-
-# WORKS !!!!
     if Followed.objects.filter(user=user, event=event).exists():
         pass
     else:
         Followed.objects.create(user=user, event=event)
+    if page == 'events':
+        return redirect('mainapp:events')
+    elif page == 'event_details':
+        return redirect('account:dashboard')
 
 
-    return redirect('mainapp:event_details', pk)
+
+@login_required
+def unfollow_event(request, pk, page=None):
+    user_follow = Followed.objects.get(event=pk,
+                                       user=request.user)
+    user_follow.delete()
+    event = Event.objects.get(id=pk)
+    if page == 'eventDetails':
+        return redirect(event.get_absolute_url())
+    elif page == 'dashboard':
+        return redirect('account:dashboard', option='follows')
+    elif page == 'events':
+        return redirect('mainapp:events')

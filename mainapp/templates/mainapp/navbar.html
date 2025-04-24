@@ -1,19 +1,58 @@
 <nav class="nav">
     <p class="nav__logo">
         <a href="{% url 'mainapp:home' %}">
-        AtrakcjeWydarzenia</a>
+        Evently</a>
     </p>
     <ul class="nav__links">
         <li class="nav__links__link"><a href="{% url 'mainapp:home' %}">Home</a></li>
         <li class="nav__links__link"><a href="{% url 'mainapp:events' %}">Events</a></li>
         <li class="nav__links__link"><a href="{% url 'mainapp:attractions' %}">Attractions</a></li>
-        <li class="nav__links__link"><a href="#">Promotions!</a></li>
-        <li class="nav__links__link"><a href="#">Contact</a></li>
 
         {% if request.user.is_authenticated %}
-            <li class="nav__links__link"><a href="{% url 'account:logout' %}">Sign out</a></li>
-            <li class="nav__links__link">Welcome <a href='{% url "account:dashboard" %}'> {{ request.user.first_name|default:request.user.username}}</a></li>
+            <li class="nav__links__link nav__links__link-message">
+                <span class="nav__links__link-message-number">0</span>
 
+                <a href="{% url 'account:messages' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="nav__links__link-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                    </svg>
+                </a>
+            </li>
+            <li class="nav__links__link nav__links__link-profile">
+                <a href='{% url "account:dashboard" %}'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="nav__links__link-icon">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                </a>
+                <div class="nav__links__link-hover">
+                    <ul>
+                        <a href="{% url 'account:dashboard' %}"><li>Profile</li></a>
+                        <a href="{% url 'mainapp:add_event' %}"><li>Add Event</li></a>
+                        <a href="{% url 'mainapp:add_attraction' %}"><li>Add Attraction</li></a>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav__links__link nav__links__link-notification">
+                <span class="nav__links__link-notification-number">0</span>
+                <a href='{% url "account:dashboard" %}'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="nav__links__link-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                      </svg>
+                </a>
+                <div class="nav__links__link-notification-hover">
+                    <ul>
+                        <a href="{% url 'account:messages' %}"><li>You've got new message from Antonio</li></a>
+                        <a href="{% url 'account:dashboard' %}"><li>Someone followed your event!</li></a>
+                        <a href="{% url 'account:dashboard' %}"><li>Someone followed your attraction</li></a>
+                        <a href="{% url 'account:dashboard' %}"><li>Your event reach 100 followings</li></a>
+                        <a href="{% url 'account:dashboard' %}"><li>Your event was checked by 1211 people!</li></a>
+                        <a href="{% url 'account:messages' %}"><li>You've got new message from Antonio</li></a>
+                        <a href="{% url 'account:messages' %}"><li>You've got new message from Antonio</li></a>
+                        <a href="{% url 'account:messages' %}"><li>You've got new message from Antonio</li></a>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav__links__link"><a href="{% url 'account:logout' %}">Sign out</a></li>
 
         {% else %}
             <li class="nav__links__link"><a href="{% url 'account:register' %}">Sign Up</a></li>

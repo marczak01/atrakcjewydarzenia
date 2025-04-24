@@ -1,11 +1,129 @@
 {% extends "mainapp/base.html" %}
-
+{% load static %}
+{% load mainapp_tags %}
 {% block title %}Dashboard{% endblock title %}
 
 {% block content %}
-  <h1>Welcome in your dashboard</h1>
-  {{ profile.user.username }}
-  {{ profile.date_of_birth|date:'d/m/Y' }}
-  <a href='{% url "mainapp:add_event" %}'><button>Add new EVENT</button></a>
-  <a href='{% url "mainapp:add_attraction" %}'><button>Add new ATTRACTION</button></a>
+  <div class="dashboard">
+    <div class="dashboard__left">
+      <div class="dashboard__left__welcome">
+        <h1 class="h1">Witaj w swoim panelu</h1>
+        <p class="dashboard__left__welcome-user">{{ profile.user.username }}</p>
+      </div>
+      <div class="dashboard__left__info">
+        <div class="dashboard__left__info__img">
+          {% if profile.photo %}
+            <img src="{{ profile.photo.url }}" alt="">
+          {% else %}
+            <img src="{% static '/images/default.png' %}" alt="">
+          {% endif %}
+        </div>
+        <div class="dashboard__left__info-informations">
+          <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+          <p>{{ profile.user.email }}</p>
+          <p>{{ profile.date_of_birth|date:'d/m/Y' }}</p>
+          <span class="dashboard__left__info-informations-edit">
+            <a href="{% url 'account:edit' %}">EDYTUJ KONTO</a>
+          </span>
+        </div>
+      </div>
+      <div class="dashboard__left__buttons">
+        <a href='{% url "mainapp:add_event" %}'>DODAJ EVENT</a>
+        <a href='{% url "mainapp:add_attraction" %}'>DODAJ ATRAKCJE</a>
+      </div>
+
+    </div>
+    <div class="dashboard__right">
+      <div class="dashboard__right__options">
+        <a href="{% url 'account:dashboard' 'events' %}">TWOJE EVENTY</a>
+        <a href="{% url 'account:dashboard' 'follows' %}">OBSERWOWANE</a>
+        <a href="{% url 'account:dashboard' 'attractions' %}">TWOJE ATRAKCJE</a>
+      </div>
+      <div class="dashboard__right__selected">
+        <ul class="dashboard__right__selected__list">
+          {% if page == 'events' %}
+            {% if events %}
+              {% for event in events %}
+                <li class="dashboard__right__selected__list-el">
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">{{ event.name }}</p>
+                    <p class="dashboard__right__selected__list-el-created">{{ event.created_on|date:'d.m.Y H:i' }}</p>
+                  </div>
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">{{ event.start_date|date:'d.m.Y H:i' }}</p>
+                    <p class="dashboard__right__selected__list-el-title">{{ event.end_date|date:'d.m.Y H:i' }}</p>
+                  </div>
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">Obserwujących: {% follow_count event %}</p>
+                  </div>
+                  <div>
+                    <p><a href="{% url 'mainapp:edit_event' event.id %}">EDYTUJ</a></p>
+                    <p><a href="{% url 'mainapp:event_details' event.id %}">ZOBACZ</a></p>
+                    <p><a href="{% url 'mainapp:del_event' event.id %}">USUŃ</a></p>
+                  </div>
+                </li>
+              {% endfor %}
+            {% else %}
+              <h1>Brak dodanych wydarzeń</h1>
+            {% endif %}
+          {% endif %}
+
+          {% if page == 'follows' %}
+            {% if followed %}
+              {% for follow in followed %}
+                <li class="dashboard__right__selected__list-el">
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">{{ follow.event.name }}</p>
+                    <p class="dashboard__right__selected__list-el-created">{{ follow.event.created_on|date:'d.m.Y H:i' }}</p>
+                  </div>
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">{{ follow.event.start_date|date:'d.m.Y H:i' }}</p>
+                    <p class="dashboard__right__selected__list-el-title">{{ follow.event.end_date|date:'d.m.Y H:i' }}</p>
+                  </div>
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">Zaobserwowano: {{ follow.follow_date|date:'d-m-Y H:i' }}</p>
+                  </div>
+                  <div>
+                    <p><a href="{% url 'mainapp:unfollow_event' pk=follow.event.id page='dashboard' %}">NIE OBSERWUJ</a></p>
+                    <p><a href="#">USTAW PRZYPOMN.</a></p>
+                  </div>
+                </li>
+              {% endfor %}
+            {% else %}
+              <h1>Brak obserwowanych wydarzeń</h1>
+            {% endif %}
+          {% endif %}
+          {% if page == 'attractions' %}
+            {% if attractions %}
+              {% for attraction in attractions %}
+                <li class="dashboard__right__selected__list-el">
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">{{ attraction.name }}</p>
+                    <p class="dashboard__right__selected__list-el-created">{{ attraction.created_on }}</p>
+                  </div>
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">asdasddad</p>
+                    <p class="dashboard__right__selected__list-el-title">asdasd</p>
+                  </div>
+                  <div>
+                    <p class="dashboard__right__selected__list-el-title">Obserwujących: xxx</p>
+                  </div>
+                  <div>
+                    <p><a href="{% url 'mainapp:edit_attraction' attraction.id %}">EDYTUJ</a></p>
+                    <p><a href="{% url 'mainapp:attraction_details' attraction.id %}">ZOBACZ</a></p>
+                    <p><a href="{% url 'mainapp:del_attraction' attraction.id %}">USUŃ</a></p>
+                  </div>
+                </li>
+              {% endfor %}
+            {% else %}
+                <h1>Brak dodanych atrakcji</h1>
+            {% endif %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  
+  
 {% endblock content %}

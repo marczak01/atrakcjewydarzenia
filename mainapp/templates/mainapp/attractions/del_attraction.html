@@ -1,0 +1,19 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Deleting Attraction
+{% endblock title %}
+
+{% block content %}
+    <div class="event__delete">
+        <h3>Confirm that you want to delete attraction</h3>
+        <p>{{ attraction.name }} created on {{ attraction.created_on|date:'m.d.Y' }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <p><input type="submit" value="Delete"></p>
+        </form>
+    </div>
+    
+
+
+{% endblock content %}

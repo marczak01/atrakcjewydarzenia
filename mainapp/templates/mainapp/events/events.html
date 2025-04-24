@@ -1,14 +1,39 @@
 {% extends "mainapp/base.html" %}
 {% load static %}
+{% load i18n %}
 {% load humanize %}
 {% load mainapp_tags %}
 {% block title %}Events{% endblock title %}
 
 {%block content %}
 
+<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów</p>
+
 {% if tag %}
-	<h2 class="events__hashed">Events hashed with tag "{{tag.name}}</h2>
+	<h2 class="events__hashed">Eventy oznaczone tagiem "{{ tag.name }}"</h2>
 {% endif %}
+
+<div class="events__search">
+	<form method="post" action="{% url 'mainapp:events' %} " class="events__search__form">
+		{% csrf_token %}
+		<div class="events__search__el">
+			<div class="events__search__el-icon"></div><input type="text" name="location_search" placeholder="Miejsce">
+		</div>
+		<div class="events__search__el">
+			<div class="events__search__el-icon"></div><input type="text" name="weekday_search" placeholder="Środa, Czwartek..">
+		</div>
+		<div class="events__search__el">
+			<div class="events__search__el-icon"></div><input name="date_search" type="date">
+		</div>
+		<div class="events__search__el">
+			<input type="submit" value="SZUKAJ">
+		</div>
+	</form>
+</div>
+
+<div class="events__map">
+	
+</div>
 
 <div class="events">
 	{% for event in events %}
@@ -16,14 +41,14 @@
 		<a href="{{event.get_absolute_url }}">
 			<div class="events__event__top">
 				<p class="events__event__top__title">{{ event.name }}</p>
-				{% if event.start_date.date|date:'Y' == time_now.date|date:'Y' %}
-					<span class="events__event__top__date">{{ event.start_date|date:'d-m / H:i' }} - {{event.end_date|date:'d-m / H:i'}}</span>
-				{% else %}
-					<span class="events__event__top__date">{{ event.start_date|date:'d-m-Y - H:i' }} / {{event.end_date|date:'d-m-Y - H:i'}}</span>
-				{% endif %}
+					<span class="events__event__top__date">{{ event.start_date|date:'d.m.Y H:i' }} - {{event.end_date|date:'d.m.Y H:i'}}</span>
 			</div>
 			<div class="events__event__img">
-				<img src="{% static 'images/klub.jpg' %}" alt="">
+				{% if event.event_photo %}
+					<img src="{{ event.event_photo.url }}" alt="">
+				{% else %}
+					<img src="{% static 'images/klub.jpg' %}" alt="">
+				{% endif %}
 
 				<span class="events__event__timeuntil">
 					{% substract event.start_date.date|date:'Y' time_now.date|date:'Y' as years_diff %}
@@ -35,14 +60,27 @@
 					{% substract new_year days_diff_abs as new_year_final %}
 
 					{% if years_diff > 0 %}
-					  in {{ new_year_final }} days
+					  za {{ new_year_final }} dni
 					{% elif days_diff < 0 %}
-					  {% absolute days_diff %} days ago
+					  {% absolute days_diff %} dni temu
 					{% else %}
-					  in {{ days_diff }} days
+					  za {{ days_diff }} dni
 					{% endif %}
 				</span>
-				<span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span>
+				{% language 'pl' %}
+					<a href="{% url 'account:dashboard' %}"><span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span></a>
+				{% endlanguage %}
+				<a href="{% url 'account:dashboard' %}"><span class="events__event__location">{{ event.city }}</span></a>
+				{% follow_or_unfollow event.id request.user as follow_unfollow %}
+				{% if follow_unfollow %}
+					<a href="{% url 'mainapp:unfollow_event' pk=event.id page='events' %}">
+						<span class="events__event__follow">NIE OBSERWUJ</span>
+					</a>
+				{% else %}
+					<a href="{% url 'mainapp:follow_event' pk=event.id page='events' %}">
+						<span class="events__event__follow">OBSERWUJ</span>
+					</a>
+				{% endif %}
 
 			</div>
 			<p class="events__event__description">
@@ -50,14 +88,14 @@
 			</p>
 		</a>
 		<div class="events__event__tags">
-			{% for tag in event.tags.all %}
+			{% for tag in event.tags.all|slice:':4' %}
 				<a href="{% url 'mainapp:events_by_tag' tag.slug %}">{{ tag.name }}</a>
 			{% endfor %}
 		</div>
 	</div>
 	{% endfor %}
 </div>
-{% include "mainapp/pagination.html" with page=events %}
+<!-- {% include "mainapp/pagination.html" with page=events %} -->
 
 
 {% endblock content %}

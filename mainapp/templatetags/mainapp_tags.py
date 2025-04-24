@@ -1,6 +1,6 @@
 
 from django import template
-from ..models import Event, Attraction
+from ..models import Event, Attraction, Followed
 
 register = template.Library()
 
@@ -21,3 +21,36 @@ def add(a, b):
 @register.simple_tag
 def absolute(a):
     return abs(a)
+
+
+@register.simple_tag
+def follow_count(event):
+    return Followed.objects.filter(event=event).count()
+
+@register.simple_tag
+def follow_or_unfollow(event, user):
+    obserwuje = None
+    if Followed.objects.filter(event=event, user=user).exists():
+        obserwuje = True
+        return obserwuje
+    else:
+        obserwuje = False
+        return obserwuje
+
+
+# @register.simple_tag
+# def search_form(option):
+#     weekdays = {'poniedziałek' : 1,
+#                 'poniedzialek': 1,
+#                 'wtorek': 2,
+#                 'sroda': 3,
+#                 'środa': 3,
+#                 'czwartek': 4,
+#                 'piatek': 5,
+#                 'piątek': 5,
+#                 'sobota': 6,
+#                 'niedziela': 7}
+
+#     if option in weekdays:
+#         events = Event.objects.filter(start_date__week_day=weekdays[option])
+#     return events

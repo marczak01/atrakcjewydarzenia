@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.utils import timezone
 from taggit.managers import TaggableManager
 
-
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status=Event.Status.PUBLISHED)
@@ -38,6 +37,8 @@ class Event(models.Model):
     end_date = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     public_private = models.CharField(max_length=2, choices=PubPriv.choices, default=PubPriv.PUBLIC)
+    event_photo = models.ImageField(upload_to='events/%Y/%m/%d/',
+                              blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='event_posts')
     tags = TaggableManager()
 
@@ -81,6 +82,8 @@ class Attraction(models.Model):
     publish = models.DateTimeField(default=timezone.now)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    attraction_photo = models.ImageField(upload_to='attractions/%Y/%m/%d/',
+                              blank=True)
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='attractions_posts')
     tags = TaggableManager() 
@@ -110,12 +113,14 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
-    
+
 
 class Followed(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_followed')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_followed')
     follow_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"User {self.user.username} follow {self.event.name}"
+    
+
