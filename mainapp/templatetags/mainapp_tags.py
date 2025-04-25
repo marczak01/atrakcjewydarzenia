@@ -1,6 +1,6 @@
 
 from django import template
-from ..models import Event, Attraction, Followed
+from ..models import Event, Attraction, Followed, Rating
 
 register = template.Library()
 
@@ -37,7 +37,17 @@ def follow_or_unfollow(event, user):
         obserwuje = False
         return obserwuje
 
-
+@register.simple_tag
+def count_rating_event(event):
+    rating_sum = 0
+    rating_count = 0
+    event_rating = Event.objects.get(id=event.id)
+    ratings = Rating.objects.filter(event=event_rating)
+    for rating in ratings:
+        rating_sum += rating.rate
+        rating_count += 1
+        rating_sum = rating_sum / rating_count
+    return round(rating_sum, 2)
 # @register.simple_tag
 # def search_form(option):
 #     weekdays = {'poniedziałek' : 1,

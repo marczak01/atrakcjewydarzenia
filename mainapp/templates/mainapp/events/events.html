@@ -71,6 +71,7 @@
 					<a href="{% url 'account:dashboard' %}"><span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span></a>
 				{% endlanguage %}
 				<a href="{% url 'account:dashboard' %}"><span class="events__event__location">{{ event.city }}</span></a>
+				<a href="#"><span class="events__event__rating">{% count_rating_event event %}</span></a>
 				{% follow_or_unfollow event.id request.user as follow_unfollow %}
 				{% if follow_unfollow %}
 					<a href="{% url 'mainapp:unfollow_event' pk=event.id page='events' %}">

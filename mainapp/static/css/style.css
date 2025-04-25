@@ -305,7 +305,8 @@ html {
 		.events__event__timeuntil,
 		.events__event__monthday,
 		.events__event__location,
-		.events__event__follow {
+		.events__event__follow,
+		.events__event__rating {
 			background-color: greenyellow;
 			padding: 0.5rem 0.3rem;
 			color: #555;
@@ -337,9 +338,16 @@ html {
 			right: 1rem;
 		}
 
+		.events__event__rating {
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+		}
+
 		.events__event__location:hover,
 		.events__event__monthday:hover,
-		.events__event__follow:hover {
+		.events__event__follow:hover,
+		.events__event__rating:hover {
 			background-color: rgb(228, 239, 213);
 		}
 
@@ -415,8 +423,6 @@ html {
 		flex-direction: row;
 		border: 0.5px solid black;
 		.events__search__el {
-			.events__search__el-icon {
-			}
 			display: flex;
 			align-items: center;
 			gap: 1rem;
