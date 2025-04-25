@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.urls import reverse
 from django.utils import timezone
 from taggit.managers import TaggableManager
@@ -122,5 +123,16 @@ class Followed(models.Model):
 
     def __str__(self):
         return f"User {self.user.username} follow {self.event.name}"
-    
 
+def rating_scope(value):
+    if value >= 1 and value <= 5: pass
+    else: raise ValidationError(f"{value} is not between 1 and 5. Correct it please.")
+
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_ratings')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_ratings')
+    rate = models.IntegerField(validators=[rating_scope])
+    rating_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"User {self.user.username} rates {self.event.name} with {self.rate}"

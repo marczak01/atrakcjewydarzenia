@@ -5,8 +5,8 @@
     </p>
     <ul class="nav__links">
         <li class="nav__links__link"><a href="{% url 'mainapp:home' %}">Home</a></li>
-        <li class="nav__links__link"><a href="{% url 'mainapp:events' %}">Events</a></li>
-        <li class="nav__links__link"><a href="{% url 'mainapp:attractions' %}">Attractions</a></li>
+        <li class="nav__links__link"><a href="{% url 'mainapp:events' %}">Eventy</a></li>
+        <li class="nav__links__link"><a href="{% url 'mainapp:attractions' %}">Atrakcje</a></li>
 
         {% if request.user.is_authenticated %}
             <li class="nav__links__link nav__links__link-message">
@@ -26,9 +26,9 @@
                 </a>
                 <div class="nav__links__link-hover">
                     <ul>
-                        <a href="{% url 'account:dashboard' %}"><li>Profile</li></a>
-                        <a href="{% url 'mainapp:add_event' %}"><li>Add Event</li></a>
-                        <a href="{% url 'mainapp:add_attraction' %}"><li>Add Attraction</li></a>
+                        <a href="{% url 'account:dashboard' %}"><li>Profil</li></a>
+                        <a href="{% url 'mainapp:add_event' %}"><li>Dodaj Event</li></a>
+                        <a href="{% url 'mainapp:add_attraction' %}"><li>Dodaj Atrakcje</li></a>
                     </ul>
                 </div>
             </li>
@@ -41,9 +41,9 @@
                 </a>
                 <div class="nav__links__link-notification-hover">
                     <ul>
-                        <a href="{% url 'account:messages' %}"><li>You've got new message from Antonio</li></a>
-                        <a href="{% url 'account:dashboard' %}"><li>Someone followed your event!</li></a>
-                        <a href="{% url 'account:dashboard' %}"><li>Someone followed your attraction</li></a>
+                        <a href="{% url 'account:messages' %}"><li>Masz nową wiadomość od Antonio</li></a>
+                        <a href="{% url 'account:dashboard' %}"><li>Ktoś obsewtuje twoje wydarzenie!</li></a>
+                        <a href="{% url 'account:dashboard' %}"><li>Ktoś obsewtuje twoją atrakcję</li></a>
                         <a href="{% url 'account:dashboard' %}"><li>Your event reach 100 followings</li></a>
                         <a href="{% url 'account:dashboard' %}"><li>Your event was checked by 1211 people!</li></a>
                         <a href="{% url 'account:messages' %}"><li>You've got new message from Antonio</li></a>
@@ -52,11 +52,11 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav__links__link"><a href="{% url 'account:logout' %}">Sign out</a></li>
+            <li class="nav__links__link"><a href="{% url 'account:logout' %}">Wyloguj się</a></li>
 
         {% else %}
-            <li class="nav__links__link"><a href="{% url 'account:register' %}">Sign Up</a></li>
-            <li class="nav__links__link"><a href="{% url 'account:login' %}">Sign In</a></li>
+            <li class="nav__links__link"><a href="{% url 'account:register' %}">Rejestracja</a></li>
+            <li class="nav__links__link"><a href="{% url 'account:login' %}">Logowanie</a></li>
         {% endif %}
     </ul>
 </nav>

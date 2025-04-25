@@ -416,9 +416,6 @@ html {
 		border: 0.5px solid black;
 		.events__search__el {
 			.events__search__el-icon {
-				width: 1rem;
-				height: 1rem;
-				background-color: black;
 			}
 			display: flex;
 			align-items: center;
@@ -429,6 +426,17 @@ html {
 			}
 		}
 	}
+}
+.events__map {
+	margin: 4rem;
+	height: 400px;
+	background-color: #a9a9a9;
+	border: 1px solid black;
+
+	font-size: 4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .events__hashed {
