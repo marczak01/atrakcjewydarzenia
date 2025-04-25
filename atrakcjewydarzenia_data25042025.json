@@ -1,0 +1,2736 @@
+[
+{
+  "model": "account.profile",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "date_of_birth": "1999-08-11",
+    "photo": "users/2025/04/05/2E578DC6-D5E5-419E-996C-101714F1E802_1_105_c.jpeg"
+  }
+},
+{
+  "model": "account.profile",
+  "pk": 2,
+  "fields": {
+    "user": 1,
+    "date_of_birth": "2015-03-26",
+    "photo": ""
+  }
+},
+{
+  "model": "account.profile",
+  "pk": 3,
+  "fields": {
+    "user": 3,
+    "date_of_birth": null,
+    "photo": "users/2025/04/19/Tomorrowland.jpg"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2025-03-14T17:32:00.945Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2025-03-14T17:33:23.551Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Longitude\", \"Latitude\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2025-03-14T17:34:19.031Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Kręgle w Koszalinie",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2025-03-14T17:34:57.977Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2025-03-15T07:16:36.431Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2025-03-15T07:41:25.952Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2025-03-15T09:45:49.978Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Abraham Lincoln",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2025-03-15T20:08:53.716Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2025-03-15T20:09:13.230Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2025-03-15T20:10:00.105Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Abraham Lincoln",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Start date\", \"End date\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2025-03-26T05:36:22.953Z",
+    "user": 1,
+    "content_type": 11,
+    "object_id": "2",
+    "object_repr": "profile of username marekmarczak",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2025-03-26T05:37:16.187Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Rap Festiwal",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Slug\", \"Status\", \"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.944Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Rap Festiwal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.953Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Rap Festiwal",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.954Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Test nazwa myslniki hmm",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.956Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "sadasdaln a  doub ab odwba o",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.958Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "tst now s abs kjbda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.959Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "tst now s abs kjbda das das dd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2025-03-26T06:16:57.961Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "dasd lasdk  alsd aksjd sahj",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.168Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "askfnasl das das dlasdl sa dj ja",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.174Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "asldksna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.175Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "ldaksn sadlk n",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.176Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "aslkdna",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.176Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "ydtjj",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2025-03-26T07:14:19.177Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "jkvjkfjhf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2025-03-27T19:16:15.568Z",
+    "user": 1,
+    "content_type": 5,
+    "object_id": "2",
+    "object_repr": "adamkowalski",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Email address\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2025-04-01T06:16:19.590Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "User adamkowalski follow Koncert w Centrum",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2025-04-01T06:26:43.449Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "5",
+    "object_repr": "User marekmarczak follow dsgsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2025-04-01T06:26:43.452Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "4",
+    "object_repr": "User adamkowalski follow dsgsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2025-04-01T06:26:43.453Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "3",
+    "object_repr": "User adamkowalski follow nfsjnfjskndf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2025-04-01T06:26:43.454Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "2",
+    "object_repr": "User adamkowalski follow asdkjasbd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2025-04-01T06:26:43.456Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "User adamkowalski follow Koncert w Centrum",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2025-04-01T06:28:58.274Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "7",
+    "object_repr": "User marekmarczak follow dsgsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2025-04-01T06:28:58.277Z",
+    "user": 1,
+    "content_type": 13,
+    "object_id": "6",
+    "object_repr": "User marekmarczak follow dsgsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.854Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Adam Mickiewicz",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.861Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Koncert w Centrum",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.864Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Abraham Lincoln",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.868Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "11",
+    "object_repr": "jkvkgc",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.870Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "12",
+    "object_repr": "leknfwebf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.873Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "13",
+    "object_repr": "dsgsd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.875Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "14",
+    "object_repr": "asdkjasbd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2025-04-09T05:51:10.877Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "15",
+    "object_repr": "nfsjnfjskndf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2025-04-09T05:51:19.673Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Kręgle w Koszalinie",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2025-04-09T06:01:51.462Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Molo",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Attraction photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2025-04-18T18:34:50.172Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "18",
+    "object_repr": "Piknik pod Wieżą Eiffla",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2025-04-18T18:36:11.160Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "18",
+    "object_repr": "Piknik pod Wieżą Eiffla",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Longitude\", \"Latitude\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2025-04-19T09:58:19.289Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "19",
+    "object_repr": "Oceanarium Wrocław",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Event photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2025-04-19T10:09:14.540Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "20",
+    "object_repr": "Kajaki w centrum Nowego Jorku",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Event photo\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2025-04-25T05:14:17.927Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "User marekmarczak rates Test with 6",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2025-04-25T05:15:29.813Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "User adamkowalski rates Piknik pod Wieżą Eiffla with 2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2025-04-25T05:15:38.630Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "User adamkowalski rates Piknik pod Wieżą Eiffla with 6",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2025-04-25T05:16:27.628Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "User adamnowak rates Oceanarium Wrocław with 2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2025-04-25T05:16:33.501Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "User adamkowalski rates Pokaz statkow with 1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2025-04-25T05:16:48.757Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "User adamnowak rates Tommorowland koncert with 5",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2025-04-25T05:17:10.850Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "User adamnowak rates Tommorowland koncert with 5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2025-04-25T05:17:10.853Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "5",
+    "object_repr": "User adamkowalski rates Pokaz statkow with 1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2025-04-25T05:17:10.856Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "4",
+    "object_repr": "User adamnowak rates Oceanarium Wrocław with 2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2025-04-25T05:17:10.858Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "3",
+    "object_repr": "User adamkowalski rates Piknik pod Wieżą Eiffla with 6",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2025-04-25T05:17:10.860Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "2",
+    "object_repr": "User adamkowalski rates Piknik pod Wieżą Eiffla with 2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2025-04-25T05:17:10.862Z",
+    "user": 1,
+    "content_type": 14,
+    "object_id": "1",
+    "object_repr": "User marekmarczak rates Test with 6",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add profile",
+    "content_type": 1,
+    "codename": "add_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change profile",
+    "content_type": 1,
+    "codename": "change_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete profile",
+    "content_type": 1,
+    "codename": "delete_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view profile",
+    "content_type": 1,
+    "codename": "view_profile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 2,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 2,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 2,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 2,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 3,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 3,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 3,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 3,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 4,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 4,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 4,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 4,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 5,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 5,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 5,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 5,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 6,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 6,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 6,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 6,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 7,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 7,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 7,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 7,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add attraction",
+    "content_type": 8,
+    "codename": "add_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change attraction",
+    "content_type": 8,
+    "codename": "change_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete attraction",
+    "content_type": 8,
+    "codename": "delete_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view attraction",
+    "content_type": 8,
+    "codename": "view_attraction"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add event",
+    "content_type": 9,
+    "codename": "add_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change event",
+    "content_type": 9,
+    "codename": "change_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete event",
+    "content_type": 9,
+    "codename": "delete_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view event",
+    "content_type": 9,
+    "codename": "view_event"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add comment",
+    "content_type": 10,
+    "codename": "add_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change comment",
+    "content_type": 10,
+    "codename": "change_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete comment",
+    "content_type": 10,
+    "codename": "delete_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view comment",
+    "content_type": 10,
+    "codename": "view_comment"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add tag",
+    "content_type": 11,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change tag",
+    "content_type": 11,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete tag",
+    "content_type": 11,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view tag",
+    "content_type": 11,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add tagged item",
+    "content_type": 12,
+    "codename": "add_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change tagged item",
+    "content_type": 12,
+    "codename": "change_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete tagged item",
+    "content_type": 12,
+    "codename": "delete_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view tagged item",
+    "content_type": 12,
+    "codename": "view_taggeditem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add followed",
+    "content_type": 13,
+    "codename": "add_followed"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change followed",
+    "content_type": 13,
+    "codename": "change_followed"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete followed",
+    "content_type": 13,
+    "codename": "delete_followed"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view followed",
+    "content_type": 13,
+    "codename": "view_followed"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add rating",
+    "content_type": 14,
+    "codename": "add_rating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change rating",
+    "content_type": 14,
+    "codename": "change_rating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete rating",
+    "content_type": 14,
+    "codename": "delete_rating"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view rating",
+    "content_type": 14,
+    "codename": "view_rating"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zVYxbrdnGTYgodCDD9HtDP$w94XkYSUuuCfNaDX7cHHHYXtp/10cbY3OLT3QihtC/c=",
+    "last_login": "2025-04-25T05:14:00.858Z",
+    "is_superuser": true,
+    "username": "marekmarczak",
+    "first_name": "Marek",
+    "last_name": "Marczak",
+    "email": "marczak01@o2.pl",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2025-03-14T17:30:23.946Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zR7TTPgW4r8HwNwnV64e1G$n8mrqMRHehPjfURr6cesiz3dM9VY5kX2zTzRQD5pPD0=",
+    "last_login": "2025-04-24T05:28:25.485Z",
+    "is_superuser": false,
+    "username": "adamkowalski",
+    "first_name": "Adam",
+    "last_name": "Kowalski",
+    "email": "marczak01@icloud.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-03-25T06:57:23Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$zfOpiflV45Oaf322OiuyVE$bA3IUJv8wQnOoWqHypkfZRAMTJucsmNQ1/y2E4T1D8I=",
+    "last_login": "2025-04-19T10:47:22.868Z",
+    "is_superuser": false,
+    "username": "adamnowak",
+    "first_name": "Adam",
+    "last_name": "",
+    "email": "marekblog@o2.pl",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-04-19T10:47:17.651Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "account",
+    "model": "profile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "attraction"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "event"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "comment"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "taggit",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "taggit",
+    "model": "taggeditem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "followed"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "mainapp",
+    "model": "rating"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "05d91u74h42dnr1shdk02mizl3gzjwue",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RDKLlg8evcNZJcFqZo2Ke3J-HdD0oNeZybzVpH2rca95TVOoi5qUKdfxpSeee5CHjTfF52WeVsn1j3Rh236tkh-XY_2b1Cp1b6FVAohkxB6sACSrEUTskO03uLgRsMAmH1hScwpmBBKOTvxwGNm9fkC5Hs4Jg:1twyVD:Cn2IbF7p6GlR4nqbSzMKUis1JdrGWSycOFWeerxxqno",
+    "expire_date": "2025-04-08T07:15:11.550Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jaadgly7qmocgbt4wicdjtrh5gzqoi82",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQAP_C2RDKLlg8evcNZJcFqZo2Ke3J-HdD0oNeZybzVpH2rca95TVOoi5qUKdfxpSeee5CHjTfF52WeVsn1j3Rh236tkh-XY_2b1Cp1b6FVAohkxB6sACSrEUTskO03uLgRsMAmH1hScwpmBBKOTvxwGNm9fkC5Hs4Jg:1u8BNw:soj2ZjIpO2CccjMSBsUBDAar7pGjIhaNf-0mdc6Th9Y",
+    "expire_date": "2025-05-09T05:14:00.864Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y926pzb0u1lof49tc2yafhzscueo26me",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pCpdAZ06d4zEBimUjWQlHZlvLuSdKHL_9_LeykftjX7rcni56TOalCH3y8GfkjpIN1DuVXNtazLHHVX9E6bvtYkz8vu_gVyaLlnER1FS5NMICDojo4HC98hJCM7IEoOENhYtEhJDLMJgqPBk4Fo1PsD0sw3Sg:1tt8sE:lOjENWqlGWMV_SLJ-Mbqk0PxhjbzovNb4yd03EDJw_Y",
+    "expire_date": "2025-03-28T17:31:06.739Z"
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 16,
+  "fields": {
+    "name": "Kregle",
+    "slug": "kregle",
+    "city": "Kolobrzeg",
+    "country": "Polska",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "asdl knasdasjnd alsn dapnd asldal lda ndas idnrfereiuuenm. adas gdfgdffd ferberfewvdf fwevfweve wevrv",
+    "publish": "2025-04-09T05:55:09.662Z",
+    "created_on": "2025-04-09T05:55:09.663Z",
+    "updated_on": "2025-04-19T10:42:14.010Z",
+    "start_date": "2025-05-09T00:00:00Z",
+    "end_date": "2025-05-11T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/kregle.jpg",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 18,
+  "fields": {
+    "name": "Piknik pod Wieżą Eiffla",
+    "slug": "piknik-pod-wieza-eiffla",
+    "city": "Paryż",
+    "country": "Francja",
+    "longitude": 2.29475,
+    "latitude": 48.858273,
+    "description": "Zapraszamy na piknik pod Wieżą Eiffla! Będzie koncert na żywo muzyki francuskiej, darmowe napoje oraz przekąski, wieczór filmowy i wiele innych.",
+    "publish": "2025-04-18T18:26:26Z",
+    "created_on": "2025-04-18T18:26:26.513Z",
+    "updated_on": "2025-04-19T10:41:23.297Z",
+    "start_date": "2025-07-10T00:00:00Z",
+    "end_date": "2025-07-10T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/756415-visuel-paris-pique-nique-bronzer.jpg",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 19,
+  "fields": {
+    "name": "Oceanarium Wrocław",
+    "slug": "oceanarium-wrocaw",
+    "city": "Wrocław",
+    "country": "Poland",
+    "longitude": 51.1043907,
+    "latitude": 17.0705168,
+    "description": "Zapraszamy obejrzec rybki w oceanarium we Wrocławiu!",
+    "publish": "2025-04-18T18:37:56Z",
+    "created_on": "2025-04-18T18:37:56.704Z",
+    "updated_on": "2025-04-19T09:58:19.280Z",
+    "start_date": "2025-11-20T00:00:00Z",
+    "end_date": "2025-11-20T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/attractions-events-in-Singapore-singapore-oceanarium.jpg",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 20,
+  "fields": {
+    "name": "Kajaki w centrum Nowego Jorku",
+    "slug": "kajaki-w-centrum-nowego-jorku",
+    "city": "Nowy Jork",
+    "country": "USA",
+    "longitude": -73.971049,
+    "latitude": 40.739555,
+    "description": "Zaprasamy na wyjatkowy splyw kajakami w nowym jorku!",
+    "publish": "2025-04-19T10:05:04Z",
+    "created_on": "2025-04-19T10:05:04.553Z",
+    "updated_on": "2025-04-19T10:40:00.410Z",
+    "start_date": "2026-05-25T00:00:00Z",
+    "end_date": "2026-05-25T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/events-cat-tours-attractions-2400x1398_KEqvp5A.jpg",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 22,
+  "fields": {
+    "name": "Pokaz statkow",
+    "slug": "pokaz-statkow",
+    "city": "Szczecin",
+    "country": "Polska",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "Pokaz statkow w Szczecinie, zapraszamy wstęp wolny możliwośc rejsu",
+    "publish": "2025-04-19T10:43:39.287Z",
+    "created_on": "2025-04-19T10:43:39.289Z",
+    "updated_on": "2025-04-19T10:43:39.289Z",
+    "start_date": "2025-08-19T00:00:00Z",
+    "end_date": "2025-08-19T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/Festivals_Events_a7b3ba3d-ba90-4075-8582-f490cbe5b45f.jpg",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 23,
+  "fields": {
+    "name": "Tommorowland koncert",
+    "slug": "tommorowland-koncert",
+    "city": "Kołobrzeg",
+    "country": "Polska",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "Koncer Tommorowland polecam kazdemu !\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"",
+    "publish": "2025-04-19T10:48:53.085Z",
+    "created_on": "2025-04-19T10:48:53.087Z",
+    "updated_on": "2025-04-19T11:21:00.258Z",
+    "start_date": "2025-07-19T00:00:00Z",
+    "end_date": "2025-07-22T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/Tomorrowland.jpg",
+    "created_by": 3
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 24,
+  "fields": {
+    "name": "Kabaret",
+    "slug": "kabaret",
+    "city": "Warszawa",
+    "country": "Polska",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "Kabaret w warszawie\r\n\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"",
+    "publish": "2025-04-19T11:20:01.293Z",
+    "created_on": "2025-04-19T11:20:01.466Z",
+    "updated_on": "2025-04-19T11:20:55.104Z",
+    "start_date": "2025-09-03T00:00:00Z",
+    "end_date": "2025-09-03T00:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/open-air-theatre-activities-events-qadhsudcqysu122lhuq25p8yw8o3bygi9zeob7qizk.jpg",
+    "created_by": 3
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 25,
+  "fields": {
+    "name": "Nowy rok",
+    "slug": "nowy-rok",
+    "city": "Warszawa",
+    "country": "Polska",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "alksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj balksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj balksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj balksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj balksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj balksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj balksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj balksn djas dkjasdkja da bkjbak bdaksb dkabsk bdkasb kdb absdb aksb kdjbaksj b",
+    "publish": "2025-04-19T13:16:43.643Z",
+    "created_on": "2025-04-19T13:16:43.824Z",
+    "updated_on": "2025-04-19T13:16:43.824Z",
+    "start_date": "2025-12-25T20:00:00Z",
+    "end_date": "2026-01-01T03:00:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/chinese-new-year-photo.jpg",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.event",
+  "pk": 26,
+  "fields": {
+    "name": "Test",
+    "slug": "test",
+    "city": "Gorzów Wielkopolski",
+    "country": "Polska",
+    "longitude": 111.111,
+    "latitude": 111.111,
+    "description": "kladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oabkladn as nbdobasod oab",
+    "publish": "2025-04-19T13:21:46.879Z",
+    "created_on": "2025-04-19T13:21:46.932Z",
+    "updated_on": "2025-04-19T13:21:46.932Z",
+    "start_date": "2025-04-16T01:01:00Z",
+    "end_date": "2025-04-16T05:05:00Z",
+    "status": "PB",
+    "public_private": "PB",
+    "event_photo": "events/2025/04/19/TTD_Attractions_H_LIST_Events_4_ec5e53d7-c56f-4c70-b49b-cfbe6552166e.jpg",
+    "created_by": 1
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 16,
+  "fields": {
+    "body": "sadasdasd",
+    "created_on": "2025-04-13T16:33:04.891Z",
+    "user": 2,
+    "event": 16
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 17,
+  "fields": {
+    "body": "sadasdasdsafasfas",
+    "created_on": "2025-04-13T16:33:07.280Z",
+    "user": 2,
+    "event": 16
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 18,
+  "fields": {
+    "body": "sadasdasdsafasfas",
+    "created_on": "2025-04-13T16:33:07.841Z",
+    "user": 2,
+    "event": 16
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 19,
+  "fields": {
+    "body": "sadasdasdsafasfas",
+    "created_on": "2025-04-13T16:33:08.119Z",
+    "user": 2,
+    "event": 16
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 20,
+  "fields": {
+    "body": "sadasdasdsafasfas",
+    "created_on": "2025-04-13T16:33:08.429Z",
+    "user": 2,
+    "event": 16
+  }
+},
+{
+  "model": "mainapp.comment",
+  "pk": 21,
+  "fields": {
+    "body": "xwdcdecef",
+    "created_on": "2025-04-17T18:00:31.348Z",
+    "user": 1,
+    "event": 16
+  }
+},
+{
+  "model": "mainapp.followed",
+  "pk": 37,
+  "fields": {
+    "user": 2,
+    "event": 24,
+    "follow_date": "2025-04-22T06:20:25.581Z"
+  }
+},
+{
+  "model": "mainapp.followed",
+  "pk": 60,
+  "fields": {
+    "user": 1,
+    "event": 18,
+    "follow_date": "2025-04-23T05:13:41.730Z"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 1,
+  "fields": {
+    "name": "diamenty",
+    "slug": "diamenty"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 2,
+  "fields": {
+    "name": "kopalnia",
+    "slug": "kopalnia"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 3,
+  "fields": {
+    "name": "test",
+    "slug": "test"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 4,
+  "fields": {
+    "name": "nuty",
+    "slug": "nuty"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 5,
+  "fields": {
+    "name": "festiwal",
+    "slug": "festiwal"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 6,
+  "fields": {
+    "name": "koncert",
+    "slug": "koncert"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 7,
+  "fields": {
+    "name": "muzyka",
+    "slug": "muzyka"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 8,
+  "fields": {
+    "name": "rap",
+    "slug": "rap"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 9,
+  "fields": {
+    "name": "szczecin",
+    "slug": "szczecin"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 10,
+  "fields": {
+    "name": "muzeum",
+    "slug": "muzeum"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 11,
+  "fields": {
+    "name": "noc",
+    "slug": "noc"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 12,
+  "fields": {
+    "name": "sdgsd",
+    "slug": "sdgsd"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 13,
+  "fields": {
+    "name": "rejs",
+    "slug": "rejs"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 14,
+  "fields": {
+    "name": "lol",
+    "slug": "lol"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 15,
+  "fields": {
+    "name": "kolobrzeg",
+    "slug": "kolobrzeg"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 16,
+  "fields": {
+    "name": "zabawa",
+    "slug": "zabawa"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 17,
+  "fields": {
+    "name": "kregle",
+    "slug": "kregle"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 18,
+  "fields": {
+    "name": "atrakcja",
+    "slug": "atrakcja"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 19,
+  "fields": {
+    "name": "molo",
+    "slug": "molo"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 20,
+  "fields": {
+    "name": "asf",
+    "slug": "asf"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 21,
+  "fields": {
+    "name": "zadarmo",
+    "slug": "zadarmo"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 22,
+  "fields": {
+    "name": "paryż",
+    "slug": "paryż"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 23,
+  "fields": {
+    "name": "kino",
+    "slug": "kino"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 24,
+  "fields": {
+    "name": "eiffle",
+    "slug": "eiffle"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 25,
+  "fields": {
+    "name": "francja",
+    "slug": "francja"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 26,
+  "fields": {
+    "name": "pingwiny",
+    "slug": "pingwiny"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 27,
+  "fields": {
+    "name": "rekin",
+    "slug": "rekin"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 28,
+  "fields": {
+    "name": "oceanarium",
+    "slug": "oceanarium"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 29,
+  "fields": {
+    "name": "natura",
+    "slug": "natura"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 30,
+  "fields": {
+    "name": "ryby",
+    "slug": "ryby"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 31,
+  "fields": {
+    "name": "wroclaw",
+    "slug": "wroclaw"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 32,
+  "fields": {
+    "name": "polska",
+    "slug": "polska"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 33,
+  "fields": {
+    "name": "woda",
+    "slug": "woda"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 34,
+  "fields": {
+    "name": "kajaki",
+    "slug": "kajaki"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 35,
+  "fields": {
+    "name": "splyw",
+    "slug": "splyw"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 36,
+  "fields": {
+    "name": "sport",
+    "slug": "sport"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 37,
+  "fields": {
+    "name": "grupa",
+    "slug": "grupa"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 38,
+  "fields": {
+    "name": "usa",
+    "slug": "usa"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 39,
+  "fields": {
+    "name": "nowyjork",
+    "slug": "nowyjork"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 40,
+  "fields": {
+    "name": "dadsa",
+    "slug": "dadsa"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 41,
+  "fields": {
+    "name": "darmo",
+    "slug": "darmo"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 42,
+  "fields": {
+    "name": "pogoda",
+    "slug": "pogoda"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 43,
+  "fields": {
+    "name": "statek",
+    "slug": "statek"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 44,
+  "fields": {
+    "name": "cieplo",
+    "slug": "cieplo"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 45,
+  "fields": {
+    "name": "nazywo",
+    "slug": "nazywo"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 46,
+  "fields": {
+    "name": "electronic",
+    "slug": "electronic"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 47,
+  "fields": {
+    "name": "kabaret",
+    "slug": "kabaret"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 48,
+  "fields": {
+    "name": "sylwester",
+    "slug": "sylwester"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 49,
+  "fields": {
+    "name": "nowyrok",
+    "slug": "nowyrok"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 50,
+  "fields": {
+    "name": "impreza",
+    "slug": "impreza"
+  }
+},
+{
+  "model": "taggit.tag",
+  "pk": 51,
+  "fields": {
+    "name": "pokaz",
+    "slug": "pokaz"
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 6,
+  "fields": {
+    "tag": 1,
+    "content_type": 8,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 7,
+  "fields": {
+    "tag": 4,
+    "content_type": 8,
+    "object_id": 3
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 15,
+  "fields": {
+    "tag": 5,
+    "content_type": 8,
+    "object_id": 11
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 16,
+  "fields": {
+    "tag": 7,
+    "content_type": 8,
+    "object_id": 11
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 17,
+  "fields": {
+    "tag": 8,
+    "content_type": 8,
+    "object_id": 11
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 18,
+  "fields": {
+    "tag": 5,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 19,
+  "fields": {
+    "tag": 6,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 20,
+  "fields": {
+    "tag": 7,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 21,
+  "fields": {
+    "tag": 8,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 22,
+  "fields": {
+    "tag": 9,
+    "content_type": 8,
+    "object_id": 12
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 23,
+  "fields": {
+    "tag": 12,
+    "content_type": 8,
+    "object_id": 13
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 28,
+  "fields": {
+    "tag": 16,
+    "content_type": 9,
+    "object_id": 16
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 29,
+  "fields": {
+    "tag": 17,
+    "content_type": 9,
+    "object_id": 16
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 30,
+  "fields": {
+    "tag": 15,
+    "content_type": 9,
+    "object_id": 16
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 38,
+  "fields": {
+    "tag": 7,
+    "content_type": 9,
+    "object_id": 18
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 39,
+  "fields": {
+    "tag": 21,
+    "content_type": 9,
+    "object_id": 18
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 41,
+  "fields": {
+    "tag": 23,
+    "content_type": 9,
+    "object_id": 18
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 42,
+  "fields": {
+    "tag": 24,
+    "content_type": 9,
+    "object_id": 18
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 43,
+  "fields": {
+    "tag": 25,
+    "content_type": 9,
+    "object_id": 18
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 44,
+  "fields": {
+    "tag": 32,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 45,
+  "fields": {
+    "tag": 33,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 46,
+  "fields": {
+    "tag": 18,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 47,
+  "fields": {
+    "tag": 26,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 48,
+  "fields": {
+    "tag": 27,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 49,
+  "fields": {
+    "tag": 28,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 50,
+  "fields": {
+    "tag": 29,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 51,
+  "fields": {
+    "tag": 30,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 52,
+  "fields": {
+    "tag": 31,
+    "content_type": 9,
+    "object_id": 19
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 53,
+  "fields": {
+    "tag": 33,
+    "content_type": 9,
+    "object_id": 20
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 54,
+  "fields": {
+    "tag": 34,
+    "content_type": 9,
+    "object_id": 20
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 55,
+  "fields": {
+    "tag": 35,
+    "content_type": 9,
+    "object_id": 20
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 56,
+  "fields": {
+    "tag": 36,
+    "content_type": 9,
+    "object_id": 20
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 57,
+  "fields": {
+    "tag": 37,
+    "content_type": 9,
+    "object_id": 20
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 58,
+  "fields": {
+    "tag": 38,
+    "content_type": 9,
+    "object_id": 20
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 59,
+  "fields": {
+    "tag": 39,
+    "content_type": 9,
+    "object_id": 20
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 61,
+  "fields": {
+    "tag": 33,
+    "content_type": 9,
+    "object_id": 22
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 62,
+  "fields": {
+    "tag": 9,
+    "content_type": 9,
+    "object_id": 22
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 63,
+  "fields": {
+    "tag": 42,
+    "content_type": 9,
+    "object_id": 22
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 64,
+  "fields": {
+    "tag": 41,
+    "content_type": 9,
+    "object_id": 22
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 65,
+  "fields": {
+    "tag": 43,
+    "content_type": 9,
+    "object_id": 22
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 66,
+  "fields": {
+    "tag": 13,
+    "content_type": 9,
+    "object_id": 22
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 67,
+  "fields": {
+    "tag": 44,
+    "content_type": 9,
+    "object_id": 22
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 68,
+  "fields": {
+    "tag": 32,
+    "content_type": 9,
+    "object_id": 23
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 69,
+  "fields": {
+    "tag": 6,
+    "content_type": 9,
+    "object_id": 23
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 70,
+  "fields": {
+    "tag": 7,
+    "content_type": 9,
+    "object_id": 23
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 71,
+  "fields": {
+    "tag": 45,
+    "content_type": 9,
+    "object_id": 23
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 72,
+  "fields": {
+    "tag": 46,
+    "content_type": 9,
+    "object_id": 23
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 73,
+  "fields": {
+    "tag": 15,
+    "content_type": 9,
+    "object_id": 23
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 74,
+  "fields": {
+    "tag": 18,
+    "content_type": 9,
+    "object_id": 24
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 75,
+  "fields": {
+    "tag": 47,
+    "content_type": 9,
+    "object_id": 24
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 76,
+  "fields": {
+    "tag": 45,
+    "content_type": 9,
+    "object_id": 24
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 77,
+  "fields": {
+    "tag": 7,
+    "content_type": 9,
+    "object_id": 24
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 78,
+  "fields": {
+    "tag": 7,
+    "content_type": 9,
+    "object_id": 25
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 79,
+  "fields": {
+    "tag": 48,
+    "content_type": 9,
+    "object_id": 25
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 80,
+  "fields": {
+    "tag": 49,
+    "content_type": 9,
+    "object_id": 25
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 81,
+  "fields": {
+    "tag": 50,
+    "content_type": 9,
+    "object_id": 25
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 82,
+  "fields": {
+    "tag": 51,
+    "content_type": 9,
+    "object_id": 25
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 83,
+  "fields": {
+    "tag": 16,
+    "content_type": 9,
+    "object_id": 26
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 84,
+  "fields": {
+    "tag": 18,
+    "content_type": 9,
+    "object_id": 26
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 85,
+  "fields": {
+    "tag": 3,
+    "content_type": 9,
+    "object_id": 26
+  }
+},
+{
+  "model": "taggit.taggeditem",
+  "pk": 86,
+  "fields": {
+    "tag": 7,
+    "content_type": 9,
+    "object_id": 26
+  }
+}
+]
