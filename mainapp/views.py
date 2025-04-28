@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Count
-from .models import Event, Attraction, Comment, Followed
+from .models import Event, Attraction, Comment, Followed, Rating
 from taggit.models import Tag
 from django.utils import timezone
 from django.core.paginator import Paginator
@@ -83,6 +83,7 @@ def event_details(request, pk):
     similar_posts = Event.published.filter(tags__in=event_tags_ids).exclude(id=event.id)
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
     time_now = datetime.datetime.now
+    ratings = Rating.objects.filter(event=event)
 
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
@@ -109,6 +110,7 @@ def event_details(request, pk):
         'comment_form': comment_form,
         'comments':comments,
         'obserwuje': obserwuje,
+        'ratings':ratings,
     }
     return render(request, templateFileName, context)
 

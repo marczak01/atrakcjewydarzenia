@@ -132,7 +132,9 @@ class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_ratings')
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_ratings')
     rate = models.IntegerField(validators=[rating_scope])
+    body = models.TextField(max_length=250, blank=True, null=True)
     rating_date = models.DateTimeField(auto_now_add=True)
 
+
     def __str__(self):
-        return f"User {self.user.username} rates {self.event.name} with {self.rate}"
+        return f"{self.user.username} ocenia to wydarzenie na {self.rate}"

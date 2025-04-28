@@ -37,17 +37,26 @@ def follow_or_unfollow(event, user):
         obserwuje = False
         return obserwuje
 
+
 @register.simple_tag
 def count_rating_event(event):
     rating_sum = 0
-    rating_count = 0
-    event_rating = Event.objects.get(id=event.id)
-    ratings = Rating.objects.filter(event=event_rating)
+    event = Event.objects.get(id=event.id)
+    ratings = Rating.objects.filter(event=event)
     for rating in ratings:
         rating_sum += rating.rate
-        rating_count += 1
-        rating_sum = rating_sum / rating_count
-    return round(rating_sum, 2)
+    if ratings.count() == 0:
+        rating_result = 'brak ocen'
+        return rating_result
+    else:
+        rating_result = rating_sum / ratings.count()
+        return rating_result
+    
+@register.simple_tag
+def count_ratings(event):
+    event = Event.objects.get(id=event.id)
+    ratings = Rating.objects.filter(event=event)
+    return ratings.count()
 # @register.simple_tag
 # def search_form(option):
 #     weekdays = {'poniedziałek' : 1,
