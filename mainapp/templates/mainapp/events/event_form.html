@@ -7,7 +7,7 @@
 {% block content %}
   <h1>Add Event</h1>
   <p>Fill form below to create your new Event</p>
-  <form method="post">
+  <form method="post" enctype='multipart/form-data'>
     {{ event_form.as_p }}
     {% csrf_token %}
     <p><input type="submit" value="Add Event"></p>

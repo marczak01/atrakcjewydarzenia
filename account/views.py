@@ -1,7 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from .models import Profile
+from django.db.models import Count
+from mainapp.models import Followed, User, Event, Attraction
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 from django.contrib.auth.decorators import login_required
 
@@ -32,18 +35,47 @@ from django.contrib.auth.decorators import login_required
 
 
 @login_required
-def dashboard(request):
+def dashboard(request, option='events'):
     templateFileName = 'account/dashboard.html'
     profile = get_object_or_404(Profile,
                                 user = request.user.id)
+    user = request.user
+    events = Event.objects.filter(created_by=request.user)
+    # event_follows = events.annotate(follow_number=Count('name'))
     # profile = Profile.objects.get(user = request.user.id)
+    followed = Followed.objects.filter(user=request.user).annotate(follow_number=Count('event'))
+    attractions = Attraction.objects.filter(created_by=request.user)
+
+    page = None
+
+    if option == 'events':
+        page = 'events'
+
+    if option == 'follows':
+        page = 'follows'
+
+    if option == 'attractions':
+        page = 'attractions'
 
     context = {
         'profile': profile,
+        'user': user,
+        'followed': followed,
+        'attractions':attractions,
+        'events':events,
+        'page': page,
     }
 
     return render(request, templateFileName, context)
 
+
+@login_required
+def messages(request):
+
+    context = {
+
+    }
+    return render(request, 'account/messages.html', context)
 
 def register(request):
     if request.method == 'POST':

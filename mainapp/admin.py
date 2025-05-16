@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Attraction, Comment, Followed
+from .models import Event, Attraction, Comment, Followed, Rating
 # Register your models here.
 
 @admin.register(Event)
@@ -30,3 +30,7 @@ class CommentAdmin(admin.ModelAdmin):
 @admin.register(Followed)
 class FollowedAdmin(admin.ModelAdmin):
     list_display = ['user', 'event', 'follow_date']
+
+@admin.register(Rating)
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ['user', 'event', 'rate', 'rating_date']

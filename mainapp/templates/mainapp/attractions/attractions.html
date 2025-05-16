@@ -5,10 +5,10 @@
 <div class="attractions">
    {% for attraction in attractions  %}
    <div class="attractions__attraction">
-    <a href="{% url 'mainapp:attraction_details' 100 %}">
+    <a href="{% url 'mainapp:attraction_details' attraction.id %}">
         <p class="attractions__attraction__title">{{ attraction.name }}</p>
         <div class="attractions__attraction__img">
-            <img src="{% static 'images/klub.jpg' %}" alt="">
+            <img src="{{ attraction.attraction_photo.url }}" alt="">
             <span class="open">OPEN NOW!</span>
             <span class="stars">* * * * ( 1750 )</span>
         </div>

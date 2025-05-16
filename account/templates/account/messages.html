@@ -1,0 +1,81 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  Messages
+{% endblock title %}
+
+
+{% block content %}
+    <div class="messages">
+        <div class="messages__left">
+            <ul>
+                <li>
+                    <p class="messages__left-user">Tomek Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+                <li>
+                    <p class="messages__left-user">adam Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+                <li>
+                    <p class="messages__left-user">rafal Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+                <li>
+                    <p class="messages__left-user">Tomek Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+                <li>
+                    <p class="messages__left-user">Tomek Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+                <li>
+                    <p class="messages__left-user">Tomek Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+                <li>
+                    <p class="messages__left-user">Tomek Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+                <li>
+                    <p class="messages__left-user">Tomek Kowalski</p>
+                    <p class="messages__left-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatum voluptates fugit dolor at ducimus...</p>
+                </li>
+            </ul>
+        </div>
+        <div class="messages__right">
+            <div class="messages__right__top">
+                <p class="messages__right__top-user">Tomek Kowalski</p>
+                <p class="messages__right__top-message">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae ipsam quisquam cumque repellendus doloribus, expedita dicta a cum nesciunt vel praesentium, dolorem mollitia odit asperiores fuga. Cumque quos quae nobis!
+                Numquam consequatur animi, corporis dicta, odio ratione eveniet maxime ad ducimus fugiat soluta labore eum! Ut minima, eaque in similique ratione consectetur quasi est quas, delectus quis dolore repellendus dignissimos.
+                Et quia, sapiente quaerat, totam id autem quasi explicabo cumque, deserunt asperiores vel velit dolorum! Eligendi ab modi illo libero natus quibusdam esse, eum eius dolorem, consectetur blanditiis at aspernatur?
+                Molestias illum qui aperiam. Nisi maiores harum quidem magni quibusdam, unde quisquam explicabo pariatur a esse quo minima nihil obcaecati voluptates. Nihil voluptates quidem quas fuga voluptate magni facere praesentium!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let wiadomosci = document.querySelectorAll('.messages__left li');
+        let podgladUser = document.querySelector('.messages__right__top-user');
+        let wiadomoscUser = document.querySelector('.messages__right__top-message');
+
+        let poprzedni = null;
+        for(let i= 0; i < wiadomosci.length; i++){
+
+            wiadomosci[i].addEventListener('click' , function(){
+                if(poprzedni){
+                    poprzedni.classList.remove('messages__left-active');
+                }
+                let tytul = wiadomosci[i].querySelector('.messages__left-user');
+                let wiadomosc = wiadomosci[i].querySelector('.messages__left-message');
+                podgladUser.textContent = tytul.textContent;
+                wiadomoscUser.textContent = wiadomosc.textContent;
+                poprzedni = wiadomosci[i]
+                wiadomosci[i].classList.add('messages__left-active');
+            })
+
+        }
+
+    </script>
+{% endblock content %}

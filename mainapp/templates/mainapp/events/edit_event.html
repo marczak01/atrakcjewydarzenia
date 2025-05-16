@@ -1,0 +1,14 @@
+{% extends "mainapp/base.html" %}
+
+{% block title %}
+  edit event
+{% endblock title %}
+
+{% block content %}
+  <h1>event edit</h1>
+  <form method="post" enctype="multipart/form-data">
+      {{ event_form.as_p }}
+      {% csrf_token %}
+      <p><input type="submit" value="Save changes"></p>
+</form>
+{% endblock content %}

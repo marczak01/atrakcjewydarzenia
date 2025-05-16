@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.urls import reverse
 from django.utils import timezone
 from taggit.managers import TaggableManager
-
 
 class PublishedManager(models.Manager):
     def get_queryset(self):
@@ -38,6 +38,8 @@ class Event(models.Model):
     end_date = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     public_private = models.CharField(max_length=2, choices=PubPriv.choices, default=PubPriv.PUBLIC)
+    event_photo = models.ImageField(upload_to='events/%Y/%m/%d/',
+                              blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='event_posts')
     tags = TaggableManager()
 
@@ -81,6 +83,8 @@ class Attraction(models.Model):
     publish = models.DateTimeField(default=timezone.now)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    attraction_photo = models.ImageField(upload_to='attractions/%Y/%m/%d/',
+                              blank=True)
     status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='attractions_posts')
     tags = TaggableManager() 
@@ -110,12 +114,27 @@ class Comment(models.Model):
 
     def __str__(self):
         return self.body
-    
+
 
 class Followed(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_followed')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_followed')
     follow_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"User {self.user.username} follow {self.event.name}"
+
+def rating_scope(value):
+    if value >= 1 and value <= 5: pass
+    else: raise ValidationError(f"{value} is not between 1 and 5. Correct it please.")
+
+class Rating(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_ratings')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_ratings')
+    rate = models.IntegerField(validators=[rating_scope])
+    body = models.TextField(max_length=250, blank=True, null=True)
+    rating_date = models.DateTimeField(auto_now_add=True)
+
+
+    def __str__(self):
+        return f"{self.user.username} ocenia to wydarzenie na {self.rate}"

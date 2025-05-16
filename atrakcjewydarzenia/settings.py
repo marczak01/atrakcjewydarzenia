@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
 from pathlib import Path
-
+from ...email_password import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -74,6 +75,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'atrakcjewydarzenia.wsgi.application'
 
+# SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -84,6 +87,11 @@ DATABASES = {
         'NAME': 'atrakcjewydarzenia',
         'USER': 'atrakcjewydarzenia',
         'PASSWORD': 'admin',
+        # 'NAME': os.getenv('POSTGRES_DB'),
+        # 'USER': os.getenv('POSTGRES_USER'),
+        # 'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        # 'HOST': 'db',
+        # 'PORT': '5432',
     }
 }
 
@@ -148,4 +156,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'marekmarczak25@gmail.com'
-EMAIL_HOST_PASSWORD = 'ntqe aywy frwu wduw '
+EMAIL_HOST_PASSWORD = email_password

@@ -1,6 +1,8 @@
 {% extends "mainapp/base.html" %}
 {% load static %}
 {% load mainapp_tags %}
+{% load i18n %}
+{% load humanize %}
 {% block title %}Event XXXXX details{% endblock title %}
 {% block content %}
 
@@ -8,8 +10,17 @@
     <span class="eventDetails__tags__timeuntil">IN {% substract event.start_date.date|date:'z' time_now.date|date:'z' %} DAYS</span>
     <span class="eventDetails__tags__monthday">{{ event.start_date.date|date:'l' }}</span>
     <span class="eventDetails__tags__publicPrivate">{{ event.get_public_private_display }}</span>
-    <a href="{% url 'mainapp:follow_event' event.id %}"><button>FOLLOW EVENT</button></a>
+    {% if obserwuje %}
+        <a href="{% url 'mainapp:unfollow_event' pk=event.id page='event_details' %}">
+            <button class="followBtn" name="follow_btn">NIE OBSERWUJ</button>
+        </a>
+    {% else %}
+        <a href="{% url 'mainapp:follow_event' pk=event.id page='event_details' %}">
+            <button class="followBtn" name="follow_btn">OBSERWUJ</button>
+        </a>
+    {% endif %}
 </div>
+
 
 
 <div class="eventDetails">
@@ -27,24 +38,39 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="eventDetails__top__comments">
-            
-            {% if request.user.is_authenticated %}
-                <h3>Comments: </h3>
-                <form method="post">
-                    {{ comment_form.as_p }}
-                    {% csrf_token %}
-                    <p><input type="submit" value="Add comment"></p>
-                </form>
-            {% else %}
-                <h3>Comments: - log in to comment</h3>
-            {% endif %}
-            {% for comment in comments %}
-                <div class="eventDetails__top__comments__comment">
-                    <div class="eventDetails__top__comments__comment__name">{{ comment.user }} - {{ comment.created_on|timesince:time_now}} ago</div>
-                    <div class="eventDetails__top__comments__comment__content">{{ comment.body }}</div>
+        <div class="eventDetails__comm_rat">
+            <div class="eventDetails__comments">
+                {% if request.user.is_authenticated %}
+                    <h3>Komentarze: </h3>
+                    <form method="post">
+                        {{ comment_form.as_p }}
+                        {% csrf_token %}
+                        <p><input type="submit" value="Dodaj"></p>
+                    </form>
+                {% else %}
+                    <h3>Komentarze: - Zaloguj się aby dodać komentarz</h3>
+                {% endif %}
+                {% for comment in comments %}
+                    <div class="eventDetails__comments__comment">
+                        {% language 'pl' %}
+                            <div class="eventDetails__comments__comment__name">{{ comment.user }} - {{ comment.created_on|timesince:time_now}} ago</div>
+                        {% endlanguage %}
+                        <div class="eventDetails__comments__comment__content">{{ comment.body }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="eventDetails__ratings">
+                <h2 class="eventDetails__ratings-h2">Opinie: {% count_ratings event %} (średnia ocen {% count_rating_event event %}) </h2>
+                {% for rating in ratings  %}
+                <div class="eventDetails__ratings__rate">
+                    <p class="eventDetails__ratings__rate-p">{{ rating }}</p>
+                    {% if rating.body %}
+                        <p class="eventDetails__ratings__rate-body">{{ rating.body }}</p>
+                    {% endif %}
                 </div>
-            {% endfor %}
+
+                {% endfor %}
+            </div>
         </div>
     </div>
     <div class="eventDetails__bottom">
@@ -71,7 +97,5 @@
         <div class="eventDetails__bottom__right"></div>
     </div>
 </div>
-    
 
-    
 {% endblock content %}

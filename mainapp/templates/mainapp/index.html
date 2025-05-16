@@ -1,28 +1,126 @@
 {% extends 'mainapp/base.html' %}
-
+{% load static %}
+{% load mainapp_tags %}
+{% load i18n %}
 {% block content %}
-
-{% if request.user.is_authenticated %}
-    <main class="main">
-        <h1>Welcome again {{request.user.first_name|default:user.username}}</h1>
-    </main>
-{% else %}
-    <main class="main">
-        <div class="welcome_box">
-            <h1 class="welcome_box_heading">
-                <span class="welcome_box_heading-top">Welcome on out Website</span>
-                <span class="welcome_box_heading-bottom">AtrakcjeWydarzenia</span>
-            </h1>
-            <p class="welcome_box_paragraph">Website where you forget about boringness and start having fun in place yo're at!</p>
-        </div>
-
-        <div class="welcome_cta">
-            <div class="welcome_cta_buttons">
-                <a href="{% url 'account:register' %}" class="welcome_cta_buttons-button">Create an account</a>
-                <a href="{% url 'account:login' %}" class="welcome_cta_buttons-button">Log in</a>
-                <a href="{% url 'mainapp:welcome' %}" class="welcome_cta_buttons-button welcome_cta_buttons-button_quest">Continue as a quest</a>
+    <main class="home">
+        <section class="home__banner">
+            <div class="home__banner__img">
+                <img class="home__banner__img-active" src="{% static 'images/dobrzyca.jpg' %}" alt="">
+                <img src="{% static 'images/warsaw.jpg' %}" alt="">
             </div>
-        </div>
+            <div class="home__search">
+                <form method="post" action="{% url 'mainapp:events' %} " class="home__search__form">
+                    {% csrf_token %}
+                    <div class="home__search-options">
+                        <div class="home__search__options">
+                            <input hidden type="radio" value="events" name="events-attractions" id="events">
+                            <input hidden type="radio" value="attractions" name="events-attractions" id="attractions">
+                            <a href=""><label for="events" class="home__search__options-option">Eventy</label></a>
+                            <a href=""><label for="attractions" class="home__search__options-option">Atrakcje</label></a>
+                        </div>
+                    </div>
+                    <div class="home__search-form">
+                    <div class="home__search__el">
+                        <div class="home__search__el-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8"/></g></svg>
+                        </div>
+                        <input class="home__search-input" type="text" name="location_search" placeholder="Miejsce">
+                    </div>
+                    <div class="home__search__el">
+                        <div class="home__search__el-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z"/></svg>
+                        </div>
+                        <input class="home__search-input" type="text" name="weekday_search" placeholder="Środa, Czwartek..">
+                    </div>
+                    <div class="home__search__el">
+                        <div class="home__search__el-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z"/></svg>
+                        </div>
+                        <input class="home__search-input" name="date_search" type="date">
+                    </div>
+                    <div class="home__search__el">
+                        <input class="home__search-btn" type="submit" value="SZUKAJ">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </section>
+        <section class="home__promoted">
+            <h3 class="h3">
+                Promowane Eventy
+            </h3>
+            <div class="events">
+                {% for event in events %}
+                    <div class="events__event events__event-active ">
+                        <a href="{{event.get_absolute_url }}">
+                            <div class="events__event__top">
+                                <p class="events__event__top__title">{{ event.name }}</p>
+                                    <span class="events__event__top__date">{{ event.start_date|date:'d.m.Y H:i' }} - {{event.end_date|date:'d.m.Y H:i'}}</span>
+                            </div>
+                            <div class="events__event__img">
+                                {% if event.event_photo %}
+                                    <img src="{{ event.event_photo.url }}" alt="">
+                                {% else %}
+                                    <img src="{% static 'images/klub.jpg' %}" alt="">
+                                {% endif %}
+                
+                                <span class="events__event__timeuntil">
+                                    {% no_days event.start_date.date|date:'z' time_now.date|date:'z' event.start_date.date|date:'Y' time_now.date|date:'Y' as days_dif %}
+                                    {% if days_dif < 0 %}
+                                        {% absolute  days_dif %} dni temu
+                                    {% else %}
+                                        za {{ days_dif }} dni
+                                    {% endif %}
+                                </span>
+                                {% language 'pl' %}
+                                    <a href="{% url 'account:dashboard' %}"><span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span></a>
+                                {% endlanguage %}
+                                <a href="{% url 'account:dashboard' %}"><span class="events__event__location">{{ event.city }}</span></a>
+                                <a href="#"><span class="events__event__rating">{% count_rating_event event %} ({% count_ratings event %})</span></a>
+                                {% if request.user.id %}
+
+                                {% follow_or_unfollow event.id request.user as follow_unfollow %}
+                                {% if follow_unfollow %}
+                                    <a href="{% url 'mainapp:unfollow_event' pk=event.id page='events' %}">
+                                        <span class="events__event__follow">NIE OBSERWUJ</span>
+                                    </a>
+                                {% else %}
+                                    <a href="{% url 'mainapp:follow_event' pk=event.id page='events' %}">
+                                        <span class="events__event__follow">OBSERWUJ</span>
+                                    </a>
+                                {% endif %}
+                                {% else %}
+                                    <a href="{% url 'account:login' %}">
+                                        <span style="background-color: rgb(125, 125, 125);" class="events__event__follow">obserwuj</span>
+                                    </a>
+                                {% endif %}
+                
+                            </div>
+                            <p class="events__event__description">
+                                {{ event.description|truncatewords_html:30 }}
+                            </p>
+                        </a>
+                        <div class="events__event__tags">
+                            {% for tag in event.tags.all|slice:':4' %}
+                                <a href="{% url 'mainapp:events_by_tag' tag.slug %}">{{ tag.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+        <section class="home__topDestinations">
+            <h3 class="h3">
+                Najczęściej odwiedzane
+            </h3>
+            <div class="home__topDestinations__boxes">
+                {% for top_destination in top_destinations %}
+                    <a href="{% url 'mainapp:events_by_city' city=top_destination.city %}">
+                        <div class="home__topDestinations__boxes__topDestination">
+                            <p>{{ top_destination.city }} ({{ top_destination.destination_count }})</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </section>
     </main>
-{% endif %}
 {% endblock content %}

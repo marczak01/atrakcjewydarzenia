@@ -19,4 +19,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path("edit/", views.edit, name="edit"),
     path('', views.dashboard, name='dashboard'),
+    path('<str:option>/', views.dashboard, name='dashboard'),
+    path("messages/", views.messages, name="messages"),
+
 ]

@@ -1,48 +1,143 @@
 {% extends "mainapp/base.html" %}
 {% load static %}
+{% load i18n %}
 {% load humanize %}
 {% load mainapp_tags %}
 {% block title %}Events{% endblock title %}
 
-{%block content %}
+{% block content %}
+	{% if city %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów<br>w lokalizacji {{ city }}</p>
+	{% elif monthday %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów<br>w dniu {{ monthday }}</p>
+	{% elif location %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów<br>w miejscu {{ location }}</p>
+	{% else %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów</p>
+	{% endif %}
 
 {% if tag %}
-	<h2 class="events__hashed">Events hashed with tag "{{tag.name}}</h2>
+	<h2 class="events__hashed">Eventy oznaczone tagiem "{{ tag.name }}"</h2>
 {% endif %}
 
-<div class="events">
-	{% for event in events %}
+<div class="events__search">
+	<form method="post" action="{% url 'mainapp:events' %} " class="events__search__form">
+		{% csrf_token %}
+		<div class="events__search__el">
+			<div class="events__search__el-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8"/></g></svg></div><input type="text" name="location_search" placeholder="Miejsce">
+		</div>
+		<div class="events__search__el">
+			<div class="events__search__el-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z"/></svg></div><input type="text" name="weekday_search" placeholder="Środa, Czwartek..">
+		</div>
+		<div class="events__search__el">
+			<div class="events__search__el-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M5.673 0a.7.7 0 0 1 .7.7v1.309h7.517v-1.3a.7.7 0 0 1 1.4 0v1.3H18a2 2 0 0 1 2 1.999v13.993A2 2 0 0 1 18 20H2a2 2 0 0 1-2-1.999V4.008a2 2 0 0 1 2-1.999h2.973V.699a.7.7 0 0 1 .7-.699M1.4 7.742v10.259a.6.6 0 0 0 .6.6h16a.6.6 0 0 0 .6-.6V7.756zm5.267 6.877v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zm-8.333-3.977v1.666H5v-1.666zm4.166 0v1.666H9.167v-1.666zm4.167 0v1.666h-1.667v-1.666zM4.973 3.408H2a.6.6 0 0 0-.6.6v2.335l17.2.014V4.008a.6.6 0 0 0-.6-.6h-2.71v.929a.7.7 0 0 1-1.4 0v-.929H6.373v.92a.7.7 0 0 1-1.4 0z"/></svg></div><input name="date_search" type="date">
+		</div>
+		<div class="events__search__el">
+			<input type="submit" value="SZUKAJ">
+		</div>
+	</form>
+</div>
+
+<div class="events__map">
+	MAPA OBIEKTOW
+</div>
+<div class="events__main">
+	<div class="events__main__filter">
+		<form method="post" action="{% url 'mainapp:events' %}">
+			{% csrf_token %}
+			<button>Filtruj</button>
+			<div class="events__main__filter-date">
+				<p><a href="{% url 'mainapp:events_by_day' day=time_now.date|date:'Y-m-d' %}">Dzisiaj</a></p>
+				{% add_date date_now 1 as tommorow_date%}
+				<p><a href="{% url 'mainapp:events_by_day' day=tommorow_date|date:'Y-m-d' %}">Jutro</a></p>
+				<p><a href="{% url 'mainapp:events_by_week' this_week=1 %}">W ciągu 7 dni</a></p>
+				<p><a href="{% url 'mainapp:events_by_month' by_month=1 %}">W ciągu 30 dni</a></p>
+			</div>
+			<div class="calendar-container">
+				<header class="calendar-header">
+					<p class="calendar-current-date"></p>
+					<div class="calendar-navigation">
+						<span id="calendar-prev" 
+								class="material-symbols-rounded">
+							chevron_left
+						</span>
+						<span id="calendar-next" 
+								class="material-symbols-rounded">
+							chevron_right
+						</span>
+					</div>
+				</header>
+		
+				<div class="calendar-body">
+					<ul class="calendar-weekdays">
+						<li>Ndz</li>
+						<li>Pon</li>
+						<li>Wt</li>
+						<li>Śr</li>
+						<li>Czw</li>
+						<li>Pt</li>
+						<li>So</li>
+					</ul>
+					<ul class="calendar-dates"></ul>
+				</div>
+			</div>
+			<h3>Ocena:</h3>
+			<div class="events__main__filter-rating">
+				<div class=""><input type="radio" name="rating" value="5"><label for="rating"> > 5</label></div>
+				<div class=""><input type="radio" name="rating" value="4"><label for="rating"> > 4</label></div>
+				<div class=""><input type="radio" name="rating" value="3"><label for="rating"> > 3</label></div>
+			</div>
+		</form>
+	</div>
+	<div class="events">
+		{% for event in events %}
+	
 	<div class="events__event">
 		<a href="{{event.get_absolute_url }}">
 			<div class="events__event__top">
 				<p class="events__event__top__title">{{ event.name }}</p>
-				{% if event.start_date.date|date:'Y' == time_now.date|date:'Y' %}
-					<span class="events__event__top__date">{{ event.start_date|date:'d-m / H:i' }} - {{event.end_date|date:'d-m / H:i'}}</span>
-				{% else %}
-					<span class="events__event__top__date">{{ event.start_date|date:'d-m-Y - H:i' }} / {{event.end_date|date:'d-m-Y - H:i'}}</span>
-				{% endif %}
+					<span class="events__event__top__date">{{ event.start_date|date:'d.m.Y H:i' }} - {{event.end_date|date:'d.m.Y H:i'}}</span>
 			</div>
 			<div class="events__event__img">
-				<img src="{% static 'images/klub.jpg' %}" alt="">
+				{% if event.event_photo %}
+					<img src="{{ event.event_photo.url }}" alt="">
+				{% else %}
+					<img src="{% static 'images/klub.jpg' %}" alt="">
+				{% endif %}
 
 				<span class="events__event__timeuntil">
-					{% substract event.start_date.date|date:'Y' time_now.date|date:'Y' as years_diff %}
-					{% substract event.start_date.date|date:'z' time_now.date|date:'z' as days_diff %}
-					{% substract 1 time_now|date:'z' as days_new_year %}
-					{% absolute days_diff as days_diff_abs %}
-					{% multiply 365 years_diff as years_mlt %}
-					{% add years_mlt days_diff_abs as new_year %}
-					{% substract new_year days_diff_abs as new_year_final %}
-
-					{% if years_diff > 0 %}
-					  in {{ new_year_final }} days
-					{% elif days_diff < 0 %}
-					  {% absolute days_diff %} days ago
+					{% no_days event.start_date.date|date:'z' time_now.date|date:'z' event.start_date.date|date:'Y' time_now.date|date:'Y' as days_dif %}
+					{% if days_dif < 0 %}
+						{% absolute  days_dif %} dni temu
+					{% elif days_dif == 0 %}
+						Dzisiaj
+					{% elif days_dif == 1 %}
+						Za 1 dzień
 					{% else %}
-					  in {{ days_diff }} days
+						za {{ days_dif }} dni
 					{% endif %}
 				</span>
-				<span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span>
+				{% language 'pl' %}
+					<a href="{% url 'mainapp:events_by_monthday' monthday=event.start_date.date|date:'l' %}"><span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span></a>
+				{% endlanguage %}
+				<a href="{% url 'mainapp:events_by_city' city=event.city %}"><span class="events__event__location">{{ event.city }}</span></a>
+				<a href="#"><span class="events__event__rating">{% count_rating_event event %} ({% count_ratings event %})</span></a>
+				{% if request.user.id %}
+					{% follow_or_unfollow event.id request.user as follow_unfollow %}
+				{% if follow_unfollow %}
+					<a href="{% url 'mainapp:unfollow_event' pk=event.id page='events' %}">
+						<span class="events__event__follow">NIE OBSERWUJ</span>
+					</a>
+				{% else %}
+					<a href="{% url 'mainapp:follow_event' pk=event.id page='events' %}">
+						<span class="events__event__follow">OBSERWUJ</span>
+					</a>
+				{% endif %}
+				{% else %}
+					<a href="{% url 'account:login' %}">
+						<span style="background-color: rgb(125, 125, 125);" class="events__event__follow">obserwuj</span>
+					</a>
+				{% endif %}
 
 			</div>
 			<p class="events__event__description">
@@ -50,14 +145,16 @@
 			</p>
 		</a>
 		<div class="events__event__tags">
-			{% for tag in event.tags.all %}
+			{% for tag in event.tags.all|slice:':4' %}
 				<a href="{% url 'mainapp:events_by_tag' tag.slug %}">{{ tag.name }}</a>
 			{% endfor %}
 		</div>
 	</div>
 	{% endfor %}
 </div>
-{% include "mainapp/pagination.html" with page=events %}
+
+</div>
+<!-- {% include "mainapp/pagination.html" with page=events %} -->
 
 
 {% endblock content %}

@@ -2,5 +2,31 @@
 
 {% block title %}Attraction XXXX{% endblock title %}
 {% block content %}
-Attraction XXXX webpage
+
+<div class="attraction">
+    <div class="attraction__left">
+        <div class="attraction__left__img">
+            <img src="{{ attraction.attraction_photo.url }}" alt="Attraction Photo">
+        </div>
+    </div>
+    <div class="attraction__right">
+        <div class="attraction__right__top">
+            <div class="attraction__right__top__tags">
+                {% for tag in attraction.tags.all %}
+                  <a href="#">
+                    <span>{{tag}}</span>
+                  </a>
+                {% endfor %}
+            </div>
+            <div class="attraction__right__top__location">
+                <span>{{ attraction.city }}, {{ attraction.country }}</span>
+            </div>
+        </div>
+        <div class="attraction__right__main">
+            <h2>{{ attraction.name }}</h2>
+            <p>{{ attraction.description }}</p>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
