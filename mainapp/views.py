@@ -1,4 +1,5 @@
-import datetime
+from datetime import datetime, timedelta
+from django.db.models import Avg
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Count
 from .models import Event, Attraction, Comment, Followed, Rating
@@ -13,8 +14,13 @@ from django.utils.text import slugify
 
 def home(request):
     templateFileName = 'mainapp/index.html'
+    events = Event.objects.all()[:3]
+    top_destinations = Event.objects.values('city').annotate(destination_count=Count('city')).order_by('-destination_count', 'city')[:8]
+    time_now = timezone.now
     context = {
-
+        'events': events,
+        'time_now': time_now,
+        'top_destinations': top_destinations,
     }
     return render(request, templateFileName, context)
 
@@ -25,7 +31,7 @@ def welcome(request):
     }
     return render(request, templateFileName, context)
 
-def events(request, tag_slug=None):
+def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week=None, by_month=None):
 
     weekdays = {'poniedziałek' : 2,
                 'poniedzialek': 2,
@@ -46,31 +52,69 @@ def events(request, tag_slug=None):
     # events = paginator.page(page_number)
     tag = None
     time_now = timezone.now
+    date_now = datetime.now()
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
         events = events.filter(tags__in=[tag])
+        no_events = events.count()
+    if city:
+        events = events.filter(city=city)
+        no_events = events.count()
+    if day:
+        events = events.filter(start_date__icontains=day)
+        no_events = events.count()
+    if this_week:
+        time_now = timezone.now()
+        in_7_days = time_now + timedelta(days=7)
+        events = events.filter(start_date__range=(time_now, in_7_days))
+        no_events = events.count()
+    if by_month:
+        time_now = timezone.now()
+        in_30_days = time_now + timedelta(days=30)
+        events = events.filter(start_date__range=(time_now, in_30_days))
+        no_events = events.count()
+    if monthday:
+        events = events.filter(start_date__week_day=weekdays[monthday.lower()])
         no_events = events.count()
     if request.method == 'POST':
         location = request.POST.get('location_search')
         start_date = request.POST.get('date_search')
         weekday = request.POST.get('weekday_search')
-        if location:
-            events = Event.objects.filter(city__icontains=location)
-        if weekday:
-            for key in weekdays.keys():
-                if weekday in key:
-                    result = key
-                    events = Event.objects.filter(start_date__week_day=weekdays[result])
-        if start_date:
-            events = Event.objects.filter(start_date__date=start_date)
-        if location and start_date:
-            events = Event.objects.filter(city__icontains=location, start_date__date=start_date)
+        option = request.POST.get('events-attractions')
+        rating = request.POST.get('rating')
+        if option == 'events':
+            if location:
+                context += {'location':location}
+                events = Event.objects.filter(city__icontains=location)
+            if weekday:
+                for key in weekdays.keys():
+                    if weekday in key:
+                        result = key
+                        events = Event.objects.filter(start_date__week_day=weekdays[result])
+            if start_date:
+                events = Event.objects.filter(start_date__date=start_date)
+            if location and start_date:
+                events = Event.objects.filter(city__icontains=location, start_date__date=start_date)
+        if option == 'attractions':
+            return redirect('mainapp:attractions')
 
+        if rating:
+            if rating == '5':
+                events = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=5)
+            if rating == '4':
+                events = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=4)
+            if rating == '3':
+                events = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=3)
     context = {
         'events': events,
         'tag': tag,
         'time_now': time_now,
+        'date_now':date_now,
         'no_events':no_events,
+        # 'option': option,
+        'city':city,
+        'monthday': monthday,
+        'day': day,
     }
 
     return render(request, templateFileName, context)
@@ -82,7 +126,7 @@ def event_details(request, pk):
     event_tags_ids = event.tags.values_list('id', flat=True)
     similar_posts = Event.published.filter(tags__in=event_tags_ids).exclude(id=event.id)
     similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
-    time_now = datetime.datetime.now
+    time_now = datetime.now()
     ratings = Rating.objects.filter(event=event)
 
     if request.method == "POST":

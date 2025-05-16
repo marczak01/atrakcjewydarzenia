@@ -52,7 +52,15 @@
                     </ul>
                 </div>
             </li>
-            <li class="nav__links__link"><a href="{% url 'account:logout' %}">Wyloguj się</a></li>
+            <li class="nav__links__link">
+                <form action="{% url 'account:logout' %}" method="post">
+                    <!-- have to use form with method post because 
+                     logout method was not allowed GET -->
+                    {% csrf_token %}
+                    <button>Wyloguj się</button>
+                </form>
+                <!-- <a href="{% url 'account:logout' %} ">Wyloguj się</a> -->
+            </li>
 
         {% else %}
             <li class="nav__links__link"><a href="{% url 'account:register' %}">Rejestracja</a></li>

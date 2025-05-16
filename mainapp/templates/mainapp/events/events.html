@@ -5,9 +5,16 @@
 {% load mainapp_tags %}
 {% block title %}Events{% endblock title %}
 
-{%block content %}
-
-<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów</p>
+{% block content %}
+	{% if city %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów<br>w lokalizacji {{ city }}</p>
+	{% elif monthday %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów<br>w dniu {{ monthday }}</p>
+	{% elif location %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów<br>w miejscu {{ location }}</p>
+	{% else %}
+		<p class="number_of_events">Przeglądaj wśród {{ no_events }} eventów</p>
+	{% endif %}
 
 {% if tag %}
 	<h2 class="events__hashed">Eventy oznaczone tagiem "{{ tag.name }}"</h2>
@@ -34,9 +41,57 @@
 <div class="events__map">
 	MAPA OBIEKTOW
 </div>
-
-<div class="events">
-	{% for event in events %}
+<div class="events__main">
+	<div class="events__main__filter">
+		<form method="post" action="{% url 'mainapp:events' %}">
+			{% csrf_token %}
+			<button>Filtruj</button>
+			<div class="events__main__filter-date">
+				<p><a href="{% url 'mainapp:events_by_day' day=time_now.date|date:'Y-m-d' %}">Dzisiaj</a></p>
+				{% add_date date_now 1 as tommorow_date%}
+				<p><a href="{% url 'mainapp:events_by_day' day=tommorow_date|date:'Y-m-d' %}">Jutro</a></p>
+				<p><a href="{% url 'mainapp:events_by_week' this_week=1 %}">W ciągu 7 dni</a></p>
+				<p><a href="{% url 'mainapp:events_by_month' by_month=1 %}">W ciągu 30 dni</a></p>
+			</div>
+			<div class="calendar-container">
+				<header class="calendar-header">
+					<p class="calendar-current-date"></p>
+					<div class="calendar-navigation">
+						<span id="calendar-prev" 
+								class="material-symbols-rounded">
+							chevron_left
+						</span>
+						<span id="calendar-next" 
+								class="material-symbols-rounded">
+							chevron_right
+						</span>
+					</div>
+				</header>
+		
+				<div class="calendar-body">
+					<ul class="calendar-weekdays">
+						<li>Ndz</li>
+						<li>Pon</li>
+						<li>Wt</li>
+						<li>Śr</li>
+						<li>Czw</li>
+						<li>Pt</li>
+						<li>So</li>
+					</ul>
+					<ul class="calendar-dates"></ul>
+				</div>
+			</div>
+			<h3>Ocena:</h3>
+			<div class="events__main__filter-rating">
+				<div class=""><input type="radio" name="rating" value="5"><label for="rating"> > 5</label></div>
+				<div class=""><input type="radio" name="rating" value="4"><label for="rating"> > 4</label></div>
+				<div class=""><input type="radio" name="rating" value="3"><label for="rating"> > 3</label></div>
+			</div>
+		</form>
+	</div>
+	<div class="events">
+		{% for event in events %}
+	
 	<div class="events__event">
 		<a href="{{event.get_absolute_url }}">
 			<div class="events__event__top">
@@ -51,28 +106,24 @@
 				{% endif %}
 
 				<span class="events__event__timeuntil">
-					{% substract event.start_date.date|date:'Y' time_now.date|date:'Y' as years_diff %}
-					{% substract event.start_date.date|date:'z' time_now.date|date:'z' as days_diff %}
-					{% substract 1 time_now|date:'z' as days_new_year %}
-					{% absolute days_diff as days_diff_abs %}
-					{% multiply 365 years_diff as years_mlt %}
-					{% add years_mlt days_diff_abs as new_year %}
-					{% substract new_year days_diff_abs as new_year_final %}
-
-					{% if years_diff > 0 %}
-					  za {{ new_year_final }} dni
-					{% elif days_diff < 0 %}
-					  {% absolute days_diff %} dni temu
+					{% no_days event.start_date.date|date:'z' time_now.date|date:'z' event.start_date.date|date:'Y' time_now.date|date:'Y' as days_dif %}
+					{% if days_dif < 0 %}
+						{% absolute  days_dif %} dni temu
+					{% elif days_dif == 0 %}
+						Dzisiaj
+					{% elif days_dif == 1 %}
+						Za 1 dzień
 					{% else %}
-					  za {{ days_diff }} dni
+						za {{ days_dif }} dni
 					{% endif %}
 				</span>
 				{% language 'pl' %}
-					<a href="{% url 'account:dashboard' %}"><span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span></a>
+					<a href="{% url 'mainapp:events_by_monthday' monthday=event.start_date.date|date:'l' %}"><span class="events__event__monthday">{{ event.start_date.date|date:'l' }}</span></a>
 				{% endlanguage %}
-				<a href="{% url 'account:dashboard' %}"><span class="events__event__location">{{ event.city }}</span></a>
+				<a href="{% url 'mainapp:events_by_city' city=event.city %}"><span class="events__event__location">{{ event.city }}</span></a>
 				<a href="#"><span class="events__event__rating">{% count_rating_event event %} ({% count_ratings event %})</span></a>
-				{% follow_or_unfollow event.id request.user as follow_unfollow %}
+				{% if request.user.id %}
+					{% follow_or_unfollow event.id request.user as follow_unfollow %}
 				{% if follow_unfollow %}
 					<a href="{% url 'mainapp:unfollow_event' pk=event.id page='events' %}">
 						<span class="events__event__follow">NIE OBSERWUJ</span>
@@ -80,6 +131,11 @@
 				{% else %}
 					<a href="{% url 'mainapp:follow_event' pk=event.id page='events' %}">
 						<span class="events__event__follow">OBSERWUJ</span>
+					</a>
+				{% endif %}
+				{% else %}
+					<a href="{% url 'account:login' %}">
+						<span style="background-color: rgb(125, 125, 125);" class="events__event__follow">obserwuj</span>
 					</a>
 				{% endif %}
 
@@ -95,6 +151,8 @@
 		</div>
 	</div>
 	{% endfor %}
+</div>
+
 </div>
 <!-- {% include "mainapp/pagination.html" with page=events %} -->
 

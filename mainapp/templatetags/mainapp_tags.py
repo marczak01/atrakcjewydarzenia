@@ -1,6 +1,8 @@
-
+from urllib import request
+from django.db.models import Avg
 from django import template
 from ..models import Event, Attraction, Followed, Rating
+from datetime import date, datetime, timedelta
 
 register = template.Library()
 
@@ -19,8 +21,27 @@ def add(a, b):
     return int(a) + int(b)
 
 @register.simple_tag
+def add_date(a, b):
+    return a + timedelta(days=b)
+
+@register.simple_tag
 def absolute(a):
     return abs(a)
+
+@register.simple_tag
+def no_days(a, b, c, d):
+    a =int(a)
+    b =int(b)
+    c=int(c)
+    d=int(d)
+    if c - d > 0:
+        years_diff = (c - d) * 365
+        days_diff = years_diff + abs(a-b)
+        return days_diff
+    elif c - d <= 0:
+        days_diff = a-b
+        return days_diff
+
 
 
 @register.simple_tag
