@@ -8,4 +8,5 @@
   {{ profile.date_of_birth|date:'d/m/Y' }}
   <a href='{% url "mainapp:add_event" %}'><button>Add new EVENT</button></a>
   <a href='{% url "mainapp:add_attraction" %}'><button>Add new ATTRACTION</button></a>
+  <a href='{% url "account:edit" %}'><button>EDIT ACCOUNT</button></a>
 {% endblock content %}
