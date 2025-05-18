@@ -1,3 +1,31 @@
+{% load static %}
+
+<nav class="nav">
+    <div class="nav__logo">
+        <a href="{% url 'mainapp:home' %}">Evently</a>
+    </div>
+    <div class="nav__profile">
+        <div class="nav__profile__img">
+            {% if request.user.profile.photo %}
+                <img src="{{ request.user.profile.photo.url }}" alt="">
+            {% else %}
+                <img src="{% static 'images/default.png' %}" alt="">
+            {% endif %}
+        </div>
+        <div class="nav__profile-info">
+            <p class="nav__profile-info-name">
+                {% if request.user.last_name and request.user.first_name %}
+                    {{ request.user.first_name}} {{ request.user.last_name}}
+                {% else %}
+                    {{ request.user.username }}
+                {% endif %}
+            </p>
+            <span class="nav__profile-info-more"></span>
+        </div>
+    </div>
+</nav>
+
+
 <nav class="nav">
     <p class="nav__logo">
         <a href="{% url 'mainapp:home' %}">
@@ -24,7 +52,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                     </svg>
                 </a>
-                <div class="nav__links__link-hover">
+                <div class="nav__links__link-profile-hover">
                     <ul>
                         <a href="{% url 'account:dashboard' %}"><li>Profil</li></a>
                         <a href="{% url 'mainapp:add_event' %}"><li>Dodaj Event</li></a>

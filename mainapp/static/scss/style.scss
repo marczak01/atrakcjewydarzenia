@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.nav{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    &__logo{
+        font-size: 3rem;
+        a:link, a:visited{
+            color: black;
+            text-decoration: none;
+        }
+    }
+    &__profile{
+        display: flex;
+        padding: 0.5rem;
+        gap: 1rem;
+        align-items: center;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+        &__img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                display: block;
+                width: 100%;
+                height: auto;
+            }
+        }
+        &-info{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            &-name{
+                font-size: 1.6rem;
+            }
+            &-more{
+                display: inline-block;
+                border: 1px solid black;
+            }
+        }
+    }
+}
