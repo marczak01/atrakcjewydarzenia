@@ -14,10 +14,12 @@
 <body>
     {% include "mainapp/navbar.html" %}
 
-    {% block content %}
-    
-    {% endblock content %}
-    {% include "mainapp/footer.html" %}
+    <main class="main">
+        {% block content %}
+        {% endblock content %}
+    </main>
+    {% include "mainapp/sidebar.html" %}
+    <!-- {% include "mainapp/footer.html" %} -->
     <script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>

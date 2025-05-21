@@ -24,12 +24,12 @@ class Event(models.Model):
         PRIVATE = 'PV', 'Private'
 
 
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200)
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
     city = models.CharField(max_length=70, null=False, blank=False)
     country = models.CharField(max_length=70)
-    longitude = models.FloatField(default=111.111)
-    latitude = models.FloatField(default=111.111)
+    longitude = models.FloatField(default=15.432)
+    latitude = models.FloatField(default=54.234)
     description = models.TextField(max_length=3000)
     publish = models.DateTimeField(default=timezone.now)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -73,8 +73,8 @@ class Attraction(models.Model):
         DRAFT = 'DF', 'Draft'
         PUBLISHED = 'PB', 'Published'
 
-    name = models.CharField(max_length=200)
-    slug = models.SlugField(max_length=200)
+    name = models.CharField(max_length=50)
+    slug = models.SlugField(max_length=50)
     city = models.CharField(max_length=70, null=False, blank=True)
     country = models.CharField(max_length=70, null=False, blank=True)
     longitude = models.FloatField(default=15.432)

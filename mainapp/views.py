@@ -33,16 +33,13 @@ def welcome(request):
 
 def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week=None, by_month=None):
 
-    weekdays = {'poniedziałek' : 2,
-                'poniedzialek': 2,
-                'wtorek': 3,
-                'sroda': 4,
-                'środa': 4,
-                'czwartek': 5,
-                'piatek': 6,
-                'piątek': 6,
-                'sobota': 7,
-                'niedziela': 1}
+    weekdays = {'monday' : 2,
+                'tuesday': 3,
+                'wednesday': 4,
+                'thursday': 5,
+                'friday': 6,
+                'saturday': 7,
+                'sunday': 1}
 
     templateFileName = 'mainapp/events/events.html'
     events = Event.published.all()
@@ -53,58 +50,6 @@ def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week
     tag = None
     time_now = timezone.now
     date_now = datetime.now()
-    if tag_slug:
-        tag = get_object_or_404(Tag, slug=tag_slug)
-        events = events.filter(tags__in=[tag])
-        no_events = events.count()
-    if city:
-        events = events.filter(city=city)
-        no_events = events.count()
-    if day:
-        events = events.filter(start_date__icontains=day)
-        no_events = events.count()
-    if this_week:
-        time_now = timezone.now()
-        in_7_days = time_now + timedelta(days=7)
-        events = events.filter(start_date__range=(time_now, in_7_days))
-        no_events = events.count()
-    if by_month:
-        time_now = timezone.now()
-        in_30_days = time_now + timedelta(days=30)
-        events = events.filter(start_date__range=(time_now, in_30_days))
-        no_events = events.count()
-    if monthday:
-        events = events.filter(start_date__week_day=weekdays[monthday.lower()])
-        no_events = events.count()
-    if request.method == 'POST':
-        location = request.POST.get('location_search')
-        start_date = request.POST.get('date_search')
-        weekday = request.POST.get('weekday_search')
-        option = request.POST.get('events-attractions')
-        rating = request.POST.get('rating')
-        if option == 'events':
-            if location:
-                context += {'location':location}
-                events = Event.objects.filter(city__icontains=location)
-            if weekday:
-                for key in weekdays.keys():
-                    if weekday in key:
-                        result = key
-                        events = Event.objects.filter(start_date__week_day=weekdays[result])
-            if start_date:
-                events = Event.objects.filter(start_date__date=start_date)
-            if location and start_date:
-                events = Event.objects.filter(city__icontains=location, start_date__date=start_date)
-        if option == 'attractions':
-            return redirect('mainapp:attractions')
-
-        if rating:
-            if rating == '5':
-                events = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=5)
-            if rating == '4':
-                events = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=4)
-            if rating == '3':
-                events = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=3)
     context = {
         'events': events,
         'tag': tag,
@@ -117,7 +62,58 @@ def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week
         'day': day,
     }
 
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug=tag_slug)
+        context['events'] = events.filter(tags__in=[tag])
+        no_events = events.count()
+    if city:
+        context['events'] = events.filter(city=city)
+        no_events = events.count()
+    if day:
+        context['events'] = events.filter(start_date__icontains=day)
+        no_events = events.count()
+    if this_week:
+        time_now = timezone.now()
+        in_7_days = time_now + timedelta(days=7)
+        context['events'] = events.filter(start_date__range=(time_now, in_7_days))
+        no_events = events.count()
+    if by_month:
+        time_now = timezone.now()
+        in_30_days = time_now + timedelta(days=30)
+        context['events'] = events.filter(start_date__range=(time_now, in_30_days))
+        no_events = events.count()
+    if monthday:
+        context['events'] = events.filter(start_date__week_day=weekdays[monthday.lower()])
+        no_events = events.count()
+    if request.method == 'POST':
+        location = request.POST.get('location_search')
+        start_date = request.POST.get('date_search')
+        weekday = request.POST.get('weekday_search')
+        rating = request.POST.get('rating')
+        if location:
+            context['location'] = location
+            context['events'] = Event.objects.filter(city__icontains=location)
+        if weekday:
+            for key in weekdays.keys():
+                if weekday in key:
+                    result = key
+                    context['events'] = Event.objects.filter(start_date__week_day=weekdays[result])
+        if start_date:
+            context['events'] = Event.objects.filter(start_date__date=start_date)
+        if location and start_date:
+            context['events'] = Event.objects.filter(city__icontains=location, start_date__date=start_date)
+
+        if rating:
+            if rating == '5':
+                context['events'] = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=5)
+            if rating == '4':
+                context['events'] = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=4)
+            if rating == '3':
+                context['events'] = Event.objects.annotate(avg_rating=Avg('event_ratings__rate')).filter(avg_rating__gte=3)
+
+   
     return render(request, templateFileName, context)
+
 
 def event_details(request, pk):
     templateFileName = 'mainapp/events/eventDetails.html'
@@ -286,6 +282,8 @@ def follow_event(request, pk, page=None):
         Followed.objects.create(user=user, event=event)
     if page == 'events':
         return redirect('mainapp:events')
+    elif page == 'home':
+        return redirect('mainapp:home')
     elif page == 'event_details':
         return redirect('account:dashboard')
 
@@ -303,3 +301,5 @@ def unfollow_event(request, pk, page=None):
         return redirect('account:dashboard', option='follows')
     elif page == 'events':
         return redirect('mainapp:events')
+    elif page == 'home':
+        return redirect('mainapp:home')
