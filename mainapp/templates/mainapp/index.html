@@ -55,7 +55,7 @@
         <section class="home__promoted">
             {% for event in events %}
                 <div class="event">
-                    <a href="{{event.get_absolute_url }}">
+                    <a href="{{ event.get_absolute_url }}">
                         <div class="event__img">
                             {% if event.event_photo %}
                                 <img src="{{ event.event_photo.url }}" alt="">
@@ -72,7 +72,7 @@
                                 {% endif %}
                             </span>
                             {% language 'pl' %}
-                                <a href="{% url 'account:dashboard' %}"><span class="event-monthday">{{ event.start_date.date|date:'l' }}</span></a>
+                                <a href="{% url 'mainapp:events_by_weekday' weekday=event.start_date.date|date:'w' %}"><span class="event-monthday">{{ event.start_date.date|date:'l' }}</span></a>
                             {% endlanguage %}
                             <a href="{% url 'account:dashboard' %}"><span class="event-location">{{ event.city }}</span></a>
                             <a href="#"><span class="event-rating">{% count_rating_event event %} ({% count_ratings event %})</span></a>
@@ -118,36 +118,49 @@
         <section class="home__selected">
             <div class="home__selected__options">
                 <span class="home__selected__options__option">
-                    <a class="home__selected__options__option-link" href="#">Most Popular</a>
+                    {% if active == 'topevents' %}
+                        <a class="home__selected__options__option-link home__selected__options__option-active" href="{% url 'mainapp:home_selected' selected='topevents' %}">Most Popular</a>
+                    {% else %}
+                        <a class="home__selected__options__option-link" href="{% url 'mainapp:home_selected' selected='topevents' %}">Most Popular</a>
+                    {% endif %}
                 </span>
                 <span class="home__selected__options__option">
                     <a class="home__selected__options__option-link" href="#">Special Offers</a>
                 </span>
                 <span class="home__selected__options__option">
-                    <a class="home__selected__options__option-link" href="#">Near Me</a>
+                    {% if active == 'nearby' %}
+                        <a class="home__selected__options__option-link home__selected__options__option-active" href="{% url 'mainapp:home_selected' selected='nearby' %}">Near Me</a>
+                    {% else %}
+                        <a class="home__selected__options__option-link" href="{% url 'mainapp:home_selected' selected='nearby' %}">Near Me</a>
+                    {% endif %}
                 </span>
             </div>
             <div class="home__selected__events">
-                {% for event in events %}
+                {% for event in selected %}
                     <div class="home__selected__events__event">
                         <div class="home__selected__events__event__img">
+                            <span class="home__selected__events__event__img-rating"><a href="#">{% count_rating_event event %} ({% count_ratings event %})</a></span>
+                            {% language 'pl' %}
+                                <span class="home__selected__events__event__img-monthday"><a href="{% url 'mainapp:events_by_weekday' weekday=event.start_date.date|date:'w' %}">{{ event.start_date.date|date:'l' }}</a></span>
+                            {% endlanguage %}
                             <img src="{{ event.event_photo.url }}" alt="zdjecie wydarzenia">
                         </div>
                         <div class="home__selected__events__event__right">
                             <h4 class="home__selected__events__event-h4">{{ event.name }}</h4>
                             <p class="home__selected__events__event__right-date">{{ event.start_date|date:'d.m.Y' }} - {{event.end_date|date:'d.m.Y'}}</p>
-                            {% language 'pl' %}
-                                <span class="home__selected__events__event__right-monthday"><a href="{% url 'account:dashboard' %}">{{ event.start_date.date|date:'l' }}</a></span>
-                            {% endlanguage %}
-                            <span class="home__selected__events__event__right-timeuntil">
-                                {% no_days event.start_date.date|date:'z' time_now.date|date:'z' event.start_date.date|date:'Y' time_now.date|date:'Y' as days_dif %}
-                                {% if days_dif < 0 %}
-                                    {% absolute  days_dif %} dni temu
-                                {% else %}
-                                    za {{ days_dif }} dni
-                                {% endif %}
-                            </span>
-                            <span class="home__selected__events__event__right-rating"><a href="#">{% count_rating_event event %} ({% count_ratings event %})</a></span>
+                            <div class="home__selected__events__event__right__tags">
+                                <span class="home__selected__events__event__right-timeuntil">
+                                    {% no_days event.start_date.date|date:'z' time_now.date|date:'z' event.start_date.date|date:'Y' time_now.date|date:'Y' as days_dif %}
+                                    {% if days_dif < 0 %}
+                                        {% absolute  days_dif %} dni temu
+                                    {% else %}
+                                        za {{ days_dif }} dni
+                                    {% endif %}
+                                </span>
+                                <a href="{% url 'mainapp:events_by_city' city=event.city %}">
+                                    <span class="home__selected__events__event__right-city">{{ event.city }}</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

@@ -1,4 +1,4 @@
-from .models import Comment, Event, Attraction
+from .models import Comment, Event, Attraction, Rating, News
 from django import forms
 from taggit.forms import *
 
@@ -27,3 +27,14 @@ class AttractionForm(forms.ModelForm):
         # widgets = {'tags': TagWidget()}
         fields = ['name', 'city', 'country', 'longitude', 'latitude', 'description', 'tags', 'attraction_photo']
 
+
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['rate', 'body']
+
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = ['title', 'body']

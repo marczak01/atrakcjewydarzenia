@@ -71,7 +71,7 @@ def count_rating_event(event):
         return rating_result
     else:
         rating_result = rating_sum / ratings.count()
-        return rating_result
+        return round(rating_result, 2)
     
 @register.simple_tag
 def count_ratings(event):

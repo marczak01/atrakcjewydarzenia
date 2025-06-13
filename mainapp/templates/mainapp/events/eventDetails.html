@@ -5,8 +5,208 @@
 {% load humanize %}
 {% block title %}Event XXXXX details{% endblock title %}
 {% block content %}
+ 
+<section class="event_deatils">
+    <div class="event_details__top">
+        <span class="event_details__top__title">
+            <a href="javascript:history.go(-1)">
+                <svg class="event_details__top__options-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m15 4l2 2l-6 6l6 6l-2 2l-8-8z"/></svg>
+            </a>
+            <span>{{ event.name }}</span>
+        </span>
+        <div class="event_details__top__options">
+            <svg xmlns="http://www.w3.org/2000/svg" class="event_details__top__options-icon" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v8.5M15 7l-3-3l-3 3m-4 5v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="event_details__top__options-icon" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 10c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m14 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2m-7 0c-1.1 0-2 .9-2 2s.9 2 2 2s2-.9 2-2s-.9-2-2-2"/></svg>
+            {% if request.user.is_authenticated %}
+                {% follow_or_unfollow event.id request.user as follow_unfollow %}
+                {% if follow_unfollow %}
+                    <a href="{% url 'mainapp:unfollow_event' pk=event.id page='home' %}">
+                        <svg class="event_details__top__options-icon event_details__top__options-follow" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"/></svg>
+                    </a>
+                {% else %}
+                    <a href="{% url 'mainapp:follow_event' pk=event.id page='home' %}">
+                        <svg class="event_details__top__options-icon event_details__top__options-follow event_details__top__options-follow-flw" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"/></svg>
+                    </a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'account:login' %}">
+                    <svg class="event_details__top__options-icon event_details__top__options-follow event_details__top__options-follow-flw" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"/></svg>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="event_details__gallery">
+        <div class="event_details__gallery__left">
+            <div class="event_details__gallery__left-img">
+                <img src="{% static 'images/dobrzyca.jpg' %}" alt="">
+            </div>
+            <div class="event_details__gallery__left-img">
+                <img src="{% static 'images/dobrzyca.jpg' %}" alt="">
+            </div>
+            <div class="event_details__gallery__left-img">
+                <img src="{% static 'images/dobrzyca.jpg' %}" alt="">
+            </div>
+        </div>
+        <div class="event_details__gallery__main">
+            <div class="event_details__gallery__main-img">
+                <img src="{% static 'images/dobrzyca.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="event_details__overview">
+        <div class="event_details__overview__top">
+            <h3 class="h3 event_details__overview__top-name">{{ event.name }}</h3>
+            <div class="event_details__overview__top-loc_rat">
+                <p class="event_details__overview__top-loc_rat-location">{{ event.city }} {{ event.country }}</p>
+                <div class="event_details__overview__top-loc_rat-rating">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="rating-star" viewBox="0 0 24 24"><path fill="currentColor" d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="rating-star" viewBox="0 0 24 24"><path fill="currentColor" d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="rating-star" viewBox="0 0 24 24"><path fill="currentColor" d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="rating-star" viewBox="0 0 24 24"><path fill="currentColor" d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="rating-star" viewBox="0 0 24 24"><path fill="currentColor" d="m5.825 21l1.625-7.025L2 9.25l7.2-.625L12 2l2.8 6.625l7.2.625l-5.45 4.725L18.175 21L12 17.275z"/></svg>
+                </div>
+                <span>{% count_rating_event event %} ({% count_ratings event %})</span>
+            </div>
+            <div class="event_details__overview__top__tags">
+                {% for tag in event.tags.all %}
+                    <span class="event_details__overview__top__tags-tag">#{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="event_details__overview__bottom">
+            <div class="event_details__overview__bottom__options">
+                <span class="event_details__options-active">Ogólne</span>
+                <span>Szczegóły</span>
+                <span>Aktualizacje</span>
+            </div>
+            <div class="event_details__overview__bottom__box event_details__overview__bottom__box-short event_details__overview__bottom__box-active">
+                <div class="event_details__overview__bottom__box-short__left">
+                    <p class="event_details__overview__bottom__box-title">Opis</p>
+                    <p class="event_details__overview__bottom__box-p">{{ event.description|truncatewords_html:100 }}</p>
+                </div>
+                <iframe class="event_details__overview__bottom-map" src="{{ src }}" width="100%" height="100%" style="border:0;" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="event_details__overview__bottom__box event_details__overview__bottom__box-details">
+                <div class="event_details__overview__bottom__box-details__left">
+                    <p class="event_details__overview__bottom__box-title">Opis</p>
+                    <p class="event_details__overview__bottom__box-p">{{ event.description }}</p>
+                    <p>Szczegoly</p>
+                </div>
+                <iframe class="event_details__overview__bottom-map" src="{{ src }}" width="100%" height="100%" style="border:0;" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="event_details__overview__bottom__box event_details__overview__bottom__box-news_popup">
+                <div class="event_details__overview__bottom__box-news_popup__left">
+                    <p class="event_details__overview__bottom__box-p">popup</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- <div class="event_details__bottom__overview">
+            <div class="event_details__bottom__overview__photos">
+                <img class="event_details__bottom__overview__photos-photo" src="{{ event.event_photo.url }}" alt="">
+            </div>
+            <div class="event_details__bottom__overview__info">
+                <p class="event_details__bottom__overview__info-title">{{ event.name }}</p>
+                <p class="event_details__bottom__overview__info-location">{{ event.country }}, {{ event.city }}</p>
+                <div class="event_details__bottom__overview__info__ratings">
+                    <span class="event_details__bottom__overview__info__ratings-rate">
+                        {% count_rating_event event %}
+                    </span>
+                    <span class="event_details__bottom__overview__info__ratings-no_rate">
+                        <a href="{% url 'mainapp:event_ratings' event=event.id %}">{% count_ratings event %} Opini</a>
+                    </span>
+                </div>
+            </div> -->
 
-<div class="eventDetails__tags">
+        <!-- </div> -->
+        <!-- <div class="event_details__bottom__overview__left_right">
+            <div class="event_details__bottom__overview__left_right__options">
+                <div class="event_details__bottom__overview__left_right__options__select">
+                    <span data-eventdetailsoption="overview" class="event_details__bottom__overview__left_right__options__select-selected">
+                        Ogólne
+                    </span>
+                    <span data-eventdetailsoption="details">Szczegóły</span>
+                    <span data-eventdetailsoption="news">Aktualizacje</span>
+                </div>
+                <div data-eventdetailsoption="overview" class="event_details__bottom__overview__left_right__options__bottom event_details-active">
+                    <p>{{ event.description }}</p>
+                    <div class="event_details__bottom__overview__left_right__options__bottom__tags">
+                        {% for tag in event.tags.all %}
+                          <span class="event_details__bottom__overview__left_right__options__bottom__tags-tag">#{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div data-eventdetailsoption="news" class="event_details__bottom__overview__left_right__options__bottom">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user == event.created_by %}
+                            <form method="post">
+                                {% csrf_token %}
+                                {{ news_form.as_p }}
+                                <input type="submit" value="Dodaj Aktualizacje">
+                            </form>
+                        {% endif %}
+                    {% endif %}
+                    {% if not news %}
+                        <p>tutaj pojawia sie Aktualizacje dotyczace wydarzenia</p>
+                    {% endif %}
+                    {% for news_obj in news %}
+                    <div class="news__box">
+                        {% language 'pl' %}
+                            <p>{{ news_obj.created_on }}</p>
+                        {% endlanguage %}
+                        <p>{{ news_obj.title }}</p>
+                        <p>{{ news_obj.body }}</p>
+                        <div class="reactions">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="m12.594 23.258l-.012.002l-.071.035l-.02.004l-.014-.004l-.071-.036q-.016-.004-.024.006l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.016-.018m.264-.113l-.014.002l-.184.093l-.01.01l-.003.011l.018.43l.005.012l.008.008l.201.092q.019.005.029-.008l.004-.014l-.034-.614q-.005-.019-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.003-.011l.018-.43l-.003-.012l-.01-.01z"/><path fill="currentColor" d="M12 4a8 8 0 1 0 0 16a8 8 0 0 0 0-16M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12m6.5-2c-.195 0-.444.124-.606.448a1 1 0 0 1-1.788-.896C6.542 8.68 7.413 8 8.5 8s1.957.68 2.394 1.552a1 1 0 0 1-1.788.896C8.944 10.124 8.696 10 8.5 10m7 0c-.195 0-.444.124-.606.448a1 1 0 1 1-1.788-.896C13.543 8.68 14.413 8 15.5 8s1.957.68 2.394 1.552a1 1 0 0 1-1.788.896c-.162-.324-.41-.448-.606-.448m-6.896 4.338a1 1 0 0 1 1.412-.088c.53.468 1.223.75 1.984.75s1.455-.282 1.984-.75a1 1 0 1 1 1.324 1.5A4.98 4.98 0 0 1 12 17a4.98 4.98 0 0 1-3.308-1.25a1 1 0 0 1-.088-1.412"/></g></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18M1 12C1 5.925 5.925 1 12 1s11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12m5.769-3.866l3.464 2l-1 1.732l-3.464-2zm11.464 1.732l-3.464 2l-1-1.732l3.464-2zM7.67 15.499A5 5 0 0 1 12 13a5 5 0 0 1 4.33 2.5l.501.865l-1.731 1.001l-.5-.865A3 3 0 0 0 12 15a3 3 0 0 0-2.6 1.5l-.5.866l-1.731-1.001z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53z"/></svg>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div data-eventdetailsoption="details" class="event_details__bottom__overview__left_right__options__bottom">
+                    <p>tutaj pojawi sie wiecej szczegółow dotyczacych wydarzenia</p>
+                </div>
+            </div>
+            <div class="event_details__bottom__overview__left_right__right">
+                <div class="event_details__bottom__overview__left_right__right__comments">
+                    <h3 class="event_details__bottom__overview__left_right__right__comments-title">{{ comments.count }} komentarzy</h3>
+                    {% if request.user.is_authenticated %}
+                        <form method="post">
+                            {{ comment_form.as_p }}
+                            {% csrf_token %}
+                            <p><input type="submit" value="Dodaj"></p>
+                        </form>
+                    {% else %}
+                        <h3>Zaloguj się aby dodać komentarz!</h3>
+                    {% endif %}
+                    {% for comment in  comments %}
+                        <div class="event_details__bottom__overview__left_right__right__comments__comment">
+                            {% language 'pl' %}
+                                <p class="event_details__bottom__overview__left_right__right__comments__comment-name">{{ comment.user.username }} - <span class="event_details__bottom__overview__left_right__right__comments__comment-date">{{ comment.created_on }}</span></p>
+                            {% endlanguage %}
+                            <p class="event_details__bottom__overview__left_right__right__comments__comment-body">{{ comment.body }}</p>
+                            <span class="event_details__bottom__overview__left_right__right__comments__comment-answer">Odpowiedz</span>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+        <div class="event_details__bottom__overview__left_right__similar">
+                <h3>Podobne eventy</h3>
+                {% for similar_event in similar_posts  %}
+                    <h2>{{ similar_event.name }}</h2>
+                    <div class="event_details__bottom__overview__left_right__similar-img">
+                        <img src="{{ similar_event.event_photo.url }}" alt="">
+                    </div>
+                {% endfor %}
+        </div> -->
+    <!-- </div> -->
+</section>
+
+
+<!-- <div class="eventDetails__tags">
     <span class="eventDetails__tags__timeuntil">IN {% substract event.start_date.date|date:'z' time_now.date|date:'z' %} DAYS</span>
     <span class="eventDetails__tags__monthday">{{ event.start_date.date|date:'l' }}</span>
     <span class="eventDetails__tags__publicPrivate">{{ event.get_public_private_display }}</span>
@@ -96,6 +296,6 @@
         </div>
         <div class="eventDetails__bottom__right"></div>
     </div>
-</div>
+</div> -->
 
 {% endblock content %}

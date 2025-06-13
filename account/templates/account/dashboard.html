@@ -4,65 +4,57 @@
 {% block title %}Dashboard{% endblock title %}
 
 {% block content %}
-<<<<<<< HEAD
-  <h1>Welcome in your dashboard</h1>
-  {{ profile.user.username }}
-  {{ profile.date_of_birth|date:'d/m/Y' }}
-  <a href='{% url "mainapp:add_event" %}'><button>Add new EVENT</button></a>
-  <a href='{% url "mainapp:add_attraction" %}'><button>Add new ATTRACTION</button></a>
-  <a href='{% url "account:edit" %}'><button>EDIT ACCOUNT</button></a>
-=======
   <div class="dashboard">
-    <div class="dashboard__left">
-      <div class="dashboard__left__welcome">
-        <h1 class="h1">Witaj w swoim panelu</h1>
-        <p class="dashboard__left__welcome-user">{{ profile.user.username }}</p>
+    <div class="dashboard__top">
+      <div class="dashboard__top__welcome">
+        <h1 class="h1">Witaj w swoim panelu <span class="dashboard__top__welcome-user">{{ profile.user.username }}</span>
+</h1>
       </div>
-      <div class="dashboard__left__info">
-        <div class="dashboard__left__info__img">
-          {% if profile.photo %}
-            <img src="{{ profile.photo.url }}" alt="">
-          {% else %}
-            <img src="{% static '/images/default.png' %}" alt="">
-          {% endif %}
-        </div>
-        <div class="dashboard__left__info-informations">
-          <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
-          <p>{{ profile.user.email }}</p>
-          <p>{{ profile.date_of_birth|date:'d/m/Y' }}</p>
-          <span class="dashboard__left__info-informations-edit">
-            <a href="{% url 'account:edit' %}">EDYTUJ KONTO</a>
-          </span>
-        </div>
+    </div>
+    <div class="dashboard__profile">
+      <div class="dashboard__profile__img">
+        {% if profile.photo %}
+          <img src="{{ profile.photo.url }}" alt="">
+        {% else %}
+          <img src="{% static '/images/default.png' %}" alt="">
+        {% endif %}
       </div>
-      <div class="dashboard__left__buttons">
+      <div class="dashboard__profile__info">
+        <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+        <p>{{ profile.user.email }}</p>
+        <p>{{ profile.date_of_birth|date:'d/m/Y' }}</p>
+        <span class="dashboard__profile__info-edit">
+          <a href="{% url 'account:edit' %}">EDYTUJ KONTO</a>
+        </span>
+      </div>
+    </div>
+    <div class="dashboard__buttons">
         <a href='{% url "mainapp:add_event" %}'>DODAJ EVENT</a>
         <a href='{% url "mainapp:add_attraction" %}'>DODAJ ATRAKCJE</a>
-      </div>
-
     </div>
-    <div class="dashboard__right">
-      <div class="dashboard__right__options">
+
+    <div class="dashboard__yours">
+      <div class="dashboard__yours__options">
         <a href="{% url 'account:dashboard' 'events' %}">TWOJE EVENTY</a>
         <a href="{% url 'account:dashboard' 'follows' %}">OBSERWOWANE</a>
         <a href="{% url 'account:dashboard' 'attractions' %}">TWOJE ATRAKCJE</a>
       </div>
-      <div class="dashboard__right__selected">
-        <ul class="dashboard__right__selected__list">
-          {% if page == 'events' %}
+      <div class="dashboard__yours__options-selected">
+        <ul class="dashboard__yours__options-selected-list">
+          {% if option_page == 'account_events' %}
             {% if events %}
               {% for event in events %}
-                <li class="dashboard__right__selected__list-el">
+                <li class="dashboard__yours__options-selected-list-el">
                   <div>
-                    <p class="dashboard__right__selected__list-el-title">{{ event.name }}</p>
-                    <p class="dashboard__right__selected__list-el-created">{{ event.created_on|date:'d.m.Y H:i' }}</p>
+                    <p class="dashboard__yours__options-selected-list-el-title">{{ event.name }}</p>
+                    <p class="dashboard__yours__options-selected-list-el-created">{{ event.created_on|date:'d.m.Y H:i' }}</p>
                   </div>
                   <div>
-                    <p class="dashboard__right__selected__list-el-title">{{ event.start_date|date:'d.m.Y H:i' }}</p>
-                    <p class="dashboard__right__selected__list-el-title">{{ event.end_date|date:'d.m.Y H:i' }}</p>
+                    <p class="dashboard__yours__options-selected-list-el-title">{{ event.start_date|date:'d.m.Y H:i' }}</p>
+                    <p class="dashboard__yours__options-selected-list-el-title">{{ event.end_date|date:'d.m.Y H:i' }}</p>
                   </div>
                   <div>
-                    <p class="dashboard__right__selected__list-el-title">Obserwujących: {% follow_count event %}</p>
+                    <p class="dashboard__yours__options-selected-list-el-title">Obserwujących: {% follow_count event %}</p>
                   </div>
                   <div>
                     <p><a href="{% url 'mainapp:edit_event' event.id %}">EDYTUJ</a></p>
@@ -76,32 +68,33 @@
             {% endif %}
           {% endif %}
 
-          {% if page == 'follows' %}
+          {% if option_page == 'account_follows' %}
             {% if followed %}
               {% for follow in followed %}
-                <li class="dashboard__right__selected__list-el">
-                  <div>
-                    <p class="dashboard__right__selected__list-el-title">{{ follow.event.name }}</p>
-                    <p class="dashboard__right__selected__list-el-created">{{ follow.event.created_on|date:'d.m.Y H:i' }}</p>
-                  </div>
-                  <div>
-                    <p class="dashboard__right__selected__list-el-title">{{ follow.event.start_date|date:'d.m.Y H:i' }}</p>
-                    <p class="dashboard__right__selected__list-el-title">{{ follow.event.end_date|date:'d.m.Y H:i' }}</p>
-                  </div>
-                  <div>
-                    <p class="dashboard__right__selected__list-el-title">Zaobserwowano: {{ follow.follow_date|date:'d-m-Y H:i' }}</p>
-                  </div>
-                  <div>
-                    <p><a href="{% url 'mainapp:unfollow_event' pk=follow.event.id page='dashboard' %}">NIE OBSERWUJ</a></p>
-                    <p><a href="#">USTAW PRZYPOMN.</a></p>
-                  </div>
-                </li>
+                <li class="dashboard__yours__options-selected-list-el">
+                    <div>
+                      <p class="dashboard__yours__options-selected-list-el-title">{{ follow.event.name }}</p>
+                      <p class="dashboard__yours__options-selected-list-el-created">utworzono {{ follow.event.created_on|date:'d.m.Y H:i' }}</p>
+                    </div>
+                    <div>
+                      <p class="dashboard__yours__options-selected-list-el-title">{{ follow.event.start_date|date:'d.m.Y H:i' }}</p>
+                      <p class="dashboard__yours__options-selected-list-el-title">{{ follow.event.end_date|date:'d.m.Y H:i' }}</p>
+                    </div>
+                    <div>
+                      <p class="dashboard__yours__options-selected-list-el-title">Zaobserwowano: {{ follow.follow_date|date:'d-m-Y H:i' }}</p>
+                    </div>
+                    <div>
+                      <p><a href="{% url 'mainapp:unfollow_event' pk=follow.event.id page='dashboard' %}">NIE OBSERWUJ</a></p>
+                      <p><a href="#">USTAW PRZYPOMN.</a></p>
+                      <p><a href="{% url 'mainapp:event_details' follow.event.id %}">ZOBACZ</a></p>
+                    </div>
+                  </li>
               {% endfor %}
             {% else %}
               <h1>Brak obserwowanych wydarzeń</h1>
             {% endif %}
           {% endif %}
-          {% if page == 'attractions' %}
+          {% if option_page == 'account_attractions' %}
             {% if attractions %}
               {% for attraction in attractions %}
                 <li class="dashboard__right__selected__list-el">
@@ -134,5 +127,4 @@
 
   
   
->>>>>>> c0a3e9a012706a2ddc1795e5feeca260c7b66546
 {% endblock content %}

@@ -138,3 +138,15 @@ class Rating(models.Model):
 
     def __str__(self):
         return f"{self.user.username} ocenia to wydarzenie na {self.rate}"
+
+
+class News(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_news")
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name="event_news")
+    title = models.CharField(max_length=200)
+    body = models.TextField(max_length=3000)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user.username} dodal aktualizacje do wydarzenia {self.event.name}"

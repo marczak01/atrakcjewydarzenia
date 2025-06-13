@@ -5,27 +5,35 @@
         <a href="{% url 'mainapp:home' %}">Evently</a>
     </div>
     {% if request.user.is_authenticated %}
-        <div class="nav__profile">
-            <div class="nav__profile__img">
-                {% if request.user.profile.photo %}
-                    <img src="{{ request.user.profile.photo.url }}" alt="">
-                {% else %}
-                    <img src="{% static 'images/default.png' %}" alt="">
-                {% endif %}
-            </div>
-            <div class="nav__profile-info">
-                <p class="nav__profile-info-name">
-                    {% if request.user.last_name and request.user.first_name %}
-                        {{ request.user.first_name}} {{ request.user.last_name}}
+        <a href="{% url 'account:dashboard' %}">
+            <div class="nav__profile">
+                <div class="nav__profile__img">
+                    {% if request.user.profile.photo %}
+                        <img src="{{ request.user.profile.photo.url }}" alt="">
                     {% else %}
-                        {{ request.user.username }}
+                        <img src="{% static 'images/default.png' %}" alt="">
                     {% endif %}
-                </p>
+                </div>
+                <div class="nav__profile-info">
+                    <p class="nav__profile-info-name">
+                        {% if request.user.last_name and request.user.first_name %}
+                            {{ request.user.first_name}} {{ request.user.last_name}}
+                        {% else %}
+                            {{ request.user.username }}
+                        {% endif %}
+                    </p>
+                </div>
+                <span class="nav__profile-more">&darr;</span>
             </div>
-            <span class="nav__profile-more">&darr;</span>
-        </div>
+        </a>
     {% endif %}
     <ul class="nav__options">
+        <li class="nav__options__option">
+            <a class="nav__options__option-link" href="{% url 'mainapp:events' %}">Eventy</a>
+        </li>
+        <li class="nav__options__option">
+            <a class="nav__options__option-link" href="{% url 'mainapp:attractions' %}">Atrakcje</a>
+        </li>
         {% if request.user.is_authenticated %}
             <li class="nav__options__option">
                 <a class="nav__options__option-link" href="{% url 'account:dashboard' %}">Panel uzytkownika</a>

@@ -2,23 +2,33 @@ from datetime import datetime, timedelta
 from django.db.models import Avg
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db.models import Count
-from .models import Event, Attraction, Comment, Followed, Rating
+from .models import Event, Attraction, Comment, Followed, Rating, News
 from taggit.models import Tag
 from django.utils import timezone
 from django.core.paginator import Paginator
-from .forms import CommentForm, EventForm, AttractionForm
+from .forms import CommentForm, EventForm, AttractionForm, RatingForm, NewsForm
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 
 # Create your views here.
 
-def home(request):
+def home(request, selected='topevents'):
     templateFileName = 'mainapp/index.html'
     events = Event.objects.all()[:3]
+    top_events = Event.objects.all()[:4]
     top_destinations = Event.objects.values('city').annotate(destination_count=Count('city')).order_by('-destination_count', 'city')[:8]
+    nearby_events = Event.objects.all()[4:8]
+    if selected == 'topevents':
+        active = selected
+        selected = top_events
+    elif selected == 'nearby':
+        active = selected
+        selected = nearby_events
     time_now = timezone.now
     context = {
         'events': events,
+        'selected':selected,
+        'active':active,
         'time_now': time_now,
         'top_destinations': top_destinations,
     }
@@ -31,7 +41,8 @@ def welcome(request):
     }
     return render(request, templateFileName, context)
 
-def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week=None, by_month=None):
+def events(request, weekday=None, tag_slug=None, city=None, monthday=None, day=None, this_week=None, by_month=None):
+    page = 'events'
 
     weekdays = {'monday' : 2,
                 'tuesday': 3,
@@ -56,11 +67,14 @@ def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week
         'time_now': time_now,
         'date_now':date_now,
         'no_events':no_events,
-        # 'option': option,
+        'page':page,
         'city':city,
         'monthday': monthday,
         'day': day,
     }
+    if weekday:
+        print(weekday)
+        context['events'] = events.filter(start_date__week_day=int(weekday)+1)
 
     if tag_slug:
         tag = get_object_or_404(Tag, slug=tag_slug)
@@ -90,6 +104,7 @@ def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week
         start_date = request.POST.get('date_search')
         weekday = request.POST.get('weekday_search')
         rating = request.POST.get('rating')
+        event_sort_by = request.POST.get('sort_by')
         if location:
             context['location'] = location
             context['events'] = Event.objects.filter(city__icontains=location)
@@ -97,11 +112,25 @@ def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week
             for key in weekdays.keys():
                 if weekday in key:
                     result = key
+                    context['weekday'] = result
                     context['events'] = Event.objects.filter(start_date__week_day=weekdays[result])
         if start_date:
             context['events'] = Event.objects.filter(start_date__date=start_date)
         if location and start_date:
             context['events'] = Event.objects.filter(city__icontains=location, start_date__date=start_date)
+        if event_sort_by:
+            if event_sort_by == 'event_date_asc':
+                context['events'] = Event.objects.all().order_by('created_on')
+            if event_sort_by == 'event_date_des':
+                context['events'] = Event.objects.all().order_by('-created_on')
+            if event_sort_by == 'event_rate_asc':
+                context['events'] = Event.objects.all().order_by('created_on')
+            if event_sort_by == 'event_rate_des':
+                context['events'] = Event.objects.all().order_by('created_on')
+            if event_sort_by == 'event_start_asc':
+                context['events'] = Event.objects.all().order_by('start_date')
+            if event_sort_by == 'event_start_des':
+                context['events'] = Event.objects.all().order_by('-start_date')
 
         if rating:
             if rating == '5':
@@ -117,42 +146,73 @@ def events(request, tag_slug=None, city=None, monthday=None, day=None, this_week
 
 def event_details(request, pk):
     templateFileName = 'mainapp/events/eventDetails.html'
+    page = 'event_details'
     event = Event.published.get(id=pk)
     src = f"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2128.1919194050733!2d{str(event.longitude)}!3d{str(event.latitude)}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNTTCsDEwJzUyLjciTiAxNcKwMzQnMjcuOSJF!5e1!3m2!1spl!2spl!4v1741851245110!5m2!1spl!2spl"
     event_tags_ids = event.tags.values_list('id', flat=True)
     similar_posts = Event.published.filter(tags__in=event_tags_ids).exclude(id=event.id)
-    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:4]
+    similar_posts = similar_posts.annotate(same_tags=Count('tags')).order_by('-same_tags', '-publish')[:3]
     time_now = datetime.now()
     ratings = Rating.objects.filter(event=event)
+    news = News.objects.filter(event=event)
+
 
     if request.method == "POST":
         comment_form = CommentForm(request.POST)
+        news_form = NewsForm(request.POST)
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.user = request.user
             new_comment.event = Event.published.get(id=pk)
             new_comment.save()
+        if news_form.is_valid():
+            cd = news_form.cleaned_data
+            News.objects.create(user=request.user, event=event, title=cd['title'], body=cd['body'])
     else:
         comment_form = CommentForm()
+        news_form = NewsForm()
 
     comments = event.event_comments.all().order_by('-created_on')
-
-    if Followed.objects.filter(user=request.user, event=event).exists():
-        obserwuje = True
-    else:
-        obserwuje = False
-
     context = {
-        'event': event,
-        'src': src,
-        'similar_posts':similar_posts,
-        'time_now': time_now,
-        'comment_form': comment_form,
-        'comments':comments,
-        'obserwuje': obserwuje,
-        'ratings':ratings,
-    }
+            'event': event,
+            'src': src,
+            'similar_posts':similar_posts,
+            'time_now': time_now,
+            'comment_form': comment_form,
+            'comments':comments,
+            'ratings':ratings,
+            'page': page,
+            'news': news,
+            'news_form': news_form,
+        }
+    if request.user.is_authenticated:
+        if Followed.objects.filter(user=request.user, event=event).exists():
+            context['obserwuje'] = True
+        else:
+            context['obserwuje'] = False
+
     return render(request, templateFileName, context)
+
+
+def event_ratings(request, event):
+    templateFileName = 'mainapp/events/event_ratings.html'
+    event = Event.objects.get(id=event)
+    ratings = Rating.objects.filter(event=event).order_by('-rating_date')
+    if request.method == 'POST':
+        rating_form = RatingForm(request.POST)
+        if rating_form.is_valid():
+            cd = rating_form.cleaned_data
+            Rating.objects.create(user=request.user, event=event,
+                                  rate=cd['rate'], body=cd['body'] )
+    else:
+        rating_form = RatingForm()
+    context = {
+            'event': event,
+            'ratings': ratings,
+            'rating_form': rating_form,
+        }
+    return render(request, templateFileName, context)
+
 
 def attractions(request):
     templateFileName = 'mainapp/attractions/attractions.html'

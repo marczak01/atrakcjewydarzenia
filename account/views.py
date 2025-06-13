@@ -46,16 +46,18 @@ def dashboard(request, option='events'):
     followed = Followed.objects.filter(user=request.user).annotate(follow_number=Count('event'))
     attractions = Attraction.objects.filter(created_by=request.user)
 
-    page = None
+    option_page = None
 
     if option == 'events':
-        page = 'events'
+        option_page = 'account_events'
 
     if option == 'follows':
-        page = 'follows'
+        option_page = 'account_follows'
 
     if option == 'attractions':
-        page = 'attractions'
+        option_page = 'account_attractions'
+
+    page = 'account'
 
     context = {
         'profile': profile,
@@ -64,6 +66,7 @@ def dashboard(request, option='events'):
         'attractions':attractions,
         'events':events,
         'page': page,
+        'option_page': option_page,
     }
 
     return render(request, templateFileName, context)

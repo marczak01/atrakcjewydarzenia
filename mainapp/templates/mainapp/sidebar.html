@@ -1,1 +1,40 @@
-<section class="sidebar"></section>
+{% load mainapp_tags %}
+
+<section class="sidebar">
+
+
+    {% if page == 'event_details' %}
+        <iframe class="eventDetails__sidebar__map" src="{{ src }}" width="100%" height="100%" style="border:0;" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    {% endif %}
+
+    {% if page == 'events' %}
+      <div class="events__filter">
+		<form method="post" action="{% url 'mainapp:events' %}">
+			{% csrf_token %}
+			<button>Filtruj</button>
+			<div class="events__filter-date">
+				<p><a href="{% url 'mainapp:events_by_day' day=time_now.date|date:'Y-m-d' %}">Dzisiaj</a></p>
+				{% add_date date_now 1 as tommorow_date%}
+				<p><a href="{% url 'mainapp:events_by_day' day=tommorow_date|date:'Y-m-d' %}">Jutro</a></p>
+				<p><a href="{% url 'mainapp:events_by_week' this_week=1 %}">W ciągu 7 dni</a></p>
+				<p><a href="{% url 'mainapp:events_by_month' by_month=1 %}">W ciągu 30 dni</a></p>
+			</div>
+			<h3>Ocena:</h3>
+			<div class="events__filter-rating">
+				<div class=""><input type="radio" name="rating" value="5"><label for="rating"> > 5</label></div>
+				<div class=""><input type="radio" name="rating" value="4"><label for="rating"> > 4</label></div>
+				<div class=""><input type="radio" name="rating" value="3"><label for="rating"> > 3</label></div>
+			</div>
+			<h3>Sortuj wg</h3>
+			<select name="sort_by">
+				<option value="event_date_asc">Data dodania (najstarsze)</option>
+				<option value="event_date_des">Data dodania (najnowsze)</option>
+				<option value="event_rate_asc">Oceny (rosnąco)</option>
+				<option value="event_rate_des">Oceny (malejąco)</option>
+				<option value="event_start_asc">Data zaczęcia (od najwcześniejszych)</option>
+				<option value="event_start_des">Data zaczęcia (od najpóźniejszych)</option>
+			</select>
+		</form>
+	</div>
+    {% endif %}
+</section>

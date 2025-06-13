@@ -1,0 +1,31 @@
+{% extends "mainapp/base.html" %}
+{% load static %}
+{% load mainapp_tags %}
+{% load i18n %}
+{% load humanize %}
+{% block title %}Event XXXXX ratings{% endblock title %}
+{% block content %}
+
+<div class="event__ratings">
+    <a href="javascript:history.go(-1)">Wróć</a> 
+    <h2>{% count_ratings event %} ocen do wydarzenia "{{ event.name }}"</h2>
+    <p>Zostaw swoją opinię na temat tego wydarzenia:</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ rating_form.as_p }}
+        <input type="submit" value="Wyślij">
+    </form>
+    {% for rating in ratings %}
+        <div class="event__ratings__rating">
+            {% language "pl" %}
+            <p>{{ rating.rating_date }}</p>
+            {% endlanguage %}
+            <h3>{{ rating }}</h3>
+            {% if rating.body %}
+                <p>{{ rating.body }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
